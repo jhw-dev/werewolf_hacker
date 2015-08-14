@@ -6,7 +6,9 @@ MainScene.RESOURCE_FILENAME = "MainScene.csb"
 function MainScene:onCreate()
     printf("resource node = %s", tostring(self:getResourceNode()))
     
-   
+   self.app_:getSocket():register(1001,function(data)
+        printInfo("ads")
+    end)
         
         
         

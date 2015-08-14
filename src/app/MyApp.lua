@@ -9,9 +9,7 @@ function MyApp:onCreate()
         print("Connect Success")
         self.socket_:send(1001,{t="Hello"})
     end)
-    self.socket_:register(1001,function(data)
-        printInfo("ads")
-    end)
+   
 
 end
 
