@@ -8,8 +8,10 @@
         <Folder Name="ui">
           <Image Name="1.jpg" />
           <Image Name="gamebg.jpg" />
+          <Image Name="card_bg.jpg" />
+          <Image Name="card.jpg" />
         </Folder>
-        <Project Name="Node.csd" Type="Node" />
+        <Project Name="Card.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

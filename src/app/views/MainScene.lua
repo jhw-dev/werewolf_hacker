@@ -9,14 +9,14 @@ function MainScene:onCreate()
     self:resetSetSceneSize()
     self.startBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.app_:getSocket():register(1001,function(data)
-                printInfo("ads")
-            end)
---            local scene = self.app_:createView("GameScene")
---            local transition=cc.TransitionMoveInL:create(0.5,scene)
---            cc.Director:getInstance():replaceScene(transition)
-            self.app_:run("GameScene","RANDOM")
-            
+--            self.app_:getSocket():register(1001,function(data)
+--                printInfo("ads")
+--            end)
+            local node = self.app_:createView("GameScene")
+            local scene = display.newScene("GameScene")
+            scene:addChild(node)
+            local transition=cc.TransitionMoveInR:create(0.5,scene)
+            cc.Director:getInstance():replaceScene(transition)
         end
     end)
     
