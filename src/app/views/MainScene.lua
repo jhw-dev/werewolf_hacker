@@ -9,7 +9,14 @@ function MainScene:onCreate()
    self.app_:getSocket():register(1001,function(data)
         printInfo("ads")
     end)
+     printInfo("dads")   
         
+        
+--        for var=1, 8 do
+--        local Card = new Card("res/Node.csb")
+--        addChild(card)
+--        end
+       
         
         
         
