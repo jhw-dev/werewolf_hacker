@@ -163,6 +163,7 @@ frameworks/runtime-src/proj.android/libs
 gladiator/debugruntime/
 runtime/
 frameworks/runtime-src/proj.ios_mac/gladiator.xcodeproj/project.xcworkspace/xcuserdata/
+frameworks/runtime-src/proj.ios_mac/werewolf.xcodeproj/project.xcworkspace/xcuserdata/
 *.so
 *.dylib
 *.dll

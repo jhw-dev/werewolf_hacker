@@ -5,20 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< HEAD
-	<string>DC8DC73E-1B6F-40E9-B2CA-EC0AFFAA0C83</string>
-=======
-	<string>8D22FDA1-47ED-4CCC-BF55-222832A315C3</string>
->>>>>>> origin/develop
+	<string>35AD8E3D-CA3B-462A-B0EB-7CCA81533F61</string>
 	<key>IDESourceControlProjectName</key>
-	<string>werewolf</string>
+	<string>WereWolf_Hacker</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>BC7A8CF60F5478FE196A9853E5BCEC29A274A96E</key>
 		<string>github.com:jhw-dev/werewolf_hacker.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>frameworks/runtime-src/proj.ios_mac/werewolf.xcodeproj</string>
+	<string>frameworks/runtime-src/proj.ios_mac/WereWolf_Hacker.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>BC7A8CF60F5478FE196A9853E5BCEC29A274A96E</key>
