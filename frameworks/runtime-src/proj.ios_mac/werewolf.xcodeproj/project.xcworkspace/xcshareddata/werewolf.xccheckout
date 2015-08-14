@@ -5,7 +5,11 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>DC8DC73E-1B6F-40E9-B2CA-EC0AFFAA0C83</string>
+=======
+	<string>8D22FDA1-47ED-4CCC-BF55-222832A315C3</string>
+>>>>>>> origin/develop
 	<key>IDESourceControlProjectName</key>
 	<string>werewolf</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
