@@ -2,14 +2,26 @@
 local MainScene = class("MainScene", cc.load("mvc").ViewBase)
 
 MainScene.RESOURCE_FILENAME = "MainScene.csb"
+MainScene.RESOURCE_BINDING={startBtn={varname="startBtn"}}
 
 function MainScene:onCreate()
     printf("resource node = %s", tostring(self:getResourceNode()))
-    
-   self.app_:getSocket():register(1001,function(data)
-        printInfo("ads")
+    self:resetSetSceneSize()
+    self.startBtn:addTouchEventListener(function(sender,type)
+        if type==TOUCH_EVENT_ENDED then
+            self.app_:getSocket():register(1001,function(data)
+                printInfo("ads")
+            end)
+--            local scene = self.app_:createView("GameScene")
+--            local transition=cc.TransitionMoveInL:create(0.5,scene)
+--            cc.Director:getInstance():replaceScene(transition)
+            self.app_:run("GameScene","RANDOM")
+            
+        end
     end)
-     printInfo("dads")   
+    
+    
+   
         
         
 --        for var=1, 8 do
