@@ -65,4 +65,10 @@ function ViewBase:showWithScene(transition, time, more)
     return self
 end
 
+function ViewBase:resetSetSceneSize()
+    local winSize = cc.Director:getInstance():getVisibleSize();
+    self.resourceNode_:setContentSize(winSize)
+    ccui.Helper:doLayout(self.resourceNode_)
+end
+
 return ViewBase

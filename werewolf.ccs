@@ -21,6 +21,8 @@
           <Image Name="start_btn.png" />
           <Image Name="yuyan.png" />
         </Folder>
+        <Project Name="GameOverScene.csd" Type="Scene" />
+        <Project Name="PopuLayer.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -17,7 +17,7 @@
             <FileData Type="Normal" Path="png/screen1136x1136.png" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="start" ActionTag="1096699288" Tag="61" IconVisible="False" LeftMargin="274.2828" RightMargin="302.7172" TopMargin="1024.6653" BottomMargin="238.3348" TouchEnable="True" FontSize="14" ButtonText="Button" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="143" Scale9Height="49" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="startBtn" ActionTag="1096699288" Tag="61" IconVisible="False" LeftMargin="274.2828" RightMargin="302.7172" TopMargin="1024.6652" BottomMargin="238.3348" TouchEnable="True" FontSize="14" ButtonText="Button" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="143" Scale9Height="49" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="173.0000" Y="71.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="360.7828" Y="273.8348" />

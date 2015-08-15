@@ -57,6 +57,9 @@ function Card:onTouchBegan(touch, event)
 	printInfo("Card onTouchBegan")
 end
 
+function Card:onTouchEnded(touch, event)
+	printInfo("onTouchEnded")
+end
 
 function Card:refreshCard(index)
 	self.indexLabel_:setString(index.."号")
