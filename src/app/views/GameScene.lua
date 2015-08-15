@@ -17,7 +17,10 @@ GameScene.RESOURCE_BINDING={card_layer={varname="card_layer"},
     duRenBtn={varname="duRenBtn"},
     jiuRenBtn={varname="jiuRenBtn"},
     -- 选警长
-    xuanjinzhangBtn={varname="xuanjinzhangBtn"},}
+    xuanjinzhangBtn={varname="xuanjinzhangBtn"},
+    -- 投票
+    piaoBtn = {varname="piaoBtn"}
+}
 
 
 GameScene.PROTECTED = "PROTECTED"
@@ -27,6 +30,7 @@ GameScene.DUREN = "DUREN"
 GameScene.JIUREN = "JIUREN"
 GameScene.XUANJIN = "XUANJIN"
 GameScene.READY = "READY"
+GameScene.PIAO = "piao"
 
 GameScene.CUNMIN = 1
 GameScene.SHOUWEI = 2
@@ -70,7 +74,8 @@ printInfo("天黑拉！！！！")
         [GameScene.DUREN] = self.duRenBtn,
         [GameScene.JIUREN] = self.jiuRenBtn,
         [GameScene.XUANJIN] = self.xuanjinzhangBtn,
-        [GameScene.READY] = self.readyBtn
+        [GameScene.READY] = self.readyBtn,
+        [GameScene.PIAO] = self.piaoBtn,
     }
 
     
@@ -99,7 +104,6 @@ printInfo("天黑拉！！！！")
             end
         end)})
         self:runAction(action)
-        
         
        
    end);
@@ -168,21 +172,41 @@ printInfo("天黑拉！！！！")
     
     socket:register(1009,function(data)
         printInfo("死亡人数列表")
+        self.deadList = data.roles
+        for k, v in pairs(data.roles) do 
+            self:setDeathById(v.id)
+        end
+
         self:biYan(GameScene.NVWU)
         self:showPopu(data.id.."死了，天亮了")
-        self:xuanJin()
+
+        local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
+           audio.playSound("music/jinxuanjinzhang.mp3",false)
+        end)})
+        
     end)
     
     socket:register(1011,function(data)
         self:showPopu("开始选警长")
         printInfo("广播选警长")
-        self:cleanSheriffFlag()
-        self:setSheriffById(data.id)
+        for _, deadRole in pairs(self.deadList) do
+            for _, v in pairs(self.data.roleList) do
+                if v.id == deadRole.id then
+                    return
+                else
+                     self:xuanJin()
+                    self:cleanSheriffFlag()
+                    self:setSheriffById(data.id)
+                end
+            end
+        end
+       
     end)
     socket:register(1012,function(data)
-        self:showPopu("选警长结果："..data.id)
-            printInfo("选警长的结果")
+        self:showPopu("选警长结果："..data.roleID)
+        printInfo("选警长的结果")
     end)
+
     socket:register(1013,function(data)
         if self:checkIfDied(data.id) then
             self:showPopu(data.id.."玩家死了")
@@ -326,7 +350,7 @@ end
 -- 选警长
 function GameScene:xuanJin( ... )
     self:changeState(GameScene.XUANJIN)
-    audio.playSound("music/jinxuanjinzhang.mp3",false)
+    
 end
 
 function GameScene:initData(value)
@@ -540,7 +564,7 @@ function GameScene:initData(value)
             self.xuanjinzhangBtn:setTouchEnabled(false)
             self.xuanjinzhangBtn:setVisible(false)
             local data={id=self.selectId_}
-            socket:send(1011,data)
+            socket:send(1012,data)
         end
      end)
 end
