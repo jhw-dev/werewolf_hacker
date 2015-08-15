@@ -5,7 +5,8 @@ local GameScene = class("GameScene",cc.load("mvc").ViewBase)
 GameScene.RESOURCE_FILENAME = "GameScene.csb"
 GameScene.RESOURCE_BINDING={card_layer={varname="card_layer"},
                             card_self={varname="card_self"},
-    readyBtn={varname="readyBtn"},msg={varname="msg"}}
+    readyBtn={varname="readyBtn"},msg={varname="msg"},
+    prototedBtn={varname="prototedBtn"}}
 
 function GameScene:onCreate()
     self:resetSetSceneSize()
@@ -39,11 +40,21 @@ function GameScene:initData(value)
     end
     self.msg:setString("请准备~~")
     local socket = self:getApp():getSocket()
+    --准备游戏请求
     self.readyBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
              self.readyBtn:setTouchEnabled(false)
              self.readyBtn:setTitleText("等待其他玩家准备!!!")
              socket:send(1003,{id=self.data.id})
+        end
+     end)
+     
+     self.prototedBtn:addTouchEventListener(function(sender,tyoe)
+        if type==TOUCH_EVENT_ENDED then
+            self.readyBtn:setTouchEnabled(false)
+            self.readyBtn:setTitleText("等待其他玩家准备!!!")
+            local data={id="被守人的id"}
+            socket:send(1004,data)
         end
      end)
 end
