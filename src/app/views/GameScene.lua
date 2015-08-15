@@ -176,9 +176,9 @@ printInfo("天黑拉！！！！")
         for k, v in pairs(data.roles) do 
             self:setDeathById(v.id)
         end
-
+        -- self:showPopu(data.id.."死了，天亮了")
         self:biYan(GameScene.NVWU)
-        self:showPopu(data.id.."死了，天亮了")
+        
 
         local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
            audio.playSound("music/jinxuanjinzhang.mp3",false)
