@@ -189,12 +189,12 @@ printInfo("天黑拉！！！！")
     socket:register(1011,function(data)
         self:showPopu("开始选警长")
         printInfo("广播选警长")
+        -- 遍历死亡列表
         for _, deadRole in pairs(self.deadList) do
             for _, v in pairs(self.data.roleList) do
                 if v.id == deadRole.id then
-                    return
                 else
-                     self:xuanJin()
+                    self:xuanJin()
                     self:cleanSheriffFlag()
                     self:setSheriffById(data.id)
                 end
@@ -205,6 +205,8 @@ printInfo("天黑拉！！！！")
     socket:register(1012,function(data)
         self:showPopu("选警长结果："..data.roleID)
         printInfo("选警长的结果")
+
+        self:votePeople()
     end)
 
     socket:register(1013,function(data)
@@ -213,6 +215,7 @@ printInfo("天黑拉！！！！")
         else
             self:showPopu("今天晚上平安夜")
         end
+        self:ready()
         printInfo("投票杀人结果")
     end)
     socket:register(1014,function(data)
@@ -351,6 +354,10 @@ end
 function GameScene:xuanJin( ... )
     self:changeState(GameScene.XUANJIN)
     
+end
+
+function GameScene:votePeople( ... )
+    self:changeState(GameScene.PIAO)
 end
 
 function GameScene:initData(value)
@@ -565,6 +572,14 @@ function GameScene:initData(value)
             self.xuanjinzhangBtn:setVisible(false)
             local data={id=self.selectId_}
             socket:send(1012,data)
+        end
+     end)
+    self.piaoBtn:addTouchEventListener(function(sender,type)
+        if type==TOUCH_EVENT_ENDED then
+            self.piaoBtn:setTouchEnabled(false)
+            self.piaoBtn:setVisible(false)
+            local data={id=self.selectId_}
+            socket:send(1013,data)
         end
      end)
 end
