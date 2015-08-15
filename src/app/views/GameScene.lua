@@ -61,7 +61,7 @@ end
 
 
 function GameScene:initData(value)
-    self.da = value
+    self.data = value
     local index=1;
     for key, data in pairs(self.data.roleList) do
         local card=  Card:create()
