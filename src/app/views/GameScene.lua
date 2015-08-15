@@ -96,7 +96,11 @@ printInfo("天黑拉！！！！")
         self:tianHei()
 
         local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
-            self:shouwei()
+            audio.playSound("music/shouweizhenyan.mp3",false)
+
+            if self.Image_self.type == GameScene.SHOUWEI then
+                self:shouwei()
+            end
         end)})
         self:runAction(action)
         
@@ -112,36 +116,59 @@ printInfo("天黑拉！！！！")
         self:showPopu("守卫已经守人了~~,守的人的id"..data.id)
 
         self:biYan(GameScene.PROTECTED)
-        self:yanren()
+
+        local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
+            audio.playSound("music/shouweizhenyan.mp3",false)
+
+            audio.playSound("music/yuyanzhenyan.mp3",false)
+        end)})
+        
+
+        if self.Image_self.type == GameScene.YUYANJIA then
+            self:yanren()
+        end
+        
     end);
 
 
     socket:register(1005,function(data)
          --预言家预言结果
         printInfo("预言家")
-        local iden = self:getRoleByType(data.type)
-        self:showPopu("被验人的身份是"..iden)
+        if self.Image_self.type == GameScene.YUYANJIA then
+            local iden = self:getRoleByType(data.type)
+            self:showPopu("被验人的身份是"..iden)
 
-        self.popu:setOnEnsureCallback(function( ... )
-           socket:send(1006)
-           self:biYan(GameScene.YUYANJIA)
-           self:closePopu()
-        end)
-
+            self.popu:setOnEnsureCallback(function( ... )
+               socket:send(1006)
+               self:biYan(GameScene.YUYANJIA)
+               self:closePopu()
+            end)
+        end
             
     end)
 
      socket:register(1006,function(data)
-        self:killRen()
-            
+
+        audio.playSound("music/langrensharen.mp3",false)
+
+        if self.Image_self.type == GameScene.LANGREN then
+            self:killRen()
+        end
     end)
 
     
     socket:register(1007,function(data)
         printInfo("狼人杀人结果")
+
         self:biYan(GameScene.LANGREN)
+
+        local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
+            audio.playSound("music/nvwuzhenyan.mp3",false)
+        end)})
         
-        self:nvwu()
+        if self.Image_self.type == GameScene.NVWU then
+            self:nvwu()
+        end
 
     end)
     
@@ -273,26 +300,31 @@ end
 -- 守卫守人
 function GameScene:shouwei()
     self:changeState(GameScene.PROTECTED)
-    audio.playSound("music/shouweizhenyan.mp3",false)
+    
 end
 
 -- 预言家验人
 function GameScene:yanren( ... )
     self:changeState(GameScene.YUYAN)
-    audio.playSound("music/yuyanzhenyan.mp3",false)
+    
 end
 
 -- 狼人杀人
 function GameScene:killRen( ... )
     self:changeState(GameScene.KILL)
-    audio.playSound("music/langrensharen.mp3",false)
+    
 end
 
 -- 女巫
 function GameScene:nvwu( ... )
-    self:changeState(GameScene.DUREN)
-    self.flag_ = true
-    audio.playSound("music/nvwuzhenyan.mp3",false)
+    self:hideBtns()
+
+    self.jiuRenBtn:setVisible(true)
+    self.jiuRenBtn:setTouchEnabled(true)
+
+    self.duRenBtn:setTouchEnabled(false)
+    self.duRenBtn:setVisible(true)
+
 end
 
 -- 选警长
@@ -474,35 +506,37 @@ function GameScene:initData(value)
     self.yuyanBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             -- self.yuyanBtn:setTouchEnabled(false)
-            local data={id=1001}
+            local data={id=self.selectId_}
             socket:send(1005,data)
         end
      end)
     self.killBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             -- self.killBtn:setTouchEnabled(false)
-            local data={id=1001}
+            local data={id=self.selectId_}
             socket:send(1007,data)
         end
      end)
     self.duRenBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             -- self.duRenBtn:setTouchEnabled(false)
-            local data={type=1, id=1001}
+            local data={type=1, id=self.selectId_}
             socket:send(1008,data)
         end
      end)
     self.jiuRenBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             -- self.jiuRenBtn:setTouchEnabled(false)
-            local data={type=2, id=1002}
+            -- open duren
+            self.duRenBtn:setTouchEnabled(true)
+            local data={type=2, id=self.selectId_}
             socket:send(1008,data)
         end
      end)
     self.xuanjinzhangBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             -- self.xuanjinzhangBtn:setTouchEnabled(false)
-            local data={id=1001}
+            local data={id=self.selectId_}
             socket:send(1011,data)
         end
      end)
