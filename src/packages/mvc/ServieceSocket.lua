@@ -25,13 +25,7 @@ function ServiceSocket:conn(url,callback,close_callback,error_callback)
     
     self.socket_:registerScriptHandler(function(value)
         printInfo("Recviec Messgae:%s",value)
-        local data = require("json").decode(value)
-        local cmd=data.cmd
-        local key=string.format("%s_%s",ServiceSocket.CMD_PREFIX,cmd)
-        local callback= self.command_list_[key]
-        if callback~=nil then
-            callback(data.data)
-        end
+        self:recive(value)
     end,cc.WEBSOCKET_MESSAGE)
 
     self.socket_:registerScriptHandler(function(VALUE)
@@ -61,6 +55,15 @@ function ServiceSocket:send(command,data)
     self.socket_:sendString(tmp_data)
 end
 
+function ServiceSocket:recive(value)
+    local data = require("json").decode(value)
+    local cmd=data.cmd
+    local key=string.format("%s_%s",ServiceSocket.CMD_PREFIX,cmd)
+    local callback= self.command_list_[key]
+    if callback~=nil then
+        callback(data.data)
+    end
+end
 
 function ServiceSocket:register(cmd,callback)
     local key=string.format("%s_%s",ServiceSocket.CMD_PREFIX,cmd)

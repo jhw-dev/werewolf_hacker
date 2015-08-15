@@ -5,7 +5,7 @@ local ServieceSocket = cc.load("mvc").ServieceSocket
 function MyApp:onCreate()
     math.randomseed(os.time())
     self.socket_=ServieceSocket:create()
-    self.socket_:conn("ws://192.168.1.4:8080",function()
+    self.socket_:conn("ws://192.168.3.62:8080",function()
         print("Connect Success")
 --        self.socket_:send(1001,{t="Hello"})
     end)
