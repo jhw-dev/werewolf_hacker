@@ -210,8 +210,8 @@ printInfo("天黑拉！！！！")
     end)
 
     socket:register(1013,function(data)
-        if self:checkIfDied(data.id) then
-            self:showPopu(data.id.."玩家死了")
+        if self:checkIfDied(data.roleID) then
+            self:showPopu(data.roleID.."玩家死了")
         else
             self:showPopu("今天晚上平安夜")
         end
