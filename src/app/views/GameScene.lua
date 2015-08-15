@@ -88,8 +88,20 @@ printInfo("天黑拉！！！！")
         -- self:showPopu("天黑拉！！！！")
         self.msg:setString("天黑拉~~")
         self:showPopu("天黑拉~~")
-        -- 守卫
-        self:shouwei()
+
+        local function stopMusic( ... )
+            
+        end
+
+        self:tianHei()
+
+        local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
+            self:shouwei()
+        end)})
+        self:runAction(action)
+        
+        
+       
    end);
    
     socket:register(1004,function(data)
@@ -113,6 +125,7 @@ printInfo("天黑拉！！！！")
         self.popu:setOnEnsureCallback(function( ... )
            socket:send(1006)
            self:biYan(GameScene.YUYANJIA)
+           self:closePopu()
         end)
 
             
@@ -128,8 +141,7 @@ printInfo("天黑拉！！！！")
         printInfo("狼人杀人结果")
         self:biYan(GameScene.LANGREN)
         
-        self:jiuRen()
-        self:duRen()
+        self:nvwu()
 
     end)
     
@@ -180,6 +192,10 @@ function GameScene:changeState(state)
 
     self.btnList_[state]:setVisible(true)
     self.btnList_[state]:setTouchEnabled(true)
+end
+
+function GameScene:tianHei( ... )
+    audio.playMusic("music/tianheibiyan.mp3",false)
 end
 
 -- 某某角色闭眼
@@ -238,6 +254,12 @@ function GameScene:showPopu(txt)
     self:chgTips(txt)
 end
 
+function GameScene:closePopu( ... )
+    if self.popu then
+        self.popu:removeSelf()
+    end
+end
+
 function GameScene:chgTips(txt)
     local tips = self.popu:getTipsTxt()
     tips:setString(txt)
@@ -266,17 +288,10 @@ function GameScene:killRen( ... )
     audio.playSound("music/langrensharen.mp3",false)
 end
 
--- 女巫毒人
-function GameScene:duRen( ... )
+-- 女巫
+function GameScene:nvwu( ... )
     self:changeState(GameScene.DUREN)
     self.flag_ = true
-    audio.playSound("music/nvwuzhenyan.mp3",false)
-end
-
--- 女巫救人
-function GameScene:jiuRen( ... )
-    if self.flag_ then return end
-    self:changeState(GameScene.JIUREN)
     audio.playSound("music/nvwuzhenyan.mp3",false)
 end
 
