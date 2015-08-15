@@ -7,20 +7,28 @@ MainScene.RESOURCE_BINDING={startBtn={varname="startBtn"}}
 function MainScene:onCreate()
     printf("resource node = %s", tostring(self:getResourceNode()))
     self:resetSetSceneSize()
-    self.startBtn:addTouchEventListener(function(sender,type)
-        if type==TOUCH_EVENT_ENDED then
---            self.app_:getSocket():register(1001,function(data)
---                printInfo("ads")
---            end)
-            local node = self.app_:createView("GameScene")
-            local scene = display.newScene("GameScene")
-            scene:addChild(node)
-            local transition=cc.TransitionMoveInR:create(0.5,scene)
-            cc.Director:getInstance():replaceScene(transition)
-        end
+    
+    local socket = self.app_:getSocket()
+    socket:register(1002,function(data)
+        local node = self.app_:createView("GameScene")
+        local scene = display.newScene("GameScene")
+        scene:addChild(node)
+        local transition=cc.TransitionMoveInR:create(0.5,scene)
+        cc.Director:getInstance():replaceScene(transition)
     end)
     
+    local startBtn = self.startBtn
+    self.startBtn:addTouchEventListener(function(sender,type)
+        if type==TOUCH_EVENT_ENDED then
+--          
+            startBtn:setTouchEnabled(false)
+            startBtn:setTitleText("正在等待其他成员的加入，请稍后!!!")
+            socket:send(1001)
+        end
+    end)
+     
     
+   
    
         
         
