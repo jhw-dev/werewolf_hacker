@@ -27,6 +27,12 @@ function GameScene:onCreate()
     end);
     
     
+    socket:register(1005,function(data)
+            --预言家预言结果
+            
+    end)
+    
+    
 end
 
 
@@ -63,5 +69,8 @@ function GameScene:initData(value)
         end
      end)
 end
+
+
+
 
 return GameScene

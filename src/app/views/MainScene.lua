@@ -62,6 +62,9 @@ function MainScene:initViews( ... )
             cc.Director:getInstance():replaceScene(transition)
         end
     end)
+    
+    local str="{\"cmd\":1002,\"data\":{\"id\":1002,\"type\":1,\"num\":7,\"roleList\":[{\"id\":1001,\"type\":2,\"num\":0},{\"id\":1002,\"type\":1,\"num\":7}]}}"
+    socket:recive(str)
      
     
    
