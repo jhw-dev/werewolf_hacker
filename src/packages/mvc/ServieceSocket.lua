@@ -57,6 +57,7 @@ function ServiceSocket:send(command,data)
     end
     send_data.data = tdata
     local tmp_data=JSON.encode(send_data)
+    printInfo("Send Message:%s",tmp_data)
     self.socket_:sendString(tmp_data)
 end
 

@@ -19,6 +19,12 @@ function GameScene:onCreate()
         printInfo("天黑拉！！！！")
         self.msg:setString("天黑拉~~")
    end);
+   
+    socket:register(1004,function(data)
+        --这里是开始播放守卫下一步的语音
+        printInfo("守卫守着的人")
+        self.msg:setString("守卫已经守人了~~")
+    end);
     
     
 end
@@ -49,11 +55,10 @@ function GameScene:initData(value)
         end
      end)
      
-     self.prototedBtn:addTouchEventListener(function(sender,tyoe)
+    self.prototedBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.readyBtn:setTouchEnabled(false)
-            self.readyBtn:setTitleText("等待其他玩家准备!!!")
-            local data={id="被守人的id"}
+            self.prototedBtn:setTouchEnabled(false)
+            local data={id=1001}
             socket:send(1004,data)
         end
      end)
