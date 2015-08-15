@@ -1,5 +1,5 @@
 local Card=class("Card",cc.load("mvc").ViewBase)
-Card.RESOURCE_FILENAME = "Card.csb"
+Card.RESOURCE_FILENAME = "card.csb"
 Card.RESOURCE_BINDING={bg={varname="bg"}}
 function Card:onCreate()
     self.data = nil
