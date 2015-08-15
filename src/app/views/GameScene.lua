@@ -28,10 +28,34 @@ function GameScene:onCreate()
     
     
     socket:register(1005,function(data)
-            --预言家预言结果
+         --预言家预言结果
+         printInfo("预言家")
             
     end)
+    socket:register(1007,function(data)
+        printInfo("狼人杀人结果")
+    end)
     
+    socket:register(1009,function(data)
+        printInfo("死亡人数列表")
+    end)
+    
+    socket:register(1011,function(data)
+        printInfo("广播选警长")
+    end)
+    socket:register(1012,function(data)
+            printInfo("选警长的结果")
+    end)
+    socket:register(1013,function(data)
+        printInfo("投票杀人结果")
+    end)
+    socket:register(1014,function(data)
+        printInfo("结算数据")
+    end)
+    socket:register(1015,function(data)
+        printInfo("移交警长的结果")
+    end)
+
     
 end
 
