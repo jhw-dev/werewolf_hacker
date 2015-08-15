@@ -9,18 +9,27 @@ GameScene.RESOURCE_BINDING={card_layer={varname="card_layer"},
 function GameScene:onCreate()
     self:resetSetSceneSize()
     self.card_lst = {}
+    self.data=nil
+   
     
-    for var=1, 8 do
+    
+end
+
+
+function GameScene:initData(value)
+    self.data = value
+    local index=1;
+    for key, data in pairs(self.data.roleList) do
         local card=  Card:create()
+        card:setData(data)
         local size = card:getContentSize()
-        local row = (var-1)%4
-        local cos = math.ceil(var/4)-1
+        local row = (index-1)%4
+        local cos = math.ceil(index/4)-1
         card:setPositionX(row*size.width)
         card:setPositionY(cos*size.height)
         self.card_layer:addChild(card)
+        index=index+1
     end
-    
-    
 end
 
 return GameScene

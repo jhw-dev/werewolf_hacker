@@ -10,7 +10,9 @@ function MainScene:onCreate()
     
     local socket = self.app_:getSocket()
     socket:register(1002,function(data)
+        -- 这里返回的是登录后的数据
         local node = self.app_:createView("GameScene")
+        node:initData(data)
         local scene = display.newScene("GameScene")
         scene:addChild(node)
         local transition=cc.TransitionMoveInR:create(0.5,scene)
