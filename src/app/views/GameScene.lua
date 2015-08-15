@@ -19,13 +19,14 @@ GameScene.RESOURCE_BINDING={card_layer={varname="card_layer"},
     -- 选警长
     xuanjinzhangBtn={varname="xuanjinzhangBtn"},}
 
-GameScene.READY = 0
-GameScene.PROTECTED = 1
-GameScene.YUYAN = 2
-GameScene.KILL = 3
-GameScene.DUREN = 4
-GameScene.JIUREN = 5
-GameScene.XUANJIN = 6
+
+GameScene.PROTECTED = "PROTECTED"
+GameScene.YUYAN = "YUYAN"
+GameScene.KILL = "KILL"
+GameScene.DUREN = "DUREN"
+GameScene.JIUREN = "JIUREN"
+GameScene.XUANJIN = "XUANJIN"
+GameScene.READY = "READY"
 
 function GameScene:onCreate()
 printInfo("INFOMES CHARLES!!")
@@ -46,11 +47,24 @@ printInfo("天黑拉！！！！")
         -- userNumber = ?, userInfo = { ????}
     }
 
+    -- self.btnList_ = {
+    --     GameScene.PROTECTED = self.prototedBtn,
+    --     GameScene.YUYAN = self.yuyanBtn,
+    --     GameScene.KILL = self.killBtn,
+    --     GameScene.DUREN = self.duRenBtn,
+    --     GameScene.JIUREN = self.jiuRenBtn,
+    --     GameScene.XUANJIN = self.xuanjinzhangBtn,
+    --     GameScene.READY = self.readyBtn
+    -- }
 
+    
 
     self:resetSetSceneSize()
     self.card_lst = {}
     self.data=nil
+
+    -- 初始化按钮
+    -- self:hideBtns()
 
    local socket = self.app_:getSocket()
     socket:register(1003,function(data)
@@ -122,8 +136,19 @@ printInfo("天黑拉！！！！")
 end
 
 -- 改变按钮状态
-function GameScene:changeState(type)
-    if type == 
+function GameScene:changeState(state)
+    self.btnList_[state]:setVisible(true)
+end
+
+-- 隐藏按钮
+function GameScene:hideBtns(...)
+    -- for k, v in pairs(...) do
+
+
+    -- end
+    for k, v in pairs(self.btnList_) do
+        v:setVisible(false)
+    end
 end
 
 -- 判断是否有人死
@@ -217,6 +242,7 @@ function GameScene:initData(value)
             socket:send(1011,data)
         end
      end)
+
 end
 
 return GameScene
