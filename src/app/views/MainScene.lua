@@ -34,8 +34,11 @@ function MainScene:onCreate()
     end)
 
 
-     
-    
+
+    local action=cc.Sequence:create({cc.DelayTime:create(0.5),cc.CallFunc:create(function()
+    printInfo(".DS_Store")
+end)})
+    self:runAction(action)
    
    
         
