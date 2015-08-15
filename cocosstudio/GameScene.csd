@@ -159,7 +159,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="0.5000" />
                         <PreSize X="0.2000" Y="0.3120" />
-                        <FileData Type="Normal" Path="ui/meself.png" Plist="" />
+                        <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Image_jingzhang" ActionTag="-1235390549" Tag="31" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="160.0000" TopMargin="-13.0000" BottomMargin="87.0000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
                         <Size X="80.0000" Y="176.0000" />
@@ -179,7 +179,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5001" Y="0.5053" />
                         <PreSize X="0.5600" Y="0.6000" />
-                        <FileData Type="Normal" Path="ui/death.png" Plist="" />
+                        <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Text_number" ActionTag="1796116044" Tag="60" IconVisible="False" LeftMargin="206.1778" RightMargin="17.8222" TopMargin="2.3638" BottomMargin="193.6362" FontSize="48" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="26.0000" Y="54.0000" />
@@ -222,7 +222,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="0.5000" />
                         <PreSize X="0.2000" Y="0.3120" />
-                        <FileData Type="Normal" Path="ui/meself.png" Plist="" />
+                        <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Image_jingzhang" ActionTag="1916206186" Tag="64" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="160.0000" TopMargin="-13.0000" BottomMargin="87.0000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
                         <Size X="80.0000" Y="176.0000" />
@@ -242,7 +242,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5001" Y="0.5053" />
                         <PreSize X="0.5600" Y="0.6000" />
-                        <FileData Type="Normal" Path="ui/death.png" Plist="" />
+                        <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Text_number" ActionTag="486655749" Tag="66" IconVisible="False" LeftMargin="206.1778" RightMargin="17.8222" TopMargin="2.3638" BottomMargin="193.6362" FontSize="48" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="26.0000" Y="54.0000" />
@@ -285,7 +285,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="0.5000" />
                         <PreSize X="0.2000" Y="0.3120" />
-                        <FileData Type="Normal" Path="ui/meself.png" Plist="" />
+                        <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Image_jingzhang" ActionTag="645175557" Tag="70" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="160.0000" TopMargin="-13.0000" BottomMargin="87.0000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
                         <Size X="80.0000" Y="176.0000" />
@@ -305,7 +305,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5001" Y="0.5053" />
                         <PreSize X="0.5600" Y="0.6000" />
-                        <FileData Type="Normal" Path="ui/death.png" Plist="" />
+                        <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Text_number" ActionTag="1027673114" Tag="72" IconVisible="False" LeftMargin="206.1778" RightMargin="17.8222" TopMargin="2.3638" BottomMargin="193.6362" FontSize="48" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="26.0000" Y="54.0000" />
@@ -348,7 +348,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="0.5000" />
                         <PreSize X="0.2000" Y="0.3120" />
-                        <FileData Type="Normal" Path="ui/meself.png" Plist="" />
+                        <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Image_jingzhang" ActionTag="1623258176" Tag="76" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="160.0000" TopMargin="-13.0000" BottomMargin="87.0000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
                         <Size X="80.0000" Y="176.0000" />
@@ -368,7 +368,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5001" Y="0.5053" />
                         <PreSize X="0.5600" Y="0.6000" />
-                        <FileData Type="Normal" Path="ui/death.png" Plist="" />
+                        <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Text_number" ActionTag="-668115732" Tag="78" IconVisible="False" LeftMargin="206.1778" RightMargin="17.8222" TopMargin="2.3638" BottomMargin="193.6362" FontSize="48" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="26.0000" Y="54.0000" />
@@ -423,6 +423,21 @@
             <PrePosition X="0.4920" Y="0.4023" />
             <PreSize X="0.3333" Y="0.1874" />
             <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="piaoBtn" ActionTag="-658886533" Tag="110" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="487.7500" RightMargin="149.7500" TopMargin="1236.0880" BottomMargin="44.5519" TouchEnable="True" FontSize="14" ButtonText="投票" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="112.5000" Y="53.3600" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="544.0000" Y="71.2319" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.7253" Y="0.0534" />
+            <PreSize X="0.1500" Y="0.0400" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
