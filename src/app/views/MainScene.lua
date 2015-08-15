@@ -26,11 +26,13 @@ function MainScene:onCreate()
             startBtn:setTouchEnabled(false)
             startBtn:setTitleText("正在等待其他成员的加入，请稍后!!!")
             socket:send(1001)
+            
+--            local str="{\"cmd\":1002,\"data\":{\"id\":1002,\"type\":1,\"num\":7,\"roleList\":[{\"id\":1001,\"type\":2,\"num\":0},{\"id\":1002,\"type\":1,\"num\":7}]}}"
+--            socket:recive(str)
         end
     end)
     
---    local str="{\"cmd\":1002,\"data\":{\"id\":1002,\"type\":1,\"num\":7,\"roleList\":[{\"id\":1001,\"type\":2,\"num\":0},{\"id\":1002,\"type\":1,\"num\":7}]}}"
---    socket:recive(str)
+    
      
     
    
