@@ -89,10 +89,6 @@ printInfo("天黑拉！！！！")
         self.msg:setString("天黑拉~~")
         self:showPopu("天黑拉~~")
 
-        local function stopMusic( ... )
-            
-        end
-
         self:tianHei()
 
         local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
@@ -118,8 +114,6 @@ printInfo("天黑拉！！！！")
         self:biYan(GameScene.PROTECTED)
 
         local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
-            audio.playSound("music/shouweizhenyan.mp3",false)
-
             audio.playSound("music/yuyanzhenyan.mp3",false)
         end)})
         
@@ -322,7 +316,7 @@ function GameScene:nvwu( ... )
     self.jiuRenBtn:setVisible(true)
     self.jiuRenBtn:setTouchEnabled(true)
 
-    self.duRenBtn:setTouchEnabled(false)
+    self.duRenBtn:setTouchEnabled(true)
     self.duRenBtn:setVisible(true)
 
 end
@@ -484,7 +478,8 @@ function GameScene:initData(value)
     --准备游戏请求
     self.readyBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-             -- self.readyBtn:setTouchEnabled(false)
+            self.readyBtn:setTouchEnabled(false)
+            self.readyBtn:setVisible(false)
              self.readyBtn:setTitleText("等待其他玩家准备!!!")
              socket:send(1003,{id=self.data.id})
         end
@@ -493,7 +488,8 @@ function GameScene:initData(value)
      
     self.prototedBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            -- self.prototedBtn:setTouchEnabled(false)
+            self.prototedBtn:setTouchEnabled(false)
+            self.prototedBtn:setVisible(false)
             local data={id=self.selectId_}
             socket:send(1004,data)
         end
@@ -504,37 +500,43 @@ function GameScene:initData(value)
 
     self.yuyanBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            -- self.yuyanBtn:setTouchEnabled(false)
+            self.yuyanBtn:setTouchEnabled(false)
+            self.yuyanBtn:setVisible(false)
             local data={id=self.selectId_}
             socket:send(1005,data)
         end
      end)
     self.killBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            -- self.killBtn:setTouchEnabled(false)
+            self.killBtn:setTouchEnabled(false)
+            self.killBtn:setVisible(false)
             local data={id=self.selectId_}
+            self.killedId_  = self.selectId_
             socket:send(1007,data)
         end
      end)
     self.duRenBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            -- self.duRenBtn:setTouchEnabled(false)
+            self.duRenBtn:setTouchEnabled(false)
+            self.duRenBtn:setVisible(false)
             local data={type=1, id=self.selectId_}
             socket:send(1008,data)
         end
      end)
     self.jiuRenBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            -- self.jiuRenBtn:setTouchEnabled(false)
+            self.jiuRenBtn:setTouchEnabled(false)
+            self.jiuRenBtn:setTouchEnabled(false)
             -- open duren
-            self.duRenBtn:setTouchEnabled(true)
+            -- self.duRenBtn:setTouchEnabled(true)
             local data={type=2, id=self.selectId_}
             socket:send(1008,data)
         end
      end)
     self.xuanjinzhangBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            -- self.xuanjinzhangBtn:setTouchEnabled(false)
+            self.xuanjinzhangBtn:setTouchEnabled(false)
+            self.xuanjinzhangBtn:setVisible(false)
             local data={id=self.selectId_}
             socket:send(1011,data)
         end
