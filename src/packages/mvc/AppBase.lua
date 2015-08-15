@@ -6,6 +6,9 @@ function AppBase:ctor(configs)
         viewsRoot  = "app.views",
         modelsRoot = "app.models",
         defaultSceneName = "MainScene",
+        --defaultSceneName = "GameScene",
+
+
     }
 
     for k, v in pairs(configs or {}) do

@@ -172,12 +172,12 @@ end
 function GameScene:showPopu(txt)
     self.popu = Popu:create()
     self:addChild(self.popu)
-    self:chgTips(txt)
+  --  self:chgTips(txt)
 end
 
 function GameScene:chgTips(txt)
     local tips = self.popu:getTipsTxt()
-    tips:setString(txt)
+--    tips:setString(txt)
 end
 
 -- 准备开始
@@ -203,20 +203,103 @@ end
 function GameScene:initData(value)
     self.data = value
 
+    printInfo("number ::"..#self.data.roleList)
+
+
+
+    --listview设置
+    self.ListView_user = self:getResourceNode():getChildByName("ListView_user")
+    local defaultItem = self.ListView_user:getItem(0)
+    self.ListView_user:setItemModel(defaultItem)
+    self.ListView_user:removeAllItems()
+
+    local itemNumber = 0
+    local userNumber = 0
+
+    if #self.data.roleList % 4 == 0 then
+        itemNumber = #self.data.roleList / 4
+    elseif #self.data.roleList % 4 ~= 0 then
+        itemNumber = math.floor(#self.data.roleList / 4) + 1
+    end
+    userNumber = #self.data.roleList % 4
+
+
+    printInfo("itemNumber::"..itemNumber)
+    printInfo("userNumber::"..userNumber)
+
+
+
+
+
+    for i = 1, itemNumber, 1 do
+        self.ListView_user:pushBackDefaultItem()
+    end
+
+    if userNumber ~= 0 then
+        for i = 4, userNumber + 1, -1 do
+            printInfo("TEST  "..i)
+            self.ListView_user:getItem(itemNumber - 1):getChildByName("Image_card"..i):setVisible(false)
+        end
+    end
+
+    local function getCardInfoFunc(sender, eventType)
+        if eventType == ccui.TouchEventType.ended then
+            printInfo("ID::"..sender.id)
+            printInfo("NUMBER::"..sender.num)
+            printInfo("TYPE::"..sender.type)
+        end
+    end
+
+
     local index=1;
+    local index2=0;
     for key, data in pairs(self.data.roleList) do
 
-        printInfo("key:::"..key.." "..data.type.."  "..data.id.."   "..data.num)
-        local card=  Card:create()
-        card:setData(data)
-        local size = card:getContentSize()
-        local row = (index-1)%4
-        local cos = math.ceil(index/4)-1
-        card:setPositionX(row*size.width)
-        card:setPositionY(cos*size.height)
-        self.card_layer:addChild(card)
-        index=index+1
+     --   for i = 1, 4, 1 do
+
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):addTouchEventListener(getCardInfoFunc)
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index).id = data.id
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type = data.type
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num = data.num
+     --   end
+     printInfo("index2:"..index2.."index:"..index)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+
+
     end
+
+    self.Image_self = self:getResourceNode():getChildByName("Image_self")
+    self.Image_self.id = self.data.id
+    self.Image_self.num = self.data.num
+    self.Image_self.type = self.data.type
+    local function getSelfCardInfoFunc(sender, eventType)
+        if eventType == ccui.TouchEventType.ended then
+            printInfo("SELFID::"..sender.id)
+            printInfo("SELFNUMBER::"..sender.num)
+            printInfo("SELFTYPE::"..sender.type)
+        end
+    end
+    self.Image_self:addTouchEventListener(getSelfCardInfoFunc)
+
+--
+--    local index=1;
+--    for key, data in pairs(self.data.roleList) do
+--
+--        printInfo("key:::"..key.." "..data.type.."  "..data.id.."   "..data.num)
+--        local card=  Card:create()
+--        card:setData(data)
+--        local size = card:getContentSize()
+--        local row = (index-1)%4
+--        local cos = math.ceil(index/4)-1
+--        card:setPositionX(row*size.width)
+--        card:setPositionY(cos*size.height)
+--        self.card_layer:addChild(card)
+--        index=index+1
+--    end
     self.msg:setString("请准备~~")
     self:showPopu("请准备~~")
     local socket = self:getApp():getSocket()
