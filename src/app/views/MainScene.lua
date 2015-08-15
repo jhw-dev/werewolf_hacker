@@ -6,6 +6,7 @@ MainScene.RESOURCE_BINDING={startBtn={varname="startBtn"}}
 function MainScene:onCreate()
     printf("resource node = %s", tostring(self:getResourceNode()))
     self:resetSetSceneSize()
+    audio.playMusic("music/bg1.mp3",true)
     
     local socket = self.app_:getSocket()
     socket:register(1002,function(data)
