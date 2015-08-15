@@ -128,7 +128,7 @@ function GameScene:initData(value)
 
     printInfo("number ::"..#self.data.roleList)
 
-
+    self:sortTab(self.data.roleList)
 
     --listview设置
     self.ListView_user = self:getResourceNode():getChildByName("ListView_user")
@@ -151,9 +151,6 @@ function GameScene:initData(value)
     printInfo("userNumber::"..userNumber)
 
 
-
-
-
     for i = 1, itemNumber, 1 do
         self.ListView_user:pushBackDefaultItem()
     end
@@ -165,11 +162,35 @@ function GameScene:initData(value)
         end
     end
 
+    self.ListView_user:getItem(0):getChildByName("Image_card1"):getChildByName("Image_select"):setVisible(true)
+
     local function getCardInfoFunc(sender, eventType)
-        if eventType == ccui.TouchEventType.ended then
+        if eventType == ccui.TouchEventType.began then
+            local index=1;
+            local index2=0;
+            for key, data in pairs(self.data.roleList) do
+
+
+
+                self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_select"):setVisible(false)
+
+                index = index + 1
+                if index == 5 then
+                    index = 1
+                    index2 = index2 + 1
+                end
+
+
+            end
+            sender:getChildByName("Image_select"):setVisible(true)
+        elseif eventType == ccui.TouchEventType.ended then
             printInfo("ID::"..sender.id)
             printInfo("NUMBER::"..sender.num)
             printInfo("TYPE::"..sender.type)
+            self:cleanSheriffFlag()
+            self:setSheriffById(sender.id)
+            self:setDeathById(sender.id)
+
         end
     end
 
@@ -178,13 +199,16 @@ function GameScene:initData(value)
     local index2=0;
     for key, data in pairs(self.data.roleList) do
 
-     --   for i = 1, 4, 1 do
+    if data.id == self.data.id then
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_myself"):setVisible(true)
+    end
 
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):addTouchEventListener(getCardInfoFunc)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index).id = data.id
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type = data.type
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num = data.num
-     --   end
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Text_number"):setString(data.num)
+
      printInfo("index2:"..index2.."index:"..index)
         index = index + 1
         if index == 5 then
@@ -195,15 +219,34 @@ function GameScene:initData(value)
 
     end
 
+
+
+
+    local pathcard = "ui/card_bg.png"
     self.Image_self = self:getResourceNode():getChildByName("Image_self")
     self.Image_self.id = self.data.id
     self.Image_self.num = self.data.num
     self.Image_self.type = self.data.type
     local function getSelfCardInfoFunc(sender, eventType)
-        if eventType == ccui.TouchEventType.ended then
+        if eventType == ccui.TouchEventType.began then
+            local path = nil
+            if sender.type == 1 then
+                path = "ui/cunm.png"
+            elseif sender.type == 2 then
+                path = "ui/shouwei.png"
+            elseif sender.type == 3 then
+                path = "ui/yuyan.png"
+            elseif sender.type == 4 then
+                path = "ui/nvwu.png"
+            elseif sender.type == 5 then
+                path = "ui/cunm.png"
+            end
+            sender:loadTexture(path)
+        elseif eventType == ccui.TouchEventType.ended or  eventType == ccui.TouchEventType.canceled then
             printInfo("SELFID::"..sender.id)
             printInfo("SELFNUMBER::"..sender.num)
             printInfo("SELFTYPE::"..sender.type)
+            sender:loadTexture(pathcard)
         end
     end
     self.Image_self:addTouchEventListener(getSelfCardInfoFunc)
@@ -244,7 +287,58 @@ function GameScene:initData(value)
      end)
 end
 
+function GameScene:cleanSheriffFlag()
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_jingzhang"):setVisible(false)
 
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
 
+function GameScene:setSheriffById(id)
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        if data.id == id then
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_jingzhang"):setVisible(true)
+        end
+        printInfo("index2:"..index2.."index:"..index)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
+
+function GameScene:setDeathById(id)
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        if data.id == id then
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_death"):setVisible(true)
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):setTouchEnabled(false)
+        end
+        printInfo("index2:"..index2.."index:"..index)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
+
+--把按分数排序名次
+function GameScene:sortTab(st)
+  --  for k, v in pairs(st) do
+        table.sort(st, function(v1,v2) return v1.num < v2.num end)
+   -- end
+end
 
 return GameScene
