@@ -7,9 +7,25 @@ GameScene.RESOURCE_FILENAME = "GameScene.csb"
 GameScene.RESOURCE_BINDING={card_layer={varname="card_layer"},
                             card_self={varname="card_self"},
     readyBtn={varname="readyBtn"},msg={varname="msg"},
-    prototedBtn={varname="prototedBtn"}}
+    -- 守卫
+    prototedBtn={varname="prototedBtn"},
+    -- 预言家
+    yuyanBtn={varname="yuyanBtn"},
+    -- 狼人杀人
+    killBtn={varname="killBtn"},
+    -- 女巫
+    duRenBtn={varname="duRenBtn"},
+    jiuRenBtn={varname="jiuRenBtn"},
+    -- 选警长
+    xuanjinzhangBtn={varname="xuanjinzhangBtn"},}
 
-
+GameScene.READY = 0
+GameScene.PROTECTED = 1
+GameScene.YUYAN = 2
+GameScene.KILL = 3
+GameScene.DUREN = 4
+GameScene.JIUREN = 5
+GameScene.XUANJIN = 6
 
 function GameScene:onCreate()
 printInfo("INFOMES CHARLES!!")
@@ -91,16 +107,23 @@ printInfo("天黑拉！！！！")
     end)
     socket:register(1014,function(data)
         if data.id == 1 then
+            self:showPopu("狼人获胜")
         else
-            
+            self:showPopu("村民获胜")
         end
         printInfo("结算数据")
     end)
     socket:register(1015,function(data)
         printInfo("移交警长的结果")
+        self:showPopu("移交给警长："..data.id)
     end)
 
     
+end
+
+-- 改变按钮状态
+function GameScene:changeState(type)
+    if type == 
 end
 
 -- 判断是否有人死
@@ -159,9 +182,41 @@ function GameScene:initData(value)
             socket:send(1004,data)
         end
      end)
+    self.yuyanBtn:addTouchEventListener(function(sender,type)
+        if type==TOUCH_EVENT_ENDED then
+            self.yuyanBtn:setTouchEnabled(false)
+            local data={id=1001}
+            socket:send(1005,data)
+        end
+     end)
+    self.killBtn:addTouchEventListener(function(sender,type)
+        if type==TOUCH_EVENT_ENDED then
+            self.killBtn:setTouchEnabled(false)
+            local data={id=1001}
+            socket:send(1007,data)
+        end
+     end)
+    self.duRenBtn:addTouchEventListener(function(sender,type)
+        if type==TOUCH_EVENT_ENDED then
+            self.duRenBtn:setTouchEnabled(false)
+            local data={dataType=1, id=1001}
+            socket:send(1008,data)
+        end
+     end)
+    self.jiuRenBtn:addTouchEventListener(function(sender,type)
+        if type==TOUCH_EVENT_ENDED then
+            self.jiuRenBtn:setTouchEnabled(false)
+            local data={dataType=2, id=1002}
+            socket:send(1008,data)
+        end
+     end)
+    self.xuanjinzhangBtn:addTouchEventListener(function(sender,type)
+        if type==TOUCH_EVENT_ENDED then
+            self.xuanjinzhangBtn:setTouchEnabled(false)
+            local data={id=1001}
+            socket:send(1011,data)
+        end
+     end)
 end
-
-
-
 
 return GameScene
