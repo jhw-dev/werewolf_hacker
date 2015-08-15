@@ -57,14 +57,23 @@ printInfo("天黑拉！！！！")
     --     GameScene.READY = self.readyBtn
     -- }
 
-    
+    self.btnList_ = {
+        [GameScene.PROTECTED] = self.prototedBtn,
+        [GameScene.YUYAN] = self.yuyanBtn,
+        [GameScene.KILL] = self.killBtn,
+        [GameScene.DUREN] = self.duRenBtn,
+        [GameScene.JIUREN] = self.jiuRenBtn,
+        [GameScene.XUANJIN] = self.xuanjinzhangBtn,
+        [GameScene.READY] = self.readyBtn
+    }
 
+    
     self:resetSetSceneSize()
     self.card_lst = {}
     self.data=nil
 
     -- 初始化按钮
-    -- self:hideBtns()
+    self:hideBtns()
 
    local socket = self.app_:getSocket()
     socket:register(1003,function(data)
@@ -171,6 +180,26 @@ function GameScene:chgTips(txt)
     tips:setString(txt)
 end
 
+-- 准备开始
+function GameScene:ready( ... )
+    
+end
+
+-- 守卫守人
+function GameScene:shouwei( ... )
+    -- body
+end
+
+-- 预言家验人
+function GameScene:yanren( ... )
+    -- body
+end
+
+-- 狼人杀人
+function GameScene:killRen( ... )
+    -- body
+end
+
 function GameScene:initData(value)
     self.data = value
 
@@ -199,6 +228,7 @@ function GameScene:initData(value)
              socket:send(1003,{id=self.data.id})
         end
      end)
+
      
     self.prototedBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
