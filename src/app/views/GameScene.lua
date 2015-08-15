@@ -309,28 +309,27 @@ function GameScene:initData(value)
     end
 
 
+
+
     local index=1;
     local index2=0;
     for key, data in pairs(self.data.roleList) do
+        if data.id == self.data.id then
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_myself"):setVisible(true)
+        end
 
-    if data.id == self.data.id then
-        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_myself"):setVisible(true)
-    end
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):addTouchEventListener(getCardInfoFunc)
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index).id = data.id
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type = data.type
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num = data.num
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Text_number"):setString(data.num)
 
-            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):addTouchEventListener(getCardInfoFunc)
-            self.ListView_user:getItem(index2):getChildByName("Image_card"..index).id = data.id
-            self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type = data.type
-            self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num = data.num
-            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Text_number"):setString(data.num)
-
-     printInfo("index2:"..index2.."index:"..index)
+         printInfo("index2:"..index2.."index:"..index)
         index = index + 1
         if index == 5 then
             index = 1
             index2 = index2 + 1
         end
-
-
     end
 
 
