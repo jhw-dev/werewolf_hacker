@@ -9,11 +9,13 @@ local GameLayer = class("GameLayer", function( ... )
 end)
 
 local Card = import(".Card")
+GameLayer.CARD_NUM = 8
 -- local Conf = 
 
 function GameLayer:ctor( ... )
 	self.cards_ = {}
 	self.winSize_ = cc.Director:getInstance():getWinSize()
+	self.cardNum_ = GameLayer.CARD_NUM
 
 	self:initCards()
 end
@@ -29,16 +31,17 @@ function GameLayer:initCards( ... )
 	-- 创建卡牌层
 	self.cardLayer_ = cc.Layer:create()
 	self.cardLayerMargin_ = 50
-	self.cardLayer_:setPosition(display.left+self.cardLayerMargin_, display.cy)
+	self.cardLayer_:setPosition(self.cardLayerMargin_, display.cy)
 
 	local card
-	card = Card:create()
+	card = Card:create(1)
 	local cardMargin = self:calcuCardMargin(card)
 
-	for i=1, 8 do
+	for i=1, self.cardNum_ do
 		card = Card:create(i)
-		self.cardLayer_:addChild(card)
 		self:paibanCards(card, i, cardMargin)
+		self.cardLayer_:addChild(card)
+		
 		table.insert(self.cards_, card)
 	end
 	self:addChild(self.cardLayer_)
@@ -49,23 +52,21 @@ function GameLayer:calcuCardMargin(card)
 	local rows = card:getRows()
 	local cols = card:getCols()
 	local margin = (cardLayerWidth-card:getContentSize().width*cols)/3.0
+	printf("margin is %s",margin)
 	return margin
 end
 
 -- 排版
 function GameLayer:paibanCards(card, index, cardMargin)
-	local function calcuRow(v)
-		local row = 1
-		if v >= 5 then
-			row = row+1
-		end
-		return row
+	local row = 1
+	if index > 4 then
+		row = row+1
+		index = index-4
 	end
+
 	local cardWidth = card:getContentSize().width
 	local cardHeight = card:getContentSize().height
-	local col = index-card:getCols()*math.floor(index/card:getCols())
-	local row = calcuRow(index)
-	local x = cardWidth / 2.0 + (col-1) * (cardWidth + cardMargin)
+	local x = cardWidth / 2.0 + (index-1) * (cardWidth + cardMargin)
 	local y = cardHeight/2.0+(row-1)*(cardHeight+cardMargin)
 	card:setPosition(x, y)
 end

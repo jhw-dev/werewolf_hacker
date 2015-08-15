@@ -28,6 +28,25 @@ function MainScene:initViews( ... )
     end
     --
     startBtn:addTouchEventListener(touchEvent)
+
+    
+   -- self.app_:getSocket():register(1001,function(data)
+   --      printInfo("ads")
+   --  end)
+        
+        
+        
+        
+--    socket:sendString("Test")
+    
+--    if nil ~= wsSendText then 
+--        wsSendText:registerScriptHandler(wsSendTextOpen,cc.WEBSOCKET_OPEN) 
+--        wsSendText:registerScriptHandler(wsSendTextMessage,cc.WEBSOCKET_MESSAGE) 
+--        wsSendText:registerScriptHandler(wsSendTextClose,cc.WEBSOCKET_CLOSE) 
+--        wsSendText:registerScriptHandler(wsSendTextError,cc.WEBSOCKET_ERROR) 
+--    end 
+--    socket:registerScriptHandler(handler,type)
+
 end
 
 return MainScene

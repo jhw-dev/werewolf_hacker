@@ -6,21 +6,21 @@
       <ObjectData Name="Node" Tag="46" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="Sprite_1" ActionTag="2126389226" Tag="47" IconVisible="False" LeftMargin="-315.0000" RightMargin="269.0000" TopMargin="-327.2914" BottomMargin="281.2914" ctype="SpriteObjectData">
-            <Size X="46.0000" Y="46.0000" />
+          <AbstractNodeData Name="self_card_5" ActionTag="1118997806" Tag="15" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-157.0000" RightMargin="-157.0000" TopMargin="-233.5000" BottomMargin="-233.5000" ctype="SpriteObjectData">
+            <Size X="314.0000" Y="467.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-292.0000" Y="304.2914" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <Position />
+            <Scale ScaleX="0.5000" ScaleY="0.5000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
+            <FileData Type="Normal" Path="png/self_card.png" Plist="" />
+            <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_1" ActionTag="673338733" Tag="48" IconVisible="False" LeftMargin="-332.5000" RightMargin="241.5000" TopMargin="-323.7914" BottomMargin="300.7914" FontSize="20" LabelText="1号" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_1" ActionTag="673338733" Tag="48" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-15.5000" RightMargin="-15.5000" TopMargin="-11.5000" BottomMargin="-11.5000" FontSize="20" LabelText="1号" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="31.0000" Y="23.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-287.0000" Y="312.2914" />
+            <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
