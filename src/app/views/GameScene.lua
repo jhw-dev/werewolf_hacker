@@ -82,6 +82,8 @@ printInfo("天黑拉！！！！")
         -- self:showPopu("天黑拉！！！！")
         self.msg:setString("天黑拉~~")
         self:showPopu("天黑拉~~")
+        -- 守卫
+        self:shouwei()
    end);
    
     socket:register(1004,function(data)
@@ -90,26 +92,30 @@ printInfo("天黑拉！！！！")
         self.msg:setString("守卫已经守人了~~")
 
         self:showPopu("守卫已经守人了~~,守的人的id"..data.id)
+        self:yanren()
     end);
 
 
-    
-    
     socket:register(1005,function(data)
          --预言家预言结果
          printInfo("预言家")
          self:showPopu("被验人的id为"..data.id)
-         
+         self:killRen()
             
     end)
+    
     socket:register(1007,function(data)
         printInfo("狼人杀人结果")
         self:showPopu(data.id.."号玩家被杀")
+        self:jiuRen()
+        self:duRen()
+
     end)
     
     socket:register(1009,function(data)
         printInfo("死亡人数列表")
         self:showPopu(data.id.."死了，天亮了")
+        self:xuanJin()
     end)
     
     socket:register(1011,function(data)
@@ -129,12 +135,14 @@ printInfo("天黑拉！！！！")
         printInfo("投票杀人结果")
     end)
     socket:register(1014,function(data)
-        if data.id == 1 then
-            self:showPopu("狼人获胜")
-        else
-            self:showPopu("村民获胜")
-        end
         printInfo("结算数据")
+
+        local node = self.app_:createView("GameOverScene")
+        node:setValue(data.id)
+        local scene = display.newScene("GameOverScene")
+        scene:addChild(node)
+        local transition=cc.TransitionMoveInR:create(0.5,scene)
+        cc.Director:getInstance():replaceScene(transition)
     end)
     socket:register(1015,function(data)
         printInfo("移交警长的结果")
@@ -146,7 +154,10 @@ end
 
 -- 改变按钮状态
 function GameScene:changeState(state)
+    self:hideBtns()
+
     self.btnList_[state]:setVisible(true)
+    self.btnList_[state]:setTouchEnabled(true)
 end
 
 -- 隐藏按钮
@@ -157,6 +168,7 @@ function GameScene:hideBtns(...)
     -- end
     for k, v in pairs(self.btnList_) do
         v:setVisible(false)
+        v:setTouchEnabled(false)
     end
 end
 
@@ -172,36 +184,60 @@ end
 function GameScene:showPopu(txt)
     self.popu = Popu:create()
     self:addChild(self.popu)
-  --  self:chgTips(txt)
+    self:chgTips(txt)
 end
 
 function GameScene:chgTips(txt)
     local tips = self.popu:getTipsTxt()
---    tips:setString(txt)
+    tips:setString(txt)
 end
 
 -- 准备开始
 function GameScene:ready( ... )
-    
+    self:changeState(GameScene.READY)
 end
 
 -- 守卫守人
-function GameScene:shouwei( ... )
-    -- body
+function GameScene:shouwei()
+    self:changeState(GameScene.PROTECTED)
+    audio.playSound("music/shouweizhenyan.mp3",false)
 end
 
 -- 预言家验人
 function GameScene:yanren( ... )
-    -- body
+    self:changeState(GameScene.YUYAN)
+    audio.playSound("music/yuyanzhenyan.mp3",false)
 end
 
 -- 狼人杀人
 function GameScene:killRen( ... )
-    -- body
+    self:changeState(GameScene.KILL)
+    audio.playSound("music/langrensharen.mp3",false)
+end
+
+-- 女巫毒人
+function GameScene:duRen( ... )
+    self:changeState(GameScene.DUREN)
+    self.flag_ = true
+    audio.playSound("music/nvwuzhenyan.mp3",false)
+end
+
+-- 女巫救人
+function GameScene:jiuRen( ... )
+    if self.flag_ then return end
+    self:changeState(GameScene.JIUREN)
+    audio.playSound("music/nvwuzhenyan.mp3",false)
+end
+
+-- 选警长
+function GameScene:xuanJin( ... )
+    self:changeState(GameScene.XUANJIN)
+    audio.playSound("music/jinxuanjinzhang.mp3",false)
 end
 
 function GameScene:initData(value)
     self.data = value
+    self.selectId_ = 1
 
     printInfo("number ::"..#self.data.roleList)
 
@@ -245,8 +281,11 @@ function GameScene:initData(value)
     local function getCardInfoFunc(sender, eventType)
         if eventType == ccui.TouchEventType.ended then
             printInfo("ID::"..sender.id)
+            self.selectId_ = sender.id
             printInfo("NUMBER::"..sender.num)
+            self.selectNum_ = sender.num
             printInfo("TYPE::"..sender.type)
+            self.selectedType_ = sender.type
         end
     end
 
@@ -302,11 +341,12 @@ function GameScene:initData(value)
 --    end
     self.msg:setString("请准备~~")
     self:showPopu("请准备~~")
+    self:ready()
     local socket = self:getApp():getSocket()
     --准备游戏请求
     self.readyBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-             self.readyBtn:setTouchEnabled(false)
+             -- self.readyBtn:setTouchEnabled(false)
              self.readyBtn:setTitleText("等待其他玩家准备!!!")
              socket:send(1003,{id=self.data.id})
         end
@@ -315,42 +355,42 @@ function GameScene:initData(value)
      
     self.prototedBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.prototedBtn:setTouchEnabled(false)
+            -- self.prototedBtn:setTouchEnabled(false)
             local data={id=1001}
             socket:send(1004,data)
         end
      end)
     self.yuyanBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.yuyanBtn:setTouchEnabled(false)
+            -- self.yuyanBtn:setTouchEnabled(false)
             local data={id=1001}
             socket:send(1005,data)
         end
      end)
     self.killBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.killBtn:setTouchEnabled(false)
+            -- self.killBtn:setTouchEnabled(false)
             local data={id=1001}
             socket:send(1007,data)
         end
      end)
     self.duRenBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.duRenBtn:setTouchEnabled(false)
-            local data={dataType=1, id=1001}
+            -- self.duRenBtn:setTouchEnabled(false)
+            local data={type=1, id=1001}
             socket:send(1008,data)
         end
      end)
     self.jiuRenBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.jiuRenBtn:setTouchEnabled(false)
-            local data={dataType=2, id=1002}
+            -- self.jiuRenBtn:setTouchEnabled(false)
+            local data={type=2, id=1002}
             socket:send(1008,data)
         end
      end)
     self.xuanjinzhangBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.xuanjinzhangBtn:setTouchEnabled(false)
+            -- self.xuanjinzhangBtn:setTouchEnabled(false)
             local data={id=1001}
             socket:send(1011,data)
         end

@@ -23,6 +23,57 @@
         </Folder>
         <Project Name="GameOverScene.csd" Type="Scene" />
         <Project Name="PopuLayer.csd" Type="Layer" />
+        <Folder Name="ui">
+          <Image Name="1.jpg" />
+          <Image Name="back.png" />
+          <Image Name="bg.png" />
+          <Image Name="Bg1.jpg" />
+          <Image Name="big_cardback.png" />
+          <Image Name="big_cupid.png" />
+          <Image Name="big_guard.png" />
+          <Image Name="big_hunter.png" />
+          <Image Name="big_perdictor.png" />
+          <Image Name="big_sheriff.png" />
+          <Image Name="big_villager.png" />
+          <Image Name="big_werewolf.png" />
+          <Image Name="big_witch.png" />
+          <Image Name="ButtonContinue.png" />
+          <Image Name="card.jpg" />
+          <Image Name="card.png" />
+          <Image Name="cardback.png" />
+          <File Name="card_bg.gif" />
+          <Image Name="card_bg.jpg" />
+          <Image Name="card_bg.png" />
+          <Image Name="CloseButton.png" />
+          <Image Name="common.png" />
+          <Image Name="ConfirmButton.png" />
+          <Image Name="cunm.png" />
+          <Image Name="cupid.png" />
+          <Image Name="day_bg.png" />
+          <Image Name="gamebg.jpg" />
+          <Image Name="guard.png" />
+          <Image Name="hunter.png" />
+          <Image Name="jinghui.png" />
+          <Image Name="langren.png" />
+          <Image Name="logo.png" />
+          <Image Name="main_bg.jpg" />
+          <Image Name="NextButton.png" />
+          <Image Name="night_bg.png" />
+          <Image Name="nvwu.png" />
+          <Image Name="predictor.png" />
+          <Image Name="screen1136x1136.png" />
+          <Image Name="self_card.png" />
+          <Image Name="sheriff.png" />
+          <Image Name="shouwei.png" />
+          <Image Name="start.png" />
+          <Image Name="start_btn.jpg" />
+          <Image Name="start_btn.png" />
+          <Image Name="TipsBg.png" />
+          <Image Name="villager.png" />
+          <Image Name="werewolf.png" />
+          <Image Name="witch.png" />
+          <Image Name="yuyan.png" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>
