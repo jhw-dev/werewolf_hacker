@@ -28,6 +28,12 @@ GameScene.JIUREN = "JIUREN"
 GameScene.XUANJIN = "XUANJIN"
 GameScene.READY = "READY"
 
+GameScene.CUNMIN = 1
+GameScene.SHOUWEI = 2
+GameScene.YUYANJIA = 3
+GameScene.NVWU = 4
+GameScene.LANGREN = 5
+
 function GameScene:onCreate()
 printInfo("INFOMES CHARLES!!")
 printInfo("天黑拉！！！！")
@@ -92,21 +98,36 @@ printInfo("天黑拉！！！！")
         self.msg:setString("守卫已经守人了~~")
 
         self:showPopu("守卫已经守人了~~,守的人的id"..data.id)
+
+        self:biYan(GameScene.PROTECTED)
         self:yanren()
     end);
 
 
     socket:register(1005,function(data)
          --预言家预言结果
-         printInfo("预言家")
-         self:showPopu("被验人的id为"..data.id)
-         self:killRen()
+        printInfo("预言家")
+        local iden = self:getRoleByType(data.type)
+        self:showPopu("被验人的身份是"..iden)
+
+        self.popu:setOnEnsureCallback(function( ... )
+           socket:send(1006)
+           self:biYan(GameScene.YUYANJIA)
+        end)
+
             
     end)
+
+     socket:register(1006,function(data)
+        self:killRen()
+            
+    end)
+
     
     socket:register(1007,function(data)
         printInfo("狼人杀人结果")
-        self:showPopu(data.id.."号玩家被杀")
+        self:biYan(GameScene.LANGREN)
+        
         self:jiuRen()
         self:duRen()
 
@@ -114,6 +135,7 @@ printInfo("天黑拉！！！！")
     
     socket:register(1009,function(data)
         printInfo("死亡人数列表")
+        self:biYan(GameScene.NVWU)
         self:showPopu(data.id.."死了，天亮了")
         self:xuanJin()
     end)
@@ -160,6 +182,21 @@ function GameScene:changeState(state)
     self.btnList_[state]:setTouchEnabled(true)
 end
 
+-- 某某角色闭眼
+function GameScene:biYan(role)
+    if role == GameScene.CUNMIN then
+
+    elseif role == GameScene.SHOUWEI then
+        audio.playMusic("music/shouweibiyan.mp3",false)
+    elseif role == GameScene.YUYANJIA then
+        audio.playMusic("music/yuyanjiabiyan.mp3",false)
+    elseif role == GameScene.NVWU then
+        audio.playMusic("music/mvwubiyan.mp3",false)
+    elseif role == GameScene.LANGREN then
+        audio.playMusic("music/langrenbiyan.mp3",false)
+    end
+end
+
 -- 隐藏按钮
 function GameScene:hideBtns(...)
     -- for k, v in pairs(...) do
@@ -178,6 +215,20 @@ function GameScene:checkIfDied(id)
         return false
     end
     return true
+end
+
+function GameScene:getRoleByType(roleType)
+    if roleType == GameScene.CUNMIN then
+        return "村名"
+    elseif roleType == GameScene.SHOUWEI then
+        return "守卫"  
+    elseif roleType == GameScene.YUYANJIA then
+        return "预言家" 
+    elseif roleType == GameScene.NVWU then
+        return "女巫" 
+    elseif roleType == GameScene.LANGREN then
+        return "狼人"   
+    end
 end
 
 -- 弹框提示
@@ -237,7 +288,7 @@ end
 
 function GameScene:initData(value)
     self.data = value
-    self.selectId_ = 1
+    self.selectId_ = 1001
 
     printInfo("number ::"..#self.data.roleList)
 
@@ -356,7 +407,7 @@ function GameScene:initData(value)
     self.prototedBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             -- self.prototedBtn:setTouchEnabled(false)
-            local data={id=1001}
+            local data={id=self.selectId_}
             socket:send(1004,data)
         end
      end)

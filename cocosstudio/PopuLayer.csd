@@ -17,7 +17,7 @@
             <FileData Type="Normal" Path="ui/TipsBg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="btn" ActionTag="-999835645" Tag="69" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="349.0000" RightMargin="301.0000" TopMargin="788.0000" BottomMargin="448.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="ensureBtn" ActionTag="-999835645" Tag="69" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="349.0000" RightMargin="301.0000" TopMargin="788.0000" BottomMargin="448.0000" ctype="SpriteObjectData">
             <Size X="100.0000" Y="98.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="399.0000" Y="497.0000" />
@@ -28,7 +28,7 @@
             <FileData Type="Normal" Path="ui/ConfirmButton.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="tipsMsg" ActionTag="-197947352" Tag="81" IconVisible="False" LeftMargin="333.5000" RightMargin="325.5000" TopMargin="660.0275" BottomMargin="650.9725" FontSize="36" LabelText="提示文字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="tipsMsg" ActionTag="-197947352" Tag="81" IconVisible="False" LeftMargin="307.0000" RightMargin="299.0000" TopMargin="650.5275" BottomMargin="641.4725" FontSize="36" LabelText="提示文字" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="144.0000" Y="42.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="379.0000" Y="662.4725" />
