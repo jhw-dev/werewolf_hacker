@@ -264,7 +264,7 @@
                     <PreSize X="0.3571" Y="1.2500" />
                     <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_card3" ActionTag="1916517778" Tag="67" IconVisible="False" LeftMargin="307.3593" RightMargin="142.6407" TopMargin="-24.9991" BottomMargin="-25.0009" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_card3" ActionTag="1916517778" Tag="67" IconVisible="False" LeftMargin="306.3593" RightMargin="143.6407" TopMargin="-24.9992" BottomMargin="-25.0008" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
                     <Size X="250.0000" Y="250.0000" />
                     <Children>
                       <AbstractNodeData Name="Image_select" ActionTag="225584413" Tag="68" VisibleForFrame="False" IconVisible="False" LeftMargin="157.9983" RightMargin="-7.9983" TopMargin="165.0013" BottomMargin="-13.0013" Scale9Width="100" Scale9Height="98" ctype="ImageViewObjectData">
@@ -320,10 +320,10 @@
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="432.3593" Y="99.9991" />
+                    <Position X="431.3593" Y="99.9992" />
                     <Scale ScaleX="0.5000" ScaleY="0.5000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.6177" Y="0.5000" />
+                    <PrePosition X="0.6162" Y="0.5000" />
                     <PreSize X="0.3571" Y="1.2500" />
                     <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
                   </AbstractNodeData>
