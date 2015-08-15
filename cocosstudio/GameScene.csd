@@ -39,9 +39,9 @@
             <PreSize X="0.3333" Y="0.1837" />
             <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
           </AbstractNodeData>
+          <AbstractNodeData Name="readyBtn" ActionTag="858529561" Tag="32" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="202.4700" RightMargin="435.0300" TopMargin="1164.9771" BottomMargin="115.6629" TouchEnable="True" FontSize="14" ButtonText="准备" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="112.5000" Y="53.3600" />
 
-          <AbstractNodeData Name="readyBtn" ActionTag="858529561" Tag="32" IconVisible="False" LeftMargin="346.2944" RightMargin="357.7056" TopMargin="1181.7543" BottomMargin="116.2457" TouchEnable="True" FontSize="14" ButtonText="准备" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="46.0000" Y="36.0000" />
             <AnchorPoint ScaleX="0.4936" ScaleY="0.4944" />
             <Position X="369.0000" Y="134.0441" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -155,6 +155,10 @@
             <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+
+          </AbstractNodeData>
+
+          =======
           <AbstractNodeData Name="ListView_user" ActionTag="244171234" Tag="15" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="25.2500" RightMargin="24.7500" TopMargin="24.8000" BottomMargin="809.2000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
             <Size X="700.0000" Y="500.0000" />
             <Children>
@@ -234,7 +238,9 @@
             <PrePosition X="0.4920" Y="0.4023" />
             <PreSize X="0.3333" Y="0.1874" />
             <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
+            
           </AbstractNodeData>
+            
         </Children>
       </ObjectData>
     </Content>
