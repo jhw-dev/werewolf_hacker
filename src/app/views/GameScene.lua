@@ -100,7 +100,7 @@ printInfo("天黑拉！！！！")
         printInfo("移交警长的结果")
     end)
 
-    
+    audio.playSound("music/ready.mp3",false)
 end
 
 -- 判断是否有人死
