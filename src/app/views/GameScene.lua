@@ -141,7 +141,7 @@ printInfo("天黑拉！！！！")
         self:showPopu("移交给警长："..data.id)
     end)
 
-    
+    audio.playSound("music/ready.mp3",false)
 end
 
 -- 改变按钮状态
