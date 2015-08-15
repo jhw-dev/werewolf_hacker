@@ -16,7 +16,7 @@ function GameOverScene:onCreate( ... )
             local node = self.app_:createView("MainScene")
             local scene = display.newScene("MainScene")
             scene:addChild(node)
-            local transition=cc.TransitionMoveInL:create(0.5,scene)
+            local transition=cc.TransitionMoveInL:create(0.3,scene)
             cc.Director:getInstance():replaceScene(transition)
         end
     end)

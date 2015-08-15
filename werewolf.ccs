@@ -14,6 +14,7 @@
           <Image Name="ConfirmButton.png" />
           <Image Name="CloseButton.png" />
           <Image Name="ButtonContinue.png" />
+          <Image Name="Bg1.jpg" />
         </Folder>
         <Project Name="Card.csd" Type="Node" />
         <Project Name="GameOverScene.csd" Type="Scene" />

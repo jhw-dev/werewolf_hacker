@@ -120,7 +120,7 @@ end
 
 function GameScene:chgTips(txt)
     local tips = self.popu:getTipsTxt()
-    tips:setString(txt)
+--    tips:setString(txt)
 end
 
 function GameScene:initData(value)

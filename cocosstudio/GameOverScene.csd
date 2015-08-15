@@ -6,15 +6,15 @@
       <ObjectData Name="Scene" Tag="55" ctype="GameNodeObjectData">
         <Size X="750.0000" Y="1334.0000" />
         <Children>
-          <AbstractNodeData Name="gamebg_5" ActionTag="-1446576612" Tag="85" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="75.0000" RightMargin="75.0000" TopMargin="267.0000" BottomMargin="267.0000" ctype="SpriteObjectData">
-            <Size X="600.0000" Y="800.0000" />
+          <AbstractNodeData Name="Bg1_7" ActionTag="1198122372" Tag="87" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="15.0000" RightMargin="15.0000" TopMargin="27.0000" BottomMargin="27.0000" ctype="SpriteObjectData">
+            <Size X="720.0000" Y="1280.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="375.0000" Y="667.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="0.8000" Y="0.5997" />
-            <FileData Type="Normal" Path="ui/gamebg.jpg" Plist="" />
+            <PreSize X="0.9600" Y="0.9595" />
+            <FileData Type="Normal" Path="ui/Bg1.jpg" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="TipsBg_1" ActionTag="-186846259" Tag="62" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="62.5000" RightMargin="62.5000" TopMargin="460.5000" BottomMargin="460.5000" ctype="SpriteObjectData">
