@@ -4,23 +4,18 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Project Name="MainScene.csd" Type="Scene" />
-        <Project Name="card.csd" Type="Node" />
         <Project Name="GameScene.csd" Type="Scene" />
-        <Folder Name="png">
-          <Image Name="card.png" />
-          <Image Name="card_bg.png" />
-          <Image Name="cunm.png" />
-          <Image Name="day_bg.png" />
-          <Image Name="HelloWorld.png" />
-          <Image Name="jinghui.png" />
-          <Image Name="langren.png" />
-          <Image Name="nvwu.png" />
-          <Image Name="screen1136x1136.png" />
-          <Image Name="self_card.png" />
-          <Image Name="shouwei.png" />
-          <Image Name="start_btn.png" />
-          <Image Name="yuyan.png" />
+        <Folder Name="ui">
+          <Image Name="1.jpg" />
+          <Image Name="gamebg.jpg" />
+          <Image Name="card_bg.jpg" />
+          <Image Name="card.jpg" />
+          <Image Name="TipsBg.png" />
+          <Image Name="ConfirmButton.png" />
+          <Image Name="CloseButton.png" />
+          <Image Name="ButtonContinue.png" />
         </Folder>
+        <Project Name="Card.csd" Type="Node" />
         <Project Name="GameOverScene.csd" Type="Scene" />
         <Project Name="PopuLayer.csd" Type="Layer" />
       </RootFolder>
