@@ -23,23 +23,7 @@ GameScene.RESOURCE_BINDING={card_layer={varname="card_layer"},
 }
 
 
-local userState = {
-    werewolf = {
-        death = 0,
-        alive = 1,
-        wait = 2,
-    },
-    guard = {
-        unguard = 0,
-        guarded = 1,
-        wait = 2
-    },
-    witch = {
-        poison = 1,
-        antidote = 2,
-        nothing = 0,
-    },
-}
+
 
 GameScene.PROTECTED = "PROTECTED"
 GameScene.YUYAN = "YUYAN"
@@ -132,7 +116,8 @@ printInfo("天黑拉！！！！")
         self.msg:setString("守卫已经守人了~~")
 
         self:showPopu("守卫已经守人了~~,守的人的id"..data.id)
-
+        self.curUnguideId = data.id
+        self:clearUnguide()
         self:biYan(GameScene.SHOUWEI)
 
         local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
@@ -179,7 +164,7 @@ printInfo("天黑拉！！！！")
         printInfo("狼人杀人结果")
         local result = 0
         local killId
-
+        self.curKillId = killId
         result = data.result
         killId = data.deadRole
 
@@ -192,7 +177,7 @@ printInfo("天黑拉！！！！")
         elseif result == 1 then
             --女巫玩家显示
         --    self:saveDeathPersonDis()
-            self:setBlackById(killId)
+
 
             -- 禁用按钮
             self.killBtn:setTouchEnabled(false)
@@ -206,6 +191,7 @@ printInfo("天黑拉！！！！")
             
             if self.Image_self.type == GameScene.NVWU then
                 -- 先救人,2
+                self:setBlackById()
                 self:nvwu(2)
             end
         end
@@ -427,7 +413,7 @@ end
 function GameScene:initData(value)
     self.data = value
     self.selectId_ = 1001
-
+    self.curUnguideId = nil
    
 
     printInfo("number ::"..#self.data.roleList)
@@ -588,6 +574,10 @@ function GameScene:initData(value)
         if type==TOUCH_EVENT_ENDED then
             self.prototedBtn:setTouchEnabled(false)
             self.prototedBtn:setVisible(false)
+            if self.curUnguideId ~= nil then
+
+                self:setUnguideById()
+            end
             local data={id=self.selectId_}
             socket:send(1004,data)
         end
@@ -620,7 +610,7 @@ function GameScene:initData(value)
             self:biYan(GameScene.NVWU)
 
             self:clearBlack()
-
+            self:setBlackById2()
             local data={type=2, id=self.selectId_}
             socket:send(1008,data)
         end
@@ -630,6 +620,7 @@ function GameScene:initData(value)
         if type==TOUCH_EVENT_ENDED then
             self.duRenBtn:setTouchEnabled(false)
             self.duRenBtn:setVisible(false)
+            self:clearBlack()
             local data={type=1, id=self.selectId_}
             socket:send(1008,data)
         end
@@ -708,11 +699,27 @@ function GameScene:setDeathById(id)
     end
 end
 
-function GameScene:setBlackById(id)
+function GameScene:setBlackById()
     local index=1;
     local index2=0;
     for key, data in pairs(self.data.roleList) do
-        if data.id ~= id then
+        if data.id ~= self.curKillId then
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_black"):setVisible(true)
+        end
+        printInfo("index2:"..index2.."index:"..index)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
+
+function GameScene:setBlackById2()
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        if data.id == self.curKillId then
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_black"):setVisible(true)
         end
         printInfo("index2:"..index2.."index:"..index)
@@ -729,6 +736,36 @@ function GameScene:clearBlack()
     local index2=0;
     for key, data in pairs(self.data.roleList) do
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_black"):setVisible(false)
+        printInfo("index2:"..index2.."index:"..index)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
+
+function GameScene:setUnguideById()
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        if data.id == self.curUnguideId then
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_unguide"):setVisible(true)
+        end
+        printInfo("index2:"..index2.."index:"..index)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
+
+function GameScene:clearUnguide()
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_unguide"):setVisible(false)
         printInfo("index2:"..index2.."index:"..index)
         index = index + 1
         if index == 5 then
