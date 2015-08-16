@@ -73,8 +73,6 @@
           <Image Name="werewolf.png" />
           <Image Name="witch.png" />
           <Image Name="yuyan.png" />
-          <Image Name="meself.png" />
-          <Image Name="death.png" />
         </Folder>
       </RootFolder>
     </Group>
