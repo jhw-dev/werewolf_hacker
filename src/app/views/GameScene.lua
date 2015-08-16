@@ -19,7 +19,7 @@ GameScene.RESOURCE_BINDING={card_layer={varname="card_layer"},
     -- 选警长
     xuanjinzhangBtn={varname="xuanjinzhangBtn"},
     -- 投票
-    piaoBtn = {varname="piaoBtn"}，
+    piaoBtn = {varname="piaoBtn"},
     -- 取消
     cancelBtn={varname="cancelBtn"}
 }
