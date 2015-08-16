@@ -521,7 +521,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Panel_black" ActionTag="-2025718958" Tag="65" IconVisible="False" LeftMargin="-1.2900" RightMargin="1.2900" TopMargin="-1.1497" BottomMargin="1.1497" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="140" Scale9Height="150" ctype="PanelObjectData">
+          <AbstractNodeData Name="Panel_black" ActionTag="-2025718958" Tag="65" VisibleForFrame="False" IconVisible="False" LeftMargin="-1.2900" RightMargin="1.2900" TopMargin="-1.1497" BottomMargin="1.1497" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="140" Scale9Height="150" ctype="PanelObjectData">
             <Size X="750.0000" Y="1334.0000" />
             <Children>
               <AbstractNodeData Name="Image_death" ActionTag="-2146473673" Tag="66" IconVisible="False" LeftMargin="255.3304" RightMargin="354.6696" TopMargin="866.7935" BottomMargin="317.2066" Scale9Width="140" Scale9Height="150" ctype="ImageViewObjectData">
