@@ -86,7 +86,7 @@ printInfo("天黑拉！！！！")
         [GameScene.PIAO] = self.piaoBtn,
         [GameScene.CANCEL] = self.cancelBtn
     }
-
+    
     
     self:resetSetSceneSize()
     self.card_lst = {}
@@ -219,6 +219,7 @@ printInfo("天黑拉！！！！")
         self.deadList = data.roles
         for k, v in pairs(data.roles) do
             if v.id == self.Image_self.id then
+               
                 -- 播放遗言
                 self:showPopu("你死了，请说遗言")
                 local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
@@ -243,24 +244,22 @@ printInfo("天黑拉！！！！")
     end)
     
     socket:register(1011,function(data)
+        
         -- 广播
         local result = data.result
         -- 遍历死亡列表
         for _, deadRole in pairs(self.deadList) do
-            if self.Image_self.id == deadRole.id then
-                return
-            else
-                if result then -- 选警长
-                self:setDefaultSelectId()
-                    self:showPopu("开始选警长")
-                    audio.playSound("music/jinxuanjinzhang.mp3",false)
-                    self:xuanJin()
+            
+                if  self.Image_self.isdeath==false and result then -- 选警长
+                    self:setDefaultSelectId()
+                        self:showPopu("开始选警长")
+                        audio.playSound("music/jinxuanjinzhang.mp3",false)
+                        self:xuanJin()
                     
                 else
                     -- 直接投票
                     self:votePeople()
                 end
-            end
         end
        
     end)
