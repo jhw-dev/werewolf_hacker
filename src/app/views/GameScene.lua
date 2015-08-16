@@ -259,7 +259,7 @@ printInfo("天黑拉！！！！")
                     self:nvwu(2)
                 else
                     local action=cc.Sequence:create({cc.DelayTime:create(7),cc.CallFunc:create(function()
-                        socket:send(1008)
+                        socket:send(1008,{type=1})
                     end)})
                     self:runAction(action)
                 end
