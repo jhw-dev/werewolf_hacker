@@ -291,6 +291,8 @@ printInfo("天黑拉！！！！")
         end
         self:ready()
         printInfo("投票杀人结果")
+
+        audio.playSound("music/ready.mp3",false)
     end)
     socket:register(1014,function(data)
         printInfo("结算数据")
@@ -693,7 +695,7 @@ function GameScene:initData(value)
         if type==TOUCH_EVENT_ENDED then
             self.readyBtn:setTouchEnabled(false)
             self.readyBtn:setVisible(false)
-             self.readyBtn:setTitleText("等待其他玩家准备!!!")
+--             self.readyBtn:setTitleText("等待其他玩家准备!!!")
              socket:send(1003,{id=self.data.id})
         end
      end)

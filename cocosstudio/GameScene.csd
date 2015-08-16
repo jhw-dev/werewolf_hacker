@@ -16,13 +16,13 @@
             <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="Normal" Path="ui/gamebg.jpg" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="readyBtn" ActionTag="858529561" Tag="32" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="480.3183" RightMargin="63.6816" TopMargin="1212.2039" BottomMargin="76.7961" TouchEnable="True" FontSize="24" ButtonText="准备" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="readyBtn" ActionTag="858529561" Tag="32" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="263.3183" RightMargin="280.6817" TopMargin="1218.2040" BottomMargin="70.7961" TouchEnable="True" FontSize="24" ButtonText="准备" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="206.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.4936" ScaleY="0.4944" />
-            <Position X="581.9999" Y="99.0441" />
+            <Position X="364.9999" Y="93.0441" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7760" Y="0.0742" />
+            <PrePosition X="0.4867" Y="0.0697" />
             <PreSize X="0.2747" Y="0.0337" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Normal" Path="ui/btn_bg.png" Plist="" />
@@ -31,13 +31,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="prototedBtn" ActionTag="1105799240" Tag="41" IconVisible="False" LeftMargin="479.5298" RightMargin="64.4702" TopMargin="1211.7009" BottomMargin="77.2991" TouchEnable="True" FontSize="24" ButtonText="守卫" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="prototedBtn" ActionTag="1105799240" Tag="41" IconVisible="False" LeftMargin="501.5298" RightMargin="42.4702" TopMargin="1217.7009" BottomMargin="71.2991" TouchEnable="True" FontSize="24" ButtonText="守卫" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="206.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5217" ScaleY="0.5799" />
-            <Position X="587.0001" Y="103.3946" />
+            <Position X="609.0001" Y="97.3946" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7827" Y="0.0775" />
+            <PrePosition X="0.8120" Y="0.0730" />
             <PreSize X="0.2747" Y="0.0337" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Normal" Path="ui/btn_bg.png" Plist="" />
@@ -46,13 +46,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="killBtn" ActionTag="1045846835" Tag="110" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="483.0513" RightMargin="60.9487" TopMargin="1214.4648" BottomMargin="74.5351" TouchEnable="True" FontSize="24" ButtonText="杀人" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="killBtn" ActionTag="1045846835" Tag="110" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="503.0513" RightMargin="40.9487" TopMargin="1215.4648" BottomMargin="73.5351" TouchEnable="True" FontSize="24" ButtonText="杀人" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="206.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="586.0513" Y="97.0351" />
+            <Position X="606.0513" Y="96.0351" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7814" Y="0.0727" />
+            <PrePosition X="0.8081" Y="0.0720" />
             <PreSize X="0.2747" Y="0.0337" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Normal" Path="ui/btn_bg.png" Plist="" />
@@ -61,13 +61,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="yuyanBtn" ActionTag="-132286727" Tag="111" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="479.7266" RightMargin="64.2734" TopMargin="1211.7900" BottomMargin="77.2100" TouchEnable="True" FontSize="24" ButtonText="验人" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="yuyanBtn" ActionTag="-132286727" Tag="111" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="500.7266" RightMargin="43.2734" TopMargin="1220.7900" BottomMargin="68.2100" TouchEnable="True" FontSize="24" ButtonText="验人" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="206.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="582.7266" Y="99.7100" />
+            <Position X="603.7266" Y="90.7100" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7770" Y="0.0747" />
+            <PrePosition X="0.8050" Y="0.0680" />
             <PreSize X="0.2747" Y="0.0337" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Normal" Path="ui/btn_bg.png" Plist="" />
@@ -76,13 +76,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="duRenBtn" ActionTag="2075187288" Tag="112" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="478.3888" RightMargin="65.6112" TopMargin="1213.7900" BottomMargin="75.2100" TouchEnable="True" FontSize="24" ButtonText="毒人" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="duRenBtn" ActionTag="2075187288" Tag="112" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="502.3888" RightMargin="41.6112" TopMargin="1215.7900" BottomMargin="73.2100" TouchEnable="True" FontSize="24" ButtonText="毒人" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="206.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="581.3888" Y="97.7100" />
+            <Position X="605.3888" Y="95.7100" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7752" Y="0.0732" />
+            <PrePosition X="0.8072" Y="0.0717" />
             <PreSize X="0.2747" Y="0.0337" />
             <TextColor A="255" R="230" G="230" B="250" />
             <DisabledFileData Type="Normal" Path="ui/btn_bg.png" Plist="" />
@@ -91,13 +91,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="jiuRenBtn" ActionTag="1183049416" Tag="113" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="483.0634" RightMargin="60.9366" TopMargin="1212.4648" BottomMargin="76.5352" TouchEnable="True" FontSize="24" ButtonText="救人" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="jiuRenBtn" ActionTag="1183049416" Tag="113" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="500.0634" RightMargin="43.9366" TopMargin="1217.4648" BottomMargin="71.5352" TouchEnable="True" FontSize="24" ButtonText="救人" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="206.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="586.0634" Y="99.0352" />
+            <Position X="603.0634" Y="94.0352" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7814" Y="0.0742" />
+            <PrePosition X="0.8041" Y="0.0705" />
             <PreSize X="0.2747" Y="0.0337" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Normal" Path="ui/btn_bg.png" Plist="" />
@@ -106,13 +106,13 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="xuanjinzhangBtn" ActionTag="1674333562" Tag="114" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="480.3888" RightMargin="63.6112" TopMargin="1213.1274" BottomMargin="75.8726" TouchEnable="True" FontSize="24" ButtonText="选警长" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="xuanjinzhangBtn" ActionTag="1674333562" Tag="114" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="502.3888" RightMargin="41.6112" TopMargin="1216.1274" BottomMargin="72.8726" TouchEnable="True" FontSize="24" ButtonText="选警长" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="206.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="583.3888" Y="98.3726" />
+            <Position X="605.3888" Y="95.3726" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7779" Y="0.0737" />
+            <PrePosition X="0.8072" Y="0.0715" />
             <PreSize X="0.2747" Y="0.0337" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Normal" Path="ui/btn_bg.png" Plist="" />
@@ -506,13 +506,13 @@
             <PreSize X="0.3333" Y="0.1874" />
             <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="piaoBtn" ActionTag="-658886533" Tag="110" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="479.0000" RightMargin="65.0000" TopMargin="1212.2681" BottomMargin="76.7319" TouchEnable="True" FontSize="24" ButtonText="投票" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="piaoBtn" ActionTag="-658886533" Tag="110" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="501.0000" RightMargin="43.0000" TopMargin="1213.2681" BottomMargin="75.7319" TouchEnable="True" FontSize="24" ButtonText="投票" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="206.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="582.0000" Y="99.2319" />
+            <Position X="604.0000" Y="98.2319" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.7760" Y="0.0744" />
+            <PrePosition X="0.8053" Y="0.0736" />
             <PreSize X="0.2747" Y="0.0337" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Normal" Path="ui/btn_bg.png" Plist="" />
@@ -546,13 +546,13 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="cancelBtn" ActionTag="-1824017613" Tag="46" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="72.0000" RightMargin="472.0000" TopMargin="1218.6868" BottomMargin="70.3133" TouchEnable="True" FontSize="24" ButtonText="取消" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="cancelBtn" ActionTag="-1824017613" Tag="46" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="25.0000" RightMargin="519.0000" TopMargin="1220.6868" BottomMargin="68.3133" TouchEnable="True" FontSize="24" ButtonText="取消" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="206.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="175.0000" Y="92.8133" />
+            <Position X="128.0000" Y="90.8133" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2333" Y="0.0696" />
+            <PrePosition X="0.1707" Y="0.0681" />
             <PreSize X="0.2747" Y="0.0337" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Normal" Path="ui/btn_bg.png" Plist="" />
