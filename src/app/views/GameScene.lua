@@ -928,6 +928,34 @@ function GameScene:getSelectId()
     return self.selectId_
 end
 
+function GameScene:setResultImage()
+
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+
+        local path = nil
+        if self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 1 then
+            path = "ui/cunm.png"
+        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 2 then
+            path = "ui/shouwei.png"
+        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 3 then
+            path = "ui/yuyan.png"
+        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 4 then
+            path = "ui/nvwu.png"
+        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 5 then
+            path = "ui/langren.png"
+        end
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):loadTexture(path)
+
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
+
 --按ID排序
 function GameScene:sortTab(st)
     table.sort(st, function(v1,v2) return v1.num < v2.num end)
