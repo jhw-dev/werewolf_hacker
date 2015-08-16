@@ -76,6 +76,7 @@
           <Image Name="meself.png" />
           <Image Name="death.png" />
           <Image Name="black.png" />
+          <Image Name="btn_bg.png" />
         </Folder>
       </RootFolder>
     </Group>
