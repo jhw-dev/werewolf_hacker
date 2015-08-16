@@ -31,17 +31,6 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="msg" ActionTag="-1188516914" Tag="40" IconVisible="False" LeftMargin="308.5000" RightMargin="350.5000" TopMargin="616.5549" BottomMargin="694.4451" FontSize="20" LabelText="Text Label" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="91.0000" Y="23.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="354.0000" Y="705.9451" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4720" Y="0.5292" />
-            <PreSize X="0.0000" Y="0.0000" />
-            <OutlineColor A="255" R="255" G="0" B="0" />
-            <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
           <AbstractNodeData Name="prototedBtn" ActionTag="1105799240" Tag="41" IconVisible="False" LeftMargin="246.5298" RightMargin="297.4702" TopMargin="1269.7009" BottomMargin="19.2991" TouchEnable="True" FontSize="24" ButtonText="守卫" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="23" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="206.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5217" ScaleY="0.5799" />
@@ -132,7 +121,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ListView_user" ActionTag="244171234" Tag="15" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="25.2750" RightMargin="24.7250" TopMargin="24.7957" BottomMargin="809.2044" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
+          <AbstractNodeData Name="ListView_user" ActionTag="244171234" Tag="15" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="24.2750" RightMargin="25.7250" TopMargin="219.7957" BottomMargin="614.2044" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
             <Size X="700.0000" Y="500.0000" />
             <Children>
               <AbstractNodeData Name="Panel_item0" ActionTag="-2003587381" Tag="64" IconVisible="False" BottomMargin="300.0000" TouchEnable="True" BackColorAlpha="98" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
@@ -484,17 +473,17 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint />
-            <Position X="25.2750" Y="809.2044" />
+            <Position X="24.2750" Y="614.2044" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0337" Y="0.6066" />
+            <PrePosition X="0.0324" Y="0.4604" />
             <PreSize X="0.9333" Y="0.3748" />
             <SingleColor A="255" R="150" G="150" B="255" />
             <FirstColor A="255" R="150" G="150" B="255" />
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_self" ActionTag="-1432702593" Tag="52" IconVisible="False" LeftMargin="244.0002" RightMargin="255.9998" TopMargin="672.3737" BottomMargin="411.6263" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="Image_self" ActionTag="-1432702593" Tag="52" IconVisible="False" LeftMargin="234.0002" RightMargin="265.9998" TopMargin="807.3737" BottomMargin="276.6263" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
             <Size X="250.0000" Y="250.0000" />
             <Children>
               <AbstractNodeData Name="Text_numberself" ActionTag="681303754" Tag="64" IconVisible="False" LeftMargin="208.0013" RightMargin="1.9987" TopMargin="0.8324" BottomMargin="168.1676" FontSize="72" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -510,10 +499,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="369.0002" Y="536.6263" />
+            <Position X="359.0002" Y="401.6263" />
             <Scale ScaleX="1.5000" ScaleY="1.5000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4920" Y="0.4023" />
+            <PrePosition X="0.4787" Y="0.3011" />
             <PreSize X="0.3333" Y="0.1874" />
             <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
           </AbstractNodeData>
@@ -532,16 +521,16 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Panel_black" ActionTag="-2025718958" Tag="65" VisibleForFrame="False" IconVisible="False" LeftMargin="-1.2900" RightMargin="1.2900" TopMargin="-1.1497" BottomMargin="1.1497" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="140" Scale9Height="150" ctype="PanelObjectData">
+          <AbstractNodeData Name="Panel_black" ActionTag="-2025718958" Tag="65" IconVisible="False" LeftMargin="-1.2900" RightMargin="1.2900" TopMargin="-1.1497" BottomMargin="1.1497" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="140" Scale9Height="150" ctype="PanelObjectData">
             <Size X="750.0000" Y="1334.0000" />
             <Children>
-              <AbstractNodeData Name="Image_death" CanEdit="False" ActionTag="-2146473673" Tag="66" IconVisible="False" LeftMargin="291.3302" RightMargin="318.6698" TopMargin="762.7922" BottomMargin="421.2078" Scale9Width="140" Scale9Height="150" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="Image_death" ActionTag="-2146473673" Tag="66" IconVisible="False" LeftMargin="255.3304" RightMargin="354.6696" TopMargin="866.7935" BottomMargin="317.2066" Scale9Width="140" Scale9Height="150" ctype="ImageViewObjectData">
                 <Size X="140.0000" Y="150.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="361.3302" Y="496.2078" />
-                <Scale ScaleX="4.0000" ScaleY="4.0000" />
+                <Position X="325.3304" Y="392.2066" />
+                <Scale ScaleX="2.1000" ScaleY="2.1000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4818" Y="0.3720" />
+                <PrePosition X="0.4338" Y="0.2940" />
                 <PreSize X="0.1867" Y="0.1124" />
                 <FileData Type="Normal" Path="ui/death.png" Plist="" />
               </AbstractNodeData>
@@ -571,6 +560,17 @@
             <NormalFileData Type="Normal" Path="ui/btn_bg.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="top_1" ActionTag="606637809" Tag="51" IconVisible="False" LeftMargin="159.0013" RightMargin="154.9987" TopMargin="53.7485" BottomMargin="1126.2515" ctype="SpriteObjectData">
+            <Size X="436.0000" Y="154.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="377.0013" Y="1203.2515" />
+            <Scale ScaleX="1.7156" ScaleY="1.7468" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5027" Y="0.9020" />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FileData Type="Normal" Path="ui/top.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
