@@ -510,7 +510,6 @@ function GameScene:initData(value)
 
     --listview设置
     self.ListView_user = self:getResourceNode():getChildByName("ListView_user")
-
     local defaultItem = self.ListView_user:getItem(0)
     self.ListView_user:setItemModel(defaultItem)
     self.ListView_user:removeAllItems()
@@ -769,7 +768,7 @@ function GameScene:initData(value)
         if type==TOUCH_EVENT_ENDED then
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-            self.cancelEvent()
+            self:cancelEvent()
         end
     end)
 end
