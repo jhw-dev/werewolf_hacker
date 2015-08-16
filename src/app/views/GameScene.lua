@@ -287,7 +287,7 @@ printInfo("天黑拉！！！！")
 
     socket:register(1013,function(data)
     
-         if data.result == 1   then
+        if data.result == 1   then
             self:showPopu(data.roleID.."玩家死了")
             self:setDeathById(data.roleID)
            if  self.Image_self.isdeath then
