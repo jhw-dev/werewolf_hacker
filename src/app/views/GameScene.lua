@@ -212,7 +212,6 @@ printInfo("天黑拉！！！！")
 
     end)
     
-    local test =  
     socket:register(1009,function(data)
         printInfo("死亡人数列表")
         audio.playSound("music/tianliang.mp3",false)
@@ -282,11 +281,11 @@ printInfo("天黑拉！！！！")
     end)
 
     socket:register(1013,function(data)
-        if self:checkIfDied(data.roleID) then
+        if data.result ==0 then
+            self:showPopu("今天晚上平安夜")
+        elseif data.result == 1 then
             self:showPopu(data.roleID.."玩家死了")
             self:setDeathById(data.roleID)
-        else
-            self:showPopu("今天晚上平安夜")
         end
         self:ready()
         printInfo("投票杀人结果")
