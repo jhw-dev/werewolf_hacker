@@ -204,7 +204,6 @@ printInfo("天黑拉！！！！")
             
             if self.Image_self.type == GameScene.NVWU then
                 -- 先救人,2
-                self:setBlackById()
                 self:nvwu(2)
             end
         end
@@ -475,6 +474,8 @@ function GameScene:nvwu(caozuo)
         self:setCancelEvent(cancel)
 
         if nvwu.duyaonum == true then
+            self:clearBlack()
+            self:setBlackById2()
             self.duRenBtn:setTouchEnabled(true)
             self.duRenBtn:setVisible(true)
 
@@ -497,6 +498,7 @@ function GameScene:nvwu(caozuo)
         self.cancelBtn:setTouchEnabled(true)
         self.cancelBtn:setVisible(true)
         if nvwu.jieyaonum == true then
+            self:setBlackById()
             self.jiuRenBtn:setVisible(true)
             self.jiuRenBtn:setTouchEnabled(true)
         end
@@ -524,7 +526,7 @@ end
 
 -- 投票杀人
 function GameScene:votePeople( ... )
-    self:clearBlack()
+
     self:changeState(GameScene.PIAO)
 
     local function cancel( ... )
@@ -769,9 +771,6 @@ function GameScene:initData(value)
                 self.cancelBtn:setVisible(false)
                 -- 女巫毒人
                 self:nvwu(1)
-
-                self:clearBlack()
-                self:setBlackById2()
                 nvwu.jieyaonum = false
                 local data={type=2, id=self:getSelectId()}
                 socket:send(1008,data)
@@ -792,8 +791,8 @@ function GameScene:initData(value)
                 -- cancel
                 self.cancelBtn:setTouchEnabled(false)
                 self.cancelBtn:setVisible(false)
-                self:clearBlack()
                 nvwu.duyaonum = false
+                self:clearBlack()
                 local data={type=1, id=self:getSelectId()}
                 socket:send(1008,data)
             else
