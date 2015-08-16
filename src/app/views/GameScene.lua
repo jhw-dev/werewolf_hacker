@@ -274,10 +274,8 @@ printInfo("天黑拉！！！！")
        
     end)
     socket:register(1012,function(data)
-     --   self:showPopu("选警长结果："..data.roleID)
-        printInfo("选警长的结果")
+        audio.playSound("music/toupiao.mp3",false)
         self:cleanSheriffFlag()
-
         self:setSheriffById(data.roleID)
         self:votePeople()
         self:resetSelectId()
