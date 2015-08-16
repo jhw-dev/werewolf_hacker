@@ -216,8 +216,7 @@ printInfo("天黑拉！！！！")
         printInfo("死亡人数列表")
         audio.playSound("music/tianliang.mp3",false)
 
-        self.deadList = data.roles
-        if #data.roles ==0 then
+        if #data.roles == 0 then
             printInfo("平安夜")
             return
         end
@@ -485,6 +484,9 @@ function GameScene:nvwu(caozuo)
             socket:send(1008,data)
             self.jiuRenBtn:setVisible(false)
             self.jiuRenBtn:setTouchEnabled(false)
+
+            self:nvwu(1)
+
         end
         self:setCancelEvent(cancel)
         -- cancel
@@ -756,7 +758,6 @@ function GameScene:initData(value)
             self.cancelBtn:setVisible(false)
             -- 女巫毒人
             self:nvwu(1)
-            self:biYan(GameScene.NVWU)
 
             self:clearBlack()
             self:setBlackById2()
