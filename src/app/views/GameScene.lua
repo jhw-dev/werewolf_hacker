@@ -460,9 +460,10 @@ end
 function GameScene:nvwu(caozuo)
     self:hideBtns()
 
-    if caozuo == 1 and nvwu.duyaonum == true then
-        self.duRenBtn:setTouchEnabled(true)
-        self.duRenBtn:setVisible(true)
+    if caozuo == 1 then
+          -- cancel
+        self.cancelBtn:setTouchEnabled(true)
+        self.cancelBtn:setVisible(true)
         local function cancel( ... )
             local socket = self:getApp():getSocket()
             local data={type=caozuo, id=nil}
@@ -473,15 +474,14 @@ function GameScene:nvwu(caozuo)
         end
         self:setCancelEvent(cancel)
 
-        -- cancel
-        self.cancelBtn:setTouchEnabled(true)
-        self.cancelBtn:setVisible(true)
+        if nvwu.duyaonum == true then
+            self.duRenBtn:setTouchEnabled(true)
+            self.duRenBtn:setVisible(true)
+
+          end
 
 
-    elseif caozuo == 2 and nvwu.jieyaonum == true then
-        self.jiuRenBtn:setVisible(true)
-        self.jiuRenBtn:setTouchEnabled(true)
-
+    elseif caozuo == 2 then
         local function cancel( ... )
             local socket = self:getApp():getSocket()
             local data={type=caozuo, id=nil}
@@ -496,6 +496,11 @@ function GameScene:nvwu(caozuo)
         -- cancel
         self.cancelBtn:setTouchEnabled(true)
         self.cancelBtn:setVisible(true)
+        if nvwu.jieyaonum == true then
+            self.jiuRenBtn:setVisible(true)
+            self.jiuRenBtn:setTouchEnabled(true)
+        end
+
     end
 end
 
