@@ -260,6 +260,7 @@ printInfo("天黑拉！！！！")
                     self:nvwu(2)
                 else
                     local action=cc.Sequence:create({cc.DelayTime:create(7),cc.CallFunc:create(function()
+                        print("type ==1, selectedId is nil")
                         socket:send(1008,{type=1})
                     end)})
                     self:runAction(action)
@@ -545,6 +546,7 @@ function GameScene:nvwu(caozuo)
         self.cancelBtn:setVisible(true)
         local function cancel( ... )
             local socket = self:getApp():getSocket()
+            print("type ==1, selectedId is nil")
             local data={type=caozuo, id=nil}
             socket:send(1008,data)
             self.duRenBtn:setVisible(false)
@@ -568,6 +570,7 @@ function GameScene:nvwu(caozuo)
         local function cancel( ... )
             local socket = self:getApp():getSocket()
             local data={type=caozuo, id=nil}
+            print("type ==2, selectedId is nil")
             socket:send(1008,data)
             self.jiuRenBtn:setVisible(false)
             self.jiuRenBtn:setTouchEnabled(false)
@@ -854,11 +857,14 @@ function GameScene:initData(value)
             if self:isSelectIdNil() then
                 self.cancelBtn:setTouchEnabled(false)
                 self.cancelBtn:setVisible(false)
-                -- 女巫毒人
-                self:nvwu(1)
+                
                 nvwu.jieyaonum = false
+                print("type ==2, selectedId is"..tostring(self:getSelectId()))
                 local data={type=2, id=self:getSelectId()}
                 socket:send(1008,data)
+
+                -- 女巫毒人
+                self:nvwu(1)
             else
                 self:showPopu("请选择一个玩家")
             end
@@ -878,6 +884,8 @@ function GameScene:initData(value)
                 self.cancelBtn:setVisible(false)
                 nvwu.duyaonum = false
                 self:clearBlack()
+
+                print("type ==1, selectedId is"..tostring(self:getSelectId()))
                 local data={type=1, id=self:getSelectId()}
                 socket:send(1008,data)
             else
