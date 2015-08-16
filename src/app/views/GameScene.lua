@@ -393,7 +393,7 @@ function GameScene:changeState(state)
 end
 
 function GameScene:tianHei( ... )
-    audio.playMusic("music/tianheibiyan.mp3",false)
+    audio.playSound("music/tianheibiyan.mp3",false)
 end
 
 -- 某某角色闭眼
@@ -401,13 +401,13 @@ function GameScene:biYan(role)
     if role == GameScene.CUNMIN then
 
     elseif role == GameScene.SHOUWEI then
-        audio.playMusic("music/shouweibiyan.mp3",false)
+        audio.playSound("music/shouweibiyan.mp3",false)
     elseif role == GameScene.YUYANJIA then
-        audio.playMusic("music/yuyanjiabiyan.mp3",false)
+        audio.playSound("music/yuyanjiabiyan.mp3",false)
     elseif role == GameScene.NVWU then
-        audio.playMusic("music/mvwubiyan.mp3",false)
+        audio.playSound("music/mvwubiyan.mp3",false)
     elseif role == GameScene.LANGREN then
-        audio.playMusic("music/langrenbiyan.mp3",false)
+        audio.playSound("music/langrenbiyan.mp3",false)
     end
 end
 
