@@ -147,11 +147,15 @@ printInfo("天黑拉！！！！")
             self:showPopu("被验人的身份是"..iden)
 
             self.popu:setOnEnsureCallback(function( ... )
-
-                -- 预言家闭眼
+            
+                
+                -- 预言家闭眼音乐播放
                self:biYan(GameScene.YUYANJIA)
-                -- 关闭弹框
-               socket:send(1006)
+                    local action=cc.Sequence:create({cc.DelayTime:create(4),cc.CallFunc:create(function()
+                        socket:send(1006)
+                    end)})
+                    self:runAction(action)
+               
             end)
         end
             
