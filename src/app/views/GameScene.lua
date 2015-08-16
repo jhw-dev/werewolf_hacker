@@ -23,6 +23,24 @@ GameScene.RESOURCE_BINDING={card_layer={varname="card_layer"},
 }
 
 
+local userState = {
+    werewolf = {
+        death = 0,
+        alive = 1,
+        wait = 2,
+    },
+    guard = {
+        unguard = 0,
+        guarded = 1,
+        wait = 2
+    },
+    witch = {
+        poison = 1,
+        antidote = 2,
+        nothing = 0,
+    },
+}
+
 GameScene.PROTECTED = "PROTECTED"
 GameScene.YUYAN = "YUYAN"
 GameScene.KILL = "KILL"
@@ -364,6 +382,8 @@ function GameScene:initData(value)
     self.data = value
     self.selectId_ = 1001
 
+    self.data.roleList = self:copyTab(self.data.roleList)
+
     printInfo("number ::"..#self.data.roleList)
 
     self:sortTab(self.data.roleList)
@@ -407,9 +427,6 @@ function GameScene:initData(value)
             local index=1;
             local index2=0;
             for key, data in pairs(self.data.roleList) do
-
-
-
                 self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_select"):setVisible(false)
 
                 index = index + 1
@@ -417,8 +434,6 @@ function GameScene:initData(value)
                     index = 1
                     index2 = index2 + 1
                 end
-
-
             end
             sender:getChildByName("Image_select"):setVisible(true)
         elseif eventType == ccui.TouchEventType.ended then
@@ -447,6 +462,7 @@ function GameScene:initData(value)
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index).id = data.id
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type = data.type
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num = data.num
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath = false
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Text_number"):setString(data.num)
 
          printInfo("index2:"..index2.."index:"..index)
@@ -632,9 +648,12 @@ function GameScene:setDeathById(id)
     end
 end
 
+
+
 --按ID排序
 function GameScene:sortTab(st)
     table.sort(st, function(v1,v2) return v1.num < v2.num end)
 end
+
 
 return GameScene
