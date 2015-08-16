@@ -232,9 +232,11 @@ printInfo("天黑拉！！！！")
         self.curKillId = killId
         if result == 0 then
             -- 播放狼人请统一意见音效
-
+            self:showPopu("狼人请统一意见！！！")
+            self.killBtn:setTouchEnabled(true)
+            self.killBtn:setVisible(true)
             -- 显示狼人杀人角色
-            self:setDeathById(killId)
+          --  self:setDeathById(killId)
 
         elseif result == 1 then
             --女巫玩家显示
