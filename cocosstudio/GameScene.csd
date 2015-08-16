@@ -150,13 +150,13 @@
                         <PreSize X="0.2000" Y="0.3120" />
                         <FileData Type="Normal" Path="ui/meself.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_jingzhang" ActionTag="-1235390549" Tag="31" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="160.0000" TopMargin="-13.0000" BottomMargin="87.0000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_jingzhang" ActionTag="-1235390549" Tag="31" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-10.0000" RightMargin="180.0000" TopMargin="-25.5000" BottomMargin="99.5000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
                         <Size X="80.0000" Y="176.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="50.0000" Y="175.0000" />
-                        <Scale ScaleX="0.8000" ScaleY="0.8000" />
+                        <Position X="30.0000" Y="187.5000" />
+                        <Scale ScaleX="0.8000" ScaleY="0.7000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.2000" Y="0.7000" />
+                        <PrePosition X="0.1200" Y="0.7500" />
                         <PreSize X="0.3200" Y="0.7040" />
                         <FileData Type="Normal" Path="ui/jinghui.png" Plist="" />
                       </AbstractNodeData>
@@ -210,10 +210,10 @@
                     <PreSize X="0.3571" Y="1.2500" />
                     <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_card2" ActionTag="241425748" Tag="68" IconVisible="False" LeftMargin="142.3685" RightMargin="307.6315" TopMargin="-24.9989" BottomMargin="-25.0011" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_card2" ActionTag="1744384761" Tag="77" IconVisible="False" LeftMargin="142.3327" RightMargin="307.6673" TopMargin="-24.9989" BottomMargin="-25.0011" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
                     <Size X="250.0000" Y="250.0000" />
                     <Children>
-                      <AbstractNodeData Name="Image_select" ActionTag="-279909365" Tag="69" VisibleForFrame="False" IconVisible="False" LeftMargin="157.9983" RightMargin="-7.9983" TopMargin="165.0013" BottomMargin="-13.0013" Scale9Width="100" Scale9Height="98" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_select" ActionTag="967838719" Tag="78" VisibleForFrame="False" IconVisible="False" LeftMargin="157.9983" RightMargin="-7.9983" TopMargin="165.0013" BottomMargin="-13.0013" Scale9Width="100" Scale9Height="98" ctype="ImageViewObjectData">
                         <Size X="100.0000" Y="98.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="207.9983" Y="35.9987" />
@@ -223,7 +223,7 @@
                         <PreSize X="0.1333" Y="0.0735" />
                         <FileData Type="Normal" Path="ui/ConfirmButton.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_myself" ActionTag="1044877748" Tag="70" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="100.0000" RightMargin="100.0000" TopMargin="86.0000" BottomMargin="86.0000" Scale9Width="50" Scale9Height="78" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_myself" ActionTag="1173819091" Tag="79" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="100.0000" RightMargin="100.0000" TopMargin="86.0000" BottomMargin="86.0000" Scale9Width="50" Scale9Height="78" ctype="ImageViewObjectData">
                         <Size X="50.0000" Y="78.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="125.0000" Y="125.0000" />
@@ -233,100 +233,17 @@
                         <PreSize X="0.2000" Y="0.3120" />
                         <FileData Type="Normal" Path="ui/meself.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_jingzhang" ActionTag="-1821142019" Tag="71" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-25.0000" RightMargin="125.0000" TopMargin="-9.0000" BottomMargin="91.0000" Scale9Width="150" Scale9Height="168" ctype="ImageViewObjectData">
-                        <Size X="150.0000" Y="168.0000" />
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="50.0000" Y="175.0000" />
-                        <Scale ScaleX="0.8000" ScaleY="0.8000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.2000" Y="0.7000" />
-                        <PreSize X="0.6000" Y="0.6720" />
-                        <FileData Type="Normal" Path="ui/sheriff.png" Plist="" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="Image_death" ActionTag="-856570817" Tag="72" VisibleForFrame="False" IconVisible="False" LeftMargin="55.0281" RightMargin="54.9719" TopMargin="48.6868" BottomMargin="51.3132" TouchEnable="True" Scale9Width="140" Scale9Height="150" ctype="ImageViewObjectData">
-                        <Size X="140.0000" Y="150.0000" />
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="125.0281" Y="126.3132" />
-                        <Scale ScaleX="1.2000" ScaleY="1.2000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5001" Y="0.5053" />
-                        <PreSize X="0.5600" Y="0.6000" />
-                        <FileData Type="Normal" Path="ui/death.png" Plist="" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="Text_number" ActionTag="639073730" Tag="73" IconVisible="False" LeftMargin="206.1778" RightMargin="17.8222" TopMargin="2.3638" BottomMargin="193.6362" FontSize="48" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                        <Size X="26.0000" Y="54.0000" />
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="219.1778" Y="220.6362" />
-                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                        <CColor A="255" R="255" G="0" B="0" />
-                        <PrePosition X="0.8767" Y="0.8825" />
-                        <PreSize X="0.0000" Y="0.0000" />
-                        <OutlineColor A="255" R="255" G="0" B="0" />
-                        <ShadowColor A="255" R="110" G="110" B="110" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="Image_black" ActionTag="-1719059680" Tag="74" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
-                        <Size X="210.0000" Y="210.0000" />
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="130.0000" Y="120.0000" />
-                        <Scale ScaleX="1.2000" ScaleY="1.2000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5200" Y="0.4800" />
-                        <PreSize X="0.8400" Y="0.8400" />
-                        <FileData Type="Normal" Path="ui/black.png" Plist="" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="Image_unguide" ActionTag="171828258" Tag="75" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
-                        <Size X="210.0000" Y="210.0000" />
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="130.0000" Y="120.0000" />
-                        <Scale ScaleX="1.2000" ScaleY="1.2000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5200" Y="0.4800" />
-                        <PreSize X="0.8400" Y="0.8400" />
-                        <FileData Type="Normal" Path="ui/black.png" Plist="" />
-                      </AbstractNodeData>
-                    </Children>
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="267.3685" Y="99.9989" />
-                    <Scale ScaleX="0.5000" ScaleY="0.5000" />
-                    <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.3820" Y="0.5000" />
-                    <PreSize X="0.3571" Y="1.2500" />
-                    <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
-                  </AbstractNodeData>
-                  <AbstractNodeData Name="Image_card3" ActionTag="1060411005" Tag="76" IconVisible="False" LeftMargin="308.7377" RightMargin="141.2623" TopMargin="-24.9989" BottomMargin="-25.0011" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
-                    <Size X="250.0000" Y="250.0000" />
-                    <Children>
-                      <AbstractNodeData Name="Image_select" ActionTag="252734664" Tag="77" VisibleForFrame="False" IconVisible="False" LeftMargin="157.9983" RightMargin="-7.9983" TopMargin="165.0013" BottomMargin="-13.0013" Scale9Width="100" Scale9Height="98" ctype="ImageViewObjectData">
-                        <Size X="100.0000" Y="98.0000" />
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="207.9983" Y="35.9987" />
-                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.8320" Y="0.1440" />
-                        <PreSize X="0.1333" Y="0.0735" />
-                        <FileData Type="Normal" Path="ui/ConfirmButton.png" Plist="" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="Image_myself" ActionTag="1848243586" Tag="78" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="100.0000" RightMargin="100.0000" TopMargin="86.0000" BottomMargin="86.0000" Scale9Width="50" Scale9Height="78" ctype="ImageViewObjectData">
-                        <Size X="50.0000" Y="78.0000" />
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="125.0000" Y="125.0000" />
-                        <Scale ScaleX="2.0000" ScaleY="2.0000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5000" Y="0.5000" />
-                        <PreSize X="0.2000" Y="0.3120" />
-                        <FileData Type="Normal" Path="ui/meself.png" Plist="" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="Image_jingzhang" ActionTag="578686641" Tag="79" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="160.0000" TopMargin="-13.0000" BottomMargin="87.0000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_jingzhang" ActionTag="-713681825" Tag="80" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-10.0000" RightMargin="180.0000" TopMargin="-25.5000" BottomMargin="99.5000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
                         <Size X="80.0000" Y="176.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="50.0000" Y="175.0000" />
-                        <Scale ScaleX="0.8000" ScaleY="0.8000" />
+                        <Position X="30.0000" Y="187.5000" />
+                        <Scale ScaleX="0.8000" ScaleY="0.7000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.2000" Y="0.7000" />
+                        <PrePosition X="0.1200" Y="0.7500" />
                         <PreSize X="0.3200" Y="0.7040" />
                         <FileData Type="Normal" Path="ui/jinghui.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_death" ActionTag="1654793239" Tag="80" VisibleForFrame="False" IconVisible="False" LeftMargin="55.0281" RightMargin="54.9719" TopMargin="48.6868" BottomMargin="51.3132" TouchEnable="True" Scale9Width="140" Scale9Height="150" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_death" ActionTag="1505940430" Tag="81" VisibleForFrame="False" IconVisible="False" LeftMargin="55.0281" RightMargin="54.9719" TopMargin="48.6868" BottomMargin="51.3132" TouchEnable="True" Scale9Width="140" Scale9Height="150" ctype="ImageViewObjectData">
                         <Size X="140.0000" Y="150.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="125.0281" Y="126.3132" />
@@ -336,7 +253,7 @@
                         <PreSize X="0.5600" Y="0.6000" />
                         <FileData Type="Normal" Path="ui/death.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Text_number" ActionTag="-86130909" Tag="81" IconVisible="False" LeftMargin="206.1778" RightMargin="17.8222" TopMargin="2.3638" BottomMargin="193.6362" FontSize="48" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                      <AbstractNodeData Name="Text_number" ActionTag="682589068" Tag="82" IconVisible="False" LeftMargin="206.1778" RightMargin="17.8222" TopMargin="2.3638" BottomMargin="193.6362" FontSize="48" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="26.0000" Y="54.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="219.1778" Y="220.6362" />
@@ -347,7 +264,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_black" ActionTag="461259660" Tag="82" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_black" ActionTag="-1946865443" Tag="83" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
                         <Size X="210.0000" Y="210.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="130.0000" Y="120.0000" />
@@ -357,7 +274,7 @@
                         <PreSize X="0.8400" Y="0.8400" />
                         <FileData Type="Normal" Path="ui/black.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_unguide" ActionTag="-1335360843" Tag="83" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_unguide" ActionTag="-1296013907" Tag="84" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
                         <Size X="210.0000" Y="210.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="130.0000" Y="120.0000" />
@@ -369,17 +286,17 @@
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="433.7377" Y="99.9989" />
+                    <Position X="267.3327" Y="99.9989" />
                     <Scale ScaleX="0.5000" ScaleY="0.5000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.6196" Y="0.5000" />
+                    <PrePosition X="0.3819" Y="0.5000" />
                     <PreSize X="0.3571" Y="1.2500" />
                     <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_card4" ActionTag="-2104258436" Tag="84" IconVisible="False" LeftMargin="475.1069" RightMargin="-25.1069" TopMargin="-24.9989" BottomMargin="-25.0011" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_card3" ActionTag="770917260" Tag="85" IconVisible="False" LeftMargin="308.6660" RightMargin="141.3340" TopMargin="-24.9989" BottomMargin="-25.0011" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
                     <Size X="250.0000" Y="250.0000" />
                     <Children>
-                      <AbstractNodeData Name="Image_select" ActionTag="-411265562" Tag="85" VisibleForFrame="False" IconVisible="False" LeftMargin="157.9983" RightMargin="-7.9983" TopMargin="165.0013" BottomMargin="-13.0013" Scale9Width="100" Scale9Height="98" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_select" ActionTag="1002198052" Tag="86" VisibleForFrame="False" IconVisible="False" LeftMargin="157.9983" RightMargin="-7.9983" TopMargin="165.0013" BottomMargin="-13.0013" Scale9Width="100" Scale9Height="98" ctype="ImageViewObjectData">
                         <Size X="100.0000" Y="98.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="207.9983" Y="35.9987" />
@@ -389,7 +306,7 @@
                         <PreSize X="0.1333" Y="0.0735" />
                         <FileData Type="Normal" Path="ui/ConfirmButton.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_myself" ActionTag="-1115882987" Tag="86" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="100.0000" RightMargin="100.0000" TopMargin="86.0000" BottomMargin="86.0000" Scale9Width="50" Scale9Height="78" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_myself" ActionTag="858097151" Tag="87" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="100.0000" RightMargin="100.0000" TopMargin="86.0000" BottomMargin="86.0000" Scale9Width="50" Scale9Height="78" ctype="ImageViewObjectData">
                         <Size X="50.0000" Y="78.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="125.0000" Y="125.0000" />
@@ -399,17 +316,17 @@
                         <PreSize X="0.2000" Y="0.3120" />
                         <FileData Type="Normal" Path="ui/meself.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_jingzhang" ActionTag="1049464742" Tag="87" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="160.0000" TopMargin="-13.0000" BottomMargin="87.0000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_jingzhang" ActionTag="266127683" Tag="88" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-10.0000" RightMargin="180.0000" TopMargin="-25.5000" BottomMargin="99.5000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
                         <Size X="80.0000" Y="176.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="50.0000" Y="175.0000" />
-                        <Scale ScaleX="0.8000" ScaleY="0.8000" />
+                        <Position X="30.0000" Y="187.5000" />
+                        <Scale ScaleX="0.8000" ScaleY="0.7000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.2000" Y="0.7000" />
+                        <PrePosition X="0.1200" Y="0.7500" />
                         <PreSize X="0.3200" Y="0.7040" />
                         <FileData Type="Normal" Path="ui/jinghui.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_death" ActionTag="226529364" Tag="88" VisibleForFrame="False" IconVisible="False" LeftMargin="55.0281" RightMargin="54.9719" TopMargin="48.6868" BottomMargin="51.3132" TouchEnable="True" Scale9Width="140" Scale9Height="150" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_death" ActionTag="988818767" Tag="89" VisibleForFrame="False" IconVisible="False" LeftMargin="55.0281" RightMargin="54.9719" TopMargin="48.6868" BottomMargin="51.3132" TouchEnable="True" Scale9Width="140" Scale9Height="150" ctype="ImageViewObjectData">
                         <Size X="140.0000" Y="150.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="125.0281" Y="126.3132" />
@@ -419,7 +336,7 @@
                         <PreSize X="0.5600" Y="0.6000" />
                         <FileData Type="Normal" Path="ui/death.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Text_number" ActionTag="-526066839" Tag="89" IconVisible="False" LeftMargin="206.1778" RightMargin="17.8222" TopMargin="2.3638" BottomMargin="193.6362" FontSize="48" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                      <AbstractNodeData Name="Text_number" ActionTag="-1656838672" Tag="90" IconVisible="False" LeftMargin="206.1778" RightMargin="17.8222" TopMargin="2.3638" BottomMargin="193.6362" FontSize="48" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="26.0000" Y="54.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="219.1778" Y="220.6362" />
@@ -430,7 +347,7 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_black" ActionTag="791227761" Tag="90" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_black" ActionTag="-1940350012" Tag="91" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
                         <Size X="210.0000" Y="210.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="130.0000" Y="120.0000" />
@@ -440,7 +357,7 @@
                         <PreSize X="0.8400" Y="0.8400" />
                         <FileData Type="Normal" Path="ui/black.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_unguide" ActionTag="-953124188" Tag="91" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="Image_unguide" ActionTag="253222036" Tag="92" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
                         <Size X="210.0000" Y="210.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="130.0000" Y="120.0000" />
@@ -452,10 +369,93 @@
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="600.1069" Y="99.9989" />
+                    <Position X="433.6660" Y="99.9989" />
                     <Scale ScaleX="0.5000" ScaleY="0.5000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.8573" Y="0.5000" />
+                    <PrePosition X="0.6195" Y="0.5000" />
+                    <PreSize X="0.3571" Y="1.2500" />
+                    <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="Image_card4" ActionTag="1195339589" Tag="93" IconVisible="False" LeftMargin="474.9993" RightMargin="-24.9993" TopMargin="-24.9989" BottomMargin="-25.0011" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
+                    <Size X="250.0000" Y="250.0000" />
+                    <Children>
+                      <AbstractNodeData Name="Image_select" ActionTag="1819469202" Tag="94" VisibleForFrame="False" IconVisible="False" LeftMargin="157.9983" RightMargin="-7.9983" TopMargin="165.0013" BottomMargin="-13.0013" Scale9Width="100" Scale9Height="98" ctype="ImageViewObjectData">
+                        <Size X="100.0000" Y="98.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="207.9983" Y="35.9987" />
+                        <Scale ScaleX="0.7000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.8320" Y="0.1440" />
+                        <PreSize X="0.1333" Y="0.0735" />
+                        <FileData Type="Normal" Path="ui/ConfirmButton.png" Plist="" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Image_myself" ActionTag="281158386" Tag="95" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="100.0000" RightMargin="100.0000" TopMargin="86.0000" BottomMargin="86.0000" Scale9Width="50" Scale9Height="78" ctype="ImageViewObjectData">
+                        <Size X="50.0000" Y="78.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="125.0000" Y="125.0000" />
+                        <Scale ScaleX="2.0000" ScaleY="2.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.5000" Y="0.5000" />
+                        <PreSize X="0.2000" Y="0.3120" />
+                        <FileData Type="Normal" Path="ui/meself.png" Plist="" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Image_jingzhang" ActionTag="1471749773" Tag="96" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-10.0000" RightMargin="180.0000" TopMargin="-25.5000" BottomMargin="99.5000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
+                        <Size X="80.0000" Y="176.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="30.0000" Y="187.5000" />
+                        <Scale ScaleX="0.8000" ScaleY="0.7000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.1200" Y="0.7500" />
+                        <PreSize X="0.3200" Y="0.7040" />
+                        <FileData Type="Normal" Path="ui/jinghui.png" Plist="" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Image_death" ActionTag="-311804275" Tag="97" VisibleForFrame="False" IconVisible="False" LeftMargin="55.0281" RightMargin="54.9719" TopMargin="48.6868" BottomMargin="51.3132" TouchEnable="True" Scale9Width="140" Scale9Height="150" ctype="ImageViewObjectData">
+                        <Size X="140.0000" Y="150.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="125.0281" Y="126.3132" />
+                        <Scale ScaleX="1.2000" ScaleY="1.2000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.5001" Y="0.5053" />
+                        <PreSize X="0.5600" Y="0.6000" />
+                        <FileData Type="Normal" Path="ui/death.png" Plist="" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Text_number" ActionTag="-155393166" Tag="98" IconVisible="False" LeftMargin="206.1778" RightMargin="17.8222" TopMargin="2.3638" BottomMargin="193.6362" FontSize="48" LabelText="1" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                        <Size X="26.0000" Y="54.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="219.1778" Y="220.6362" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="0" B="0" />
+                        <PrePosition X="0.8767" Y="0.8825" />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <OutlineColor A="255" R="255" G="0" B="0" />
+                        <ShadowColor A="255" R="110" G="110" B="110" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Image_black" ActionTag="-895450486" Tag="99" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
+                        <Size X="210.0000" Y="210.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="130.0000" Y="120.0000" />
+                        <Scale ScaleX="1.2000" ScaleY="1.2000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.5200" Y="0.4800" />
+                        <PreSize X="0.8400" Y="0.8400" />
+                        <FileData Type="Normal" Path="ui/black.png" Plist="" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="Image_unguide" ActionTag="-1307326763" Tag="100" VisibleForFrame="False" IconVisible="False" LeftMargin="25.0000" RightMargin="15.0000" TopMargin="25.0000" BottomMargin="15.0000" TouchEnable="True" Scale9Width="210" Scale9Height="210" ctype="ImageViewObjectData">
+                        <Size X="210.0000" Y="210.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="130.0000" Y="120.0000" />
+                        <Scale ScaleX="1.2000" ScaleY="1.2000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.5200" Y="0.4800" />
+                        <PreSize X="0.8400" Y="0.8400" />
+                        <FileData Type="Normal" Path="ui/black.png" Plist="" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="599.9993" Y="99.9989" />
+                    <Scale ScaleX="0.5000" ScaleY="0.5000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.8571" Y="0.5000" />
                     <PreSize X="0.3571" Y="1.2500" />
                     <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
                   </AbstractNodeData>
