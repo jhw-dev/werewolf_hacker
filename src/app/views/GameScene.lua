@@ -182,6 +182,7 @@ printInfo("天黑拉！！！！")
 
         result = data.result
         killId = data.deadRole
+        self.nvwuflag = killId
         if result == 0 then
             -- 播放狼人请统一意见音效
 
@@ -189,6 +190,10 @@ printInfo("天黑拉！！！！")
             self:setDeathById(killId)
 
         elseif result == 1 then
+            --女巫玩家显示
+        --    self:saveDeathPersonDis()
+
+
             -- 禁用按钮
             self.killBtn:setTouchEnabled(false)
             self.killBtn:setVisible(false)
@@ -401,7 +406,7 @@ function GameScene:initData(value)
     self.data = value
     self.selectId_ = 1001
 
-    self.data.roleList = self:copyTab(self.data.roleList)
+   
 
     printInfo("number ::"..#self.data.roleList)
 
@@ -482,6 +487,7 @@ function GameScene:initData(value)
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type = data.type
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num = data.num
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath = false
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index).issheriff = false
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Text_number"):setString(data.num)
 
          printInfo("index2:"..index2.."index:"..index)
