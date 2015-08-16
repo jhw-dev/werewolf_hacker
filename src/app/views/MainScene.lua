@@ -42,8 +42,9 @@ function MainScene:onCreate()
 -- socket:recive(str)
         end
     end)
+    audio.playMusic("music/bg.mp3",true)
     
-    
+    audio.playSound("music/juhuiwantips.mp3",false)
 
    
         
