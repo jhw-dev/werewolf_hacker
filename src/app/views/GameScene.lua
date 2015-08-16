@@ -403,7 +403,10 @@ end
 -- 守卫守人
 function GameScene:shouwei()
     self:changeState(GameScene.PROTECTED)
-    
+    if self.curUnguideId ~= nil then
+        self:setUnguideById()
+    end
+
     local function cancel( ... )
         local socket = self:getApp():getSocket()
         local data={id=nil}
@@ -709,10 +712,7 @@ function GameScene:initData(value)
                 self.prototedBtn:setVisible(false)
                 self.cancelBtn:setTouchEnabled(false)
                 self.cancelBtn:setVisible(false)
-
-                if self.curUnguideId ~= nil then
-                    self:setUnguideById()
-                end
+                self:clearUnguide()
 
                 local data={id=self:getSelectId()}
                 socket:send(1004,data)
