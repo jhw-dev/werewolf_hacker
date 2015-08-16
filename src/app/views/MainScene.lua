@@ -43,7 +43,7 @@ function MainScene:onCreate()
         end
     end)
     audio.playMusic("music/bg.mp3",true)
-    
+    audio.setMusicVolume(0.3)
     audio.playSound("music/juhuiwantips.mp3",false)
 
    
