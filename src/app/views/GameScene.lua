@@ -465,6 +465,7 @@ function GameScene:nvwu(caozuo)
             socket:send(1008,data)
             self.duRenBtn:setVisible(false)
             self.duRenBtn:setTouchEnabled(false)
+
         end
         self:setCancelEvent(cancel)
 
@@ -514,6 +515,7 @@ end
 
 -- 投票杀人
 function GameScene:votePeople( ... )
+    self:clearBlack()
     self:changeState(GameScene.PIAO)
 
     local function cancel( ... )
@@ -699,16 +701,16 @@ function GameScene:initData(value)
      -- 守卫守人
     self.prototedBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.prototedBtn:setTouchEnabled(false)
-            self.prototedBtn:setVisible(false)
-
-            self.cancelBtn:setTouchEnabled(false)
-            self.cancelBtn:setVisible(false)
-
-            if self.curUnguideId ~= nil then
-                self:setUnguideById()
-            end
             if self:isSelectIdNil() then
+                self.prototedBtn:setTouchEnabled(false)
+                self.prototedBtn:setVisible(false)
+                self.cancelBtn:setTouchEnabled(false)
+                self.cancelBtn:setVisible(false)
+
+                if self.curUnguideId ~= nil then
+                    self:setUnguideById()
+                end
+
                 local data={id=self:getSelectId()}
                 socket:send(1004,data)
             else
@@ -720,12 +722,13 @@ function GameScene:initData(value)
     -- 预言家验人
     self.yuyanBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.yuyanBtn:setVisible(false)
-            self.yuyanBtn:setTouchEnabled(false)
-            self.cancelBtn:setTouchEnabled(false)
-            self.cancelBtn:setVisible(false)
+
 
             if self:isSelectIdNil() then
+                self.yuyanBtn:setVisible(false)
+                self.yuyanBtn:setTouchEnabled(false)
+                self.cancelBtn:setTouchEnabled(false)
+                self.cancelBtn:setVisible(false)
                 local data={id=self:getSelectId()}
                 socket:send(1005,data)
             else
@@ -736,11 +739,12 @@ function GameScene:initData(value)
     -- 狼人杀人
     self.killBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.killBtn:setTouchEnabled(false)
-            self.killBtn:setVisible(false)
-            self.cancelBtn:setTouchEnabled(false)
-            self.cancelBtn:setVisible(false)
+
             if self:isSelectIdNil() then
+                self.killBtn:setTouchEnabled(false)
+                self.killBtn:setVisible(false)
+                self.cancelBtn:setTouchEnabled(false)
+                self.cancelBtn:setVisible(false)
                 local data={id=self:getSelectId()}
                 self.killedId_  = self:getSelectId()
                 socket:send(1007,data)
@@ -753,15 +757,16 @@ function GameScene:initData(value)
     self.jiuRenBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             -- cancel disabled
-            self.cancelBtn:setTouchEnabled(false)
-            self.cancelBtn:setVisible(false)
-            -- 女巫毒人
-            self:nvwu(1)
 
-            self:clearBlack()
-            self:setBlackById2()
-            nvwu.jieyaonum = false
             if self:isSelectIdNil() then
+                self.cancelBtn:setTouchEnabled(false)
+                self.cancelBtn:setVisible(false)
+                -- 女巫毒人
+                self:nvwu(1)
+
+                self:clearBlack()
+                self:setBlackById2()
+                nvwu.jieyaonum = false
                 local data={type=2, id=self:getSelectId()}
                 socket:send(1008,data)
             else
@@ -772,14 +777,16 @@ function GameScene:initData(value)
     -- 女巫毒人
     self.duRenBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.duRenBtn:setTouchEnabled(false)
-            self.duRenBtn:setVisible(false)
-            -- cancel
-            self.cancelBtn:setTouchEnabled(false)
-            self.cancelBtn:setVisible(false)
 
-            self:clearBlack()
+
+
             if self:isSelectIdNil() then
+                self.duRenBtn:setTouchEnabled(false)
+                self.duRenBtn:setVisible(false)
+                -- cancel
+                self.cancelBtn:setTouchEnabled(false)
+                self.cancelBtn:setVisible(false)
+                self:clearBlack()
                 nvwu.duyaonum = false
                 local data={type=1, id=self:getSelectId()}
                 socket:send(1008,data)
@@ -792,11 +799,12 @@ function GameScene:initData(value)
     -- 竞选警长
     self.xuanjinzhangBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.xuanjinzhangBtn:setTouchEnabled(false)
-            self.xuanjinzhangBtn:setVisible(false)
-            self.cancelBtn:setTouchEnabled(false)
-            self.cancelBtn:setVisible(false)
+
             if self:isSelectIdNil() then
+                self.xuanjinzhangBtn:setTouchEnabled(false)
+                self.xuanjinzhangBtn:setVisible(false)
+                self.cancelBtn:setTouchEnabled(false)
+                self.cancelBtn:setVisible(false)
                 local data={id=self:getSelectId()}
                 socket:send(1012,data)
             else
@@ -807,11 +815,12 @@ function GameScene:initData(value)
     -- 投票杀人
     self.piaoBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.piaoBtn:setTouchEnabled(false)
-            self.piaoBtn:setVisible(false)
-            self.cancelBtn:setTouchEnabled(false)
-            self.cancelBtn:setVisible(false)
+
             if self:isSelectIdNil() then
+                self.piaoBtn:setTouchEnabled(false)
+                self.piaoBtn:setVisible(false)
+                self.cancelBtn:setTouchEnabled(false)
+                self.cancelBtn:setVisible(false)
                 local data={id=self:getSelectId()}
                 socket:send(1013,data)
             else
