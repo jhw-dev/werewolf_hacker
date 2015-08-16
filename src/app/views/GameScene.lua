@@ -613,6 +613,7 @@ function GameScene:initData(value)
     self.Image_self.id = self.data.id
     self.Image_self.num = self.data.num
     self.Image_self.type = self.data.type
+    self.Image_self.isdeath = false
 
     local function getSelfCardInfoFunc(sender, eventType)
         if eventType == ccui.TouchEventType.began then
@@ -817,9 +818,10 @@ function GameScene:setDeathById(id)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):setTouchEnabled(false)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath = true
         end
-        -- if id == self.Image_self.id then
-        --     -- self:getResourceNode():getChildByName("Panel_black"):setVisible(true)
-        -- end
+         if id == self.Image_self.id then
+             self.Image_self.isdeath = true
+             -- self:getResourceNode():getChildByName("Panel_black"):setVisible(true)
+         end
         printInfo("index2:"..index2.."index:"..index)
         index = index + 1
         if index == 5 then
