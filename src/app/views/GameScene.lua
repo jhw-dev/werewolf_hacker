@@ -284,13 +284,15 @@ printInfo("天黑拉！！！！")
     end)
 
     socket:register(1013,function(data)
-        if data.result ==0 then
-            
-        elseif data.result == 1 then
+    
+         if data.result == 1   then
             self:showPopu(data.roleID.."玩家死了")
             self:setDeathById(data.roleID)
-            self:getResourceNode():getChildByName("Panel_black"):setVisible(true)
+           if  self.Image_self.isdeath then
+                self:getResourceNode():getChildByName("Panel_black"):setVisible(true)
+            end
         end
+        
         if self.Image_self.isdeath==false  then
             self:ready()
         end
