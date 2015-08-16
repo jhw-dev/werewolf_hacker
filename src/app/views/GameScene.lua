@@ -249,16 +249,18 @@ printInfo("天黑拉！！！！")
         local result = data.result
         -- 遍历死亡列表
         for _, deadRole in pairs(self.deadList) do
-            
-                if  self.Image_self.isdeath==false and result then -- 选警长
-                    self:setDefaultSelectId()
-                        self:showPopu("开始选警长")
-                        audio.playSound("music/jinxuanjinzhang.mp3",false)
-                        self:xuanJin()
-                    
-                else
-                    -- 直接投票
-                    self:votePeople()
+                
+                if  self.Image_self.isdeath==false then -- 选警长
+                        if  result then
+                                self:setDefaultSelectId()
+                                    self:showPopu("开始选警长")
+                                    audio.playSound("music/jinxuanjinzhang.mp3",false)
+                                    self:xuanJin()
+                        
+                         else
+                              -- 直接投票
+                             self:votePeople()
+                    end
                 end
         end
        
