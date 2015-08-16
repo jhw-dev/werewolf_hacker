@@ -216,7 +216,10 @@ printInfo("天黑拉！！！！")
         printInfo("死亡人数列表")
         audio.playSound("music/tianliang.mp3",false)
 
-        self.deadList = data.roles
+        if #data.roles == 0 then
+            printInfo("平安夜")
+            return
+        end
         for k, v in pairs(data.roles) do
                 if v.id == self.Image_self.id then
                
@@ -481,6 +484,9 @@ function GameScene:nvwu(caozuo)
             socket:send(1008,data)
             self.jiuRenBtn:setVisible(false)
             self.jiuRenBtn:setTouchEnabled(false)
+
+            self:nvwu(1)
+
         end
         self:setCancelEvent(cancel)
         -- cancel
@@ -752,7 +758,6 @@ function GameScene:initData(value)
             self.cancelBtn:setVisible(false)
             -- 女巫毒人
             self:nvwu(1)
-            self:biYan(GameScene.NVWU)
 
             self:clearBlack()
             self:setBlackById2()
@@ -982,10 +987,20 @@ end
 --            index2 = index2 + 1
 --        end
 --    end
---end
+----end
 
 function GameScene:resetSelectId()
     self.selectId_ = nil
+    local index=1
+    local index2=0
+    for key, data in pairs(self.data.roleList) do
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_select"):setVisible(false)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
 end
 
 function GameScene:isSelectIdNil()
