@@ -799,8 +799,8 @@ function GameScene:initData(value)
     end)
     
     
-    local str= "{\"cmd\":1009,\"data\":{\"roles\":[{\"id\":1001,\"type\":1,\"num\":4,\"isDead\":true},{\"id\":1005,\"type\":3,\"num\":5,\"isDead\":true}]}}"
-    socket:recive(str)
+--    local str= "{\"cmd\":1009,\"data\":{\"roles\":[{\"id\":1001,\"type\":1,\"num\":4,\"isDead\":true},{\"id\":1005,\"type\":3,\"num\":5,\"isDead\":true}]}}"
+--    socket:recive(str)
 end
 
 
