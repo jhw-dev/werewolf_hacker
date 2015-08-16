@@ -133,7 +133,7 @@ printInfo("天黑拉！！！！")
 
         self:showPopu("守卫已经守人了~~,守的人的id"..data.id)
 
-        self:biYan(GameScene.PROTECTED)
+        self:biYan(GameScene.SHOUWEI)
 
         local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
             audio.playSound("music/yuyanzhenyan.mp3",false)
@@ -156,7 +156,9 @@ printInfo("天黑拉！！！！")
 
             self.popu:setOnEnsureCallback(function( ... )
                socket:send(1006)
+               -- 预言家闭眼
                self:biYan(GameScene.YUYANJIA)
+               -- 关闭弹框
                self:closePopu()
             end)
         end
@@ -175,15 +177,31 @@ printInfo("天黑拉！！！！")
     
     socket:register(1007,function(data)
         printInfo("狼人杀人结果")
+        local result = 0
+        local killId
 
-        self:biYan(GameScene.LANGREN)
+        result = data.result
+        killId = data.deadRole
+        if result == 0 then
+            -- 播放狼人请统一意见音效
 
-        local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
-            audio.playSound("music/nvwuzhenyan.mp3",false)
-        end)})
-        
-        if self.Image_self.type == GameScene.NVWU then
-            self:nvwu()
+            -- 显示狼人杀人角色
+            self:setDeathById(killId)
+
+        elseif result == 1 then
+            -- 禁用按钮
+            self.killBtn:setTouchEnabled(false)
+            self.killBtn:setVisible(false)
+
+            self:biYan(GameScene.LANGREN)
+            local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
+                audio.playSound("music/nvwuzhenyan.mp3",false)
+            end)})
+            
+            if self.Image_self.type == GameScene.NVWU then
+                -- 先救人,2
+                self:nvwu(2)
+            end
         end
 
     end)
@@ -194,9 +212,9 @@ printInfo("天黑拉！！！！")
         for k, v in pairs(data.roles) do 
             self:setDeathById(v.id)
         end
-
+        -- self:showPopu(data.id.."死了，天亮了")
         self:biYan(GameScene.NVWU)
-        self:showPopu(data.id.."死了，天亮了")
+        
 
         local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
            audio.playSound("music/jinxuanjinzhang.mp3",false)
@@ -209,13 +227,12 @@ printInfo("天黑拉！！！！")
         printInfo("广播选警长")
         -- 遍历死亡列表
         for _, deadRole in pairs(self.deadList) do
-            for _, v in pairs(self.data.roleList) do
-                if v.id == deadRole.id then
-                else
-                    self:xuanJin()
-                    self:cleanSheriffFlag()
-                    self:setSheriffById(data.id)
-                end
+            if self.Image_self.id == deadRole.id then
+                return
+            else
+                self:xuanJin()
+                self:cleanSheriffFlag()
+                self:setSheriffById(data.id)
             end
         end
        
@@ -357,15 +374,17 @@ function GameScene:killRen( ... )
 end
 
 -- 女巫
-function GameScene:nvwu( ... )
+function GameScene:nvwu(caozuo)
     self:hideBtns()
 
-    self.jiuRenBtn:setVisible(true)
-    self.jiuRenBtn:setTouchEnabled(true)
+    if caozuo == 1 then
+        self.duRenBtn:setTouchEnabled(true)
+        self.duRenBtn:setVisible(true)
 
-    self.duRenBtn:setTouchEnabled(true)
-    self.duRenBtn:setVisible(true)
-
+    elseif caozuo == 2 then
+        self.jiuRenBtn:setVisible(true)
+        self.jiuRenBtn:setTouchEnabled(true)
+    end
 end
 
 -- 选警长
@@ -534,7 +553,7 @@ function GameScene:initData(value)
         end
      end)
 
-     
+     -- 守卫守人
     self.prototedBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             self.prototedBtn:setTouchEnabled(false)
@@ -544,17 +563,14 @@ function GameScene:initData(value)
         end
      end)
 
-
-
-
+    -- 预言家验人
     self.yuyanBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.yuyanBtn:setTouchEnabled(false)
-            self.yuyanBtn:setVisible(false)
             local data={id=self.selectId_}
             socket:send(1005,data)
         end
      end)
+    -- 狼人杀人
     self.killBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             self.killBtn:setTouchEnabled(false)
@@ -564,6 +580,17 @@ function GameScene:initData(value)
             socket:send(1007,data)
         end
      end)
+    -- 女巫救人
+    self.jiuRenBtn:addTouchEventListener(function(sender,type)
+        if type==TOUCH_EVENT_ENDED then
+            -- 女巫毒人
+            self:nvwu(1)
+
+            local data={type=2, id=self.selectId_}
+            socket:send(1008,data)
+        end
+     end)
+    -- 女巫毒人
     self.duRenBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             self.duRenBtn:setTouchEnabled(false)
@@ -572,16 +599,8 @@ function GameScene:initData(value)
             socket:send(1008,data)
         end
      end)
-    self.jiuRenBtn:addTouchEventListener(function(sender,type)
-        if type==TOUCH_EVENT_ENDED then
-            self.jiuRenBtn:setTouchEnabled(false)
-            self.jiuRenBtn:setTouchEnabled(false)
-            -- open duren
-            -- self.duRenBtn:setTouchEnabled(true)
-            local data={type=2, id=self.selectId_}
-            socket:send(1008,data)
-        end
-     end)
+    
+    -- 竞选警长
     self.xuanjinzhangBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             self.xuanjinzhangBtn:setTouchEnabled(false)
@@ -590,6 +609,7 @@ function GameScene:initData(value)
             socket:send(1012,data)
         end
      end)
+    -- 投票杀人
     self.piaoBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
             self.piaoBtn:setTouchEnabled(false)
