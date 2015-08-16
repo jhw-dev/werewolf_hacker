@@ -34,9 +34,7 @@ function MainScene:onCreate()
         end
     end)
 
---
---    local pop=PopLayer:create()
---    self:addChild(pop)
+
    
         
         
