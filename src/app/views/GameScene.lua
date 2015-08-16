@@ -359,7 +359,7 @@ printInfo("天黑拉！！！！")
         printInfo("结算数据")
 
         local node = self.app_:createView("GameOverScene")
-        node:setValue(data.id)
+        node:setValue(data.result)
         local scene = display.newScene("GameOverScene")
         scene:addChild(node)
         local transition=cc.TransitionMoveInR:create(0.5,scene)
