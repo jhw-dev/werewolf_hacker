@@ -275,6 +275,7 @@ printInfo("天黑拉！！！！")
      --   self:showPopu("选警长结果："..data.roleID)
         printInfo("选警长的结果")
         self:cleanSheriffFlag()
+
         self:setSheriffById(data.roleID)
         self:votePeople()
         self:setDefaultSelectId()
@@ -283,6 +284,7 @@ printInfo("天黑拉！！！！")
     socket:register(1013,function(data)
         if self:checkIfDied(data.roleID) then
             self:showPopu(data.roleID.."玩家死了")
+            self:setDeathById(data.roleID)
         else
             self:showPopu("今天晚上平安夜")
         end
@@ -823,9 +825,11 @@ function GameScene:setSheriffById(id)
     local index2=0
     for key, data in pairs(self.data.roleList) do
         if data.id == id then
+            printInfo("选警长？？？")
+            print(id)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_jingzhang"):setVisible(true)
         end
-        printInfo("选警长？？？")
+
         printInfo("index2:"..index2.."index:"..index)
         index = index + 1
         if index == 5 then
