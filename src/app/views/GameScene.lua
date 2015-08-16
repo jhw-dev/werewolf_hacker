@@ -475,18 +475,18 @@ function GameScene:nvwu(caozuo)
             socket:send(1008,data)
             self.duRenBtn:setVisible(false)
             self.duRenBtn:setTouchEnabled(false)
-
+        --    self:clearBlack()
         end
         self:setCancelEvent(cancel)
 
         if nvwu.duyaonum == true then
-            self:clearBlack()
+         --   self:clearBlack()
             self:setBlackById2()
             self.duRenBtn:setTouchEnabled(true)
             self.duRenBtn:setVisible(true)
 
           end
-
+          self:clearBlack()
 
     elseif caozuo == 2 then
         local function cancel( ... )
