@@ -23,7 +23,7 @@ function Popu:onCreate()
     self.ensureBtn:addTouchEventListener(function(sender,type)
 	    if type==TOUCH_EVENT_ENDED then
 	           
-	         local callback = self.ensureCallback_
+	        local callback = self.ensureCallback_
             local action=cc.Sequence:create({cc.EaseBackOut:create(cc.ScaleTo:create(0.5,0)),cc.CallFunc:create(function()
                 self:removeFromParentAndCleanup();
                 if callback then
