@@ -908,8 +908,9 @@ function GameScene:setDefaultSelectId()
     local index2=0;
     for key, data in pairs(self.data.roleList) do
         if self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath == false then
-            self.selectId_ = self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num
+            self.selectId_ = self.ListView_user:getItem(index2):getChildByName("Image_card"..index).id
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_select"):setVisible(true)
+            break
         end
         index = index + 1
         if index == 5 then
