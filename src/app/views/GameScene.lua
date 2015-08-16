@@ -855,6 +855,7 @@ function GameScene:setSheriffById(id)
     local index=1
     local index2=0
     for key, data in pairs(self.data.roleList) do
+        printInfo("rolelist id is %d", data.id)
         if data.id == id then
              printInfo("选警长2？？？")
                 print(id)
