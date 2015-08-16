@@ -821,12 +821,14 @@ function GameScene:cleanSheriffFlag()
 end
 
 function GameScene:setSheriffById(id)
+    printInfo("选警长1？？？")
+    print(id)
     local index=1
     local index2=0
     for key, data in pairs(self.data.roleList) do
         if data.id == id then
-            printInfo("选警长？？？")
-            print(id)
+             printInfo("选警长2？？？")
+                print(id)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_jingzhang"):setVisible(true)
         end
 
@@ -840,6 +842,7 @@ function GameScene:setSheriffById(id)
 end
 
 function GameScene:setDeathById(id)
+    printInfo("id1 is %d", id)
     local index=1
     local index2=0
     if id == self.Image_self.id then
@@ -848,6 +851,7 @@ function GameScene:setDeathById(id)
     end
     for key, data in pairs(self.data.roleList) do
         if data.id == id then
+            printInfo("id2 is %d", id)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_death"):setVisible(true)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):setTouchEnabled(false)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath = true
