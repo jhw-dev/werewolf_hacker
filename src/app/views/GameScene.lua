@@ -239,13 +239,14 @@ printInfo("天黑拉！！！！")
         elseif result == 1 then
             --女巫玩家显示
         --    self:saveDeathPersonDis()
+            self:setDeathById(killId)
 
-        
             -- 禁用按钮
             self.killBtn:setTouchEnabled(false)
             self.killBtn:setVisible(false)
 
             self:biYan(GameScene.LANGREN)
+            
             local action=cc.Sequence:create({cc.DelayTime:create(3),cc.CallFunc:create(function()
                 audio.playSound("music/nvwuzhenyan.mp3",false)
             end)})
