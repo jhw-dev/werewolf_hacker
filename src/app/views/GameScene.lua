@@ -108,7 +108,7 @@ printInfo("天黑拉！！！！")
             audio.playSound("music/shouweizhenyan.mp3",false)
 
             if self.Image_self.type == GameScene.SHOUWEI then
-                self:setDefaultSelectId()
+                self:resetSelectId()
                 self:shouwei()
             end
         end)})
@@ -134,7 +134,7 @@ printInfo("天黑拉！！！！")
         self:runAction(action)
 
         if self.Image_self.type == GameScene.YUYANJIA then
-            self:setDefaultSelectId()
+            self:resetSelectId()
             self:yanren()
         end
         
@@ -168,7 +168,7 @@ printInfo("天黑拉！！！！")
         audio.playSound("music/langrensharen.mp3",false)
 
         if self.Image_self.type == GameScene.LANGREN then
-            self:setDefaultSelectId()
+            self:resetSelectId()
             self:killRen()
         end
     end)
@@ -261,7 +261,7 @@ printInfo("天黑拉！！！！")
         if  self.Image_self.isdeath==false then 
         -- 选警长
                 if  result then
-                    self:setDefaultSelectId()
+                    self:resetSelectId()
                     self:showPopu("开始选警长")
                     audio.playSound("music/jinxuanjinzhang.mp3",false)
                     self:xuanJin()
@@ -281,7 +281,7 @@ printInfo("天黑拉！！！！")
 
         self:setSheriffById(data.roleID)
         self:votePeople()
-        self:setDefaultSelectId()
+        self:resetSelectId()
     end)
 
     socket:register(1013,function(data)
@@ -630,7 +630,7 @@ function GameScene:initData(value)
             index2 = index2 + 1
         end
     end
-    self:setDefaultSelectId()
+    self:resetSelectId()
 
 
 
@@ -707,9 +707,12 @@ function GameScene:initData(value)
             if self.curUnguideId ~= nil then
                 self:setUnguideById()
             end
-
-            local data={id=self:getSelectId()}
-            socket:send(1004,data)
+            if self:isSelectIdNil() then
+                local data={id=self:getSelectId()}
+                socket:send(1004,data)
+            else
+                self:showPopu("请选择一个玩家")
+            end
         end
      end)
 
@@ -720,8 +723,13 @@ function GameScene:initData(value)
             self.yuyanBtn:setTouchEnabled(false)
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-            local data={id=self:getSelectId()}
-            socket:send(1005,data)
+
+            if self:isSelectIdNil() then
+                local data={id=self:getSelectId()}
+                socket:send(1005,data)
+            else
+                self:showPopu("请选择一个玩家")
+            end
         end
      end)
     -- 狼人杀人
@@ -731,9 +739,13 @@ function GameScene:initData(value)
             self.killBtn:setVisible(false)
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-            local data={id=self:getSelectId()}
-            self.killedId_  = self:getSelectId()
-            socket:send(1007,data)
+            if self:isSelectIdNil() then
+                local data={id=self:getSelectId()}
+                self.killedId_  = self:getSelectId()
+                socket:send(1007,data)
+            else
+                self:showPopu("请选择一个玩家")
+            end
         end
      end)
     -- 女巫救人
@@ -749,8 +761,12 @@ function GameScene:initData(value)
             self:clearBlack()
             self:setBlackById2()
             nvwu.jieyaonum = false
-            local data={type=2, id=self:getSelectId()}
-            socket:send(1008,data)
+            if self:isSelectIdNil() then
+                local data={type=2, id=self:getSelectId()}
+                socket:send(1008,data)
+            else
+                self:showPopu("请选择一个玩家")
+            end
         end
      end)
     -- 女巫毒人
@@ -763,10 +779,13 @@ function GameScene:initData(value)
             self.cancelBtn:setVisible(false)
 
             self:clearBlack()
-
-            nvwu.duyaonum = false
-            local data={type=1, id=self:getSelectId()}
-            socket:send(1008,data)
+            if self:isSelectIdNil() then
+                nvwu.duyaonum = false
+                local data={type=1, id=self:getSelectId()}
+                socket:send(1008,data)
+            else
+                self:showPopu("请选择一个玩家")
+            end
         end
      end)
     
@@ -777,9 +796,12 @@ function GameScene:initData(value)
             self.xuanjinzhangBtn:setVisible(false)
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-            local data={id=self:getSelectId()}
-
-            socket:send(1012,data)
+            if self:isSelectIdNil() then
+                local data={id=self:getSelectId()}
+                socket:send(1012,data)
+            else
+                self:showPopu("请选择一个玩家")
+            end
         end
      end)
     -- 投票杀人
@@ -789,8 +811,12 @@ function GameScene:initData(value)
             self.piaoBtn:setVisible(false)
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-            local data={id=self:getSelectId()}
-            socket:send(1013,data)
+            if self:isSelectIdNil() then
+                local data={id=self:getSelectId()}
+                socket:send(1013,data)
+            else
+                self:showPopu("请选择一个玩家")
+            end
         end
      end)
 
@@ -825,7 +851,7 @@ end
 
 function GameScene:setSheriffById(id)
     printInfo("选警长1？？？")
-    print(id)
+    printInfo(id)
     local index=1
     local index2=0
     for key, data in pairs(self.data.roleList) do
@@ -945,22 +971,35 @@ function GameScene:clearUnguide()
     end
 end
 
-function GameScene:setDefaultSelectId()
-    local index=1
-    local index2=0
-    for key, data in pairs(self.data.roleList) do
-        if self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath == false then
-            self.selectId_ = self.ListView_user:getItem(index2):getChildByName("Image_card"..index).id
-            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_select"):setVisible(true)
-            break
-        end
-        index = index + 1
-        if index == 5 then
-            index = 1
-            index2 = index2 + 1
-        end
+--function GameScene:setDefaultSelectId()
+--    local index=1
+--    local index2=0
+--    for key, data in pairs(self.data.roleList) do
+--        if self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath == false then
+--            self.selectId_ = self.ListView_user:getItem(index2):getChildByName("Image_card"..index).id
+--            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_select"):setVisible(true)
+--            break
+--        end
+--        index = index + 1
+--        if index == 5 then
+--            index = 1
+--            index2 = index2 + 1
+--        end
+--    end
+--end
+
+function GameScene:resetSelectId()
+    self.selectId_ = nil
+end
+
+function GameScene:isSelectIdNil()
+    if self.selectId_ == nil then
+        return false
+    else
+        return true
     end
 end
+
 
 function GameScene:setSelectId(id)
     self.selectId_ = id
