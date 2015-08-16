@@ -982,10 +982,20 @@ end
 --            index2 = index2 + 1
 --        end
 --    end
---end
+----end
 
 function GameScene:resetSelectId()
     self.selectId_ = nil
+    local index=1
+    local index2=0
+    for key, data in pairs(self.data.roleList) do
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_select"):setVisible(false)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
 end
 
 function GameScene:isSelectIdNil()
