@@ -148,7 +148,6 @@ printInfo("天黑拉！！！！")
 
             self.popu:setOnEnsureCallback(function( ... )
 
-               self:closePopu()
                 -- 预言家闭眼
                self:biYan(GameScene.YUYANJIA)
                 -- 关闭弹框
