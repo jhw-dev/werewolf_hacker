@@ -108,6 +108,7 @@ printInfo("天黑拉！！！！")
             audio.playSound("music/shouweizhenyan.mp3",false)
 
             if self.Image_self.type == GameScene.SHOUWEI then
+                self:setDefaultSelectId()
                 self:shouwei()
             end
         end)})
@@ -133,6 +134,7 @@ printInfo("天黑拉！！！！")
         self:runAction(action)
 
         if self.Image_self.type == GameScene.YUYANJIA then
+            self:setDefaultSelectId()
             self:yanren()
         end
         
@@ -162,6 +164,7 @@ printInfo("天黑拉！！！！")
         audio.playSound("music/langrensharen.mp3",false)
 
         if self.Image_self.type == GameScene.LANGREN then
+            self:setDefaultSelectId()
             self:killRen()
         end
     end)
@@ -244,6 +247,7 @@ printInfo("天黑拉！！！！")
                 return
             else
                 if result then -- 选警长
+                self:setDefaultSelectId()
                     self:showPopu("开始选警长")
                     audio.playSound("music/jinxuanjinzhang.mp3",false)
                     self:xuanJin()
@@ -262,6 +266,7 @@ printInfo("天黑拉！！！！")
         self:cleanSheriffFlag()
         self:setSheriffById(data.roleID)
         self:votePeople()
+        self:setDefaultSelectId()
     end)
 
     socket:register(1013,function(data)
@@ -668,6 +673,7 @@ function GameScene:initData(value)
             if self.curUnguideId ~= nil then
                 self:setUnguideById()
             end
+
             local data={id=self:getSelectId()}
             socket:send(1004,data)
         end
@@ -680,8 +686,6 @@ function GameScene:initData(value)
             self.yuyanBtn:setTouchEnabled(false)
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-
-            self:setDefaultSelectId()
             local data={id=self:getSelectId()}
             socket:send(1005,data)
         end
@@ -710,7 +714,6 @@ function GameScene:initData(value)
 
             self:clearBlack()
             self:setBlackById2()
-            self:setDefaultSelectId()
             nvwu.jieyaonum = false
             local data={type=2, id=self:getSelectId()}
             socket:send(1008,data)
@@ -726,7 +729,6 @@ function GameScene:initData(value)
             self.cancelBtn:setVisible(false)
 
             self:clearBlack()
-            self:setDefaultSelectId()
 
             nvwu.duyaonum = false
             local data={type=1, id=self:getSelectId()}
@@ -741,8 +743,6 @@ function GameScene:initData(value)
             self.xuanjinzhangBtn:setVisible(false)
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-
-            self:setDefaultSelectId()
             local data={id=self:getSelectId()}
 
             socket:send(1012,data)
@@ -755,8 +755,6 @@ function GameScene:initData(value)
             self.piaoBtn:setVisible(false)
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-
-            self:setDefaultSelectId()
             local data={id=self:getSelectId()}
             socket:send(1013,data)
         end
