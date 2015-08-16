@@ -264,7 +264,8 @@ printInfo("天黑拉！！！！")
                     audio.playSound("music/jinxuanjinzhang.mp3",false)
                     self:xuanJin()
 
-            else
+            else 
+              
                 -- 直接投票
                 self:votePeople()
             end
@@ -276,7 +277,9 @@ printInfo("天黑拉！！！！")
         audio.playSound("music/toupiao.mp3",false)
         self:cleanSheriffFlag()
         self:setSheriffById(data.roleID)
-        self:votePeople()
+        if  self.Image_self.isdeath==false then 
+                self:votePeople()
+        end
         self:resetSelectId()
     end)
 
@@ -286,8 +289,11 @@ printInfo("天黑拉！！！！")
         elseif data.result == 1 then
             self:showPopu(data.roleID.."玩家死了")
             self:setDeathById(data.roleID)
+            self:getResourceNode():getChildByName("Panel_black"):setVisible(true)
         end
-        self:ready()
+        if self.Image_self.isdeath==false  then
+            self:ready()
+        end
         printInfo("投票杀人结果")
 
         audio.playSound("music/ready.mp3",false)
