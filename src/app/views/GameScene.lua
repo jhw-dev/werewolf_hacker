@@ -217,6 +217,7 @@ printInfo("天黑拉！！！！")
 
         if #data.roles == 0 then
             printInfo("平安夜")
+            self:showPopu("今天晚上平安夜")
             return
         end
         for k, v in pairs(data.roles) do
@@ -284,7 +285,7 @@ printInfo("天黑拉！！！！")
 
     socket:register(1013,function(data)
         if data.result ==0 then
-            self:showPopu("今天晚上平安夜")
+            
         elseif data.result == 1 then
             self:showPopu(data.roleID.."玩家死了")
             self:setDeathById(data.roleID)
@@ -866,8 +867,10 @@ function GameScene:setSheriffById(id)
     local index=1
     local index2=0
     for key, data in pairs(self.data.roleList) do
+
         if tonumber(data.id) == tonumber(id) then
              printInfo("选警长2？？？"..data.id)
+
                 print(id)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_jingzhang"):setVisible(true)
         end
