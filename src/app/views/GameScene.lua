@@ -105,12 +105,29 @@ printInfo("天黑拉！！！！")
         self:tianHei()
 
         local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
+        
+        
+        
+                
             audio.playSound("music/shouweizhenyan.mp3",false)
+            
+            local isDead = self.Image_self.isdeath
+  
+        
+            
 
-            if self.Image_self.type == GameScene.SHOUWEI then
-
-                self:shouwei()
+                if self.Image_self.type == GameScene.SHOUWEI then
+                    
+                    if isDead==false then
+                        self:shouwei()
+                        else
+                            local action=cc.Sequence:create({cc.DelayTime:create(5),cc.CallFunc:create(function()
+                                    socket:send(1004)
+                            end)})
+                             self:runAction(action)
+                        end
             end
+            
         end)})
         self:runAction(action)
         
@@ -133,8 +150,16 @@ printInfo("天黑拉！！！！")
         self:runAction(action)
 
         if self.Image_self.type == GameScene.YUYANJIA then
+            local isDead = self.Image_self.isdeath
+            if isDead==false then
 
-            self:yanren()
+                self:yanren()
+            else
+                local action=cc.Sequence:create({cc.DelayTime:create(4),cc.CallFunc:create(function()
+                    socket:send(1005)
+                end)})
+                self:runAction(action)
+            end
         end
         
     end);
@@ -164,11 +189,26 @@ printInfo("天黑拉！！！！")
 
      socket:register(1006,function(data)
 
+            
+
+
+        
         audio.playSound("music/langrensharen.mp3",false)
 
         if self.Image_self.type == GameScene.LANGREN then
+            
+            
+            
+                local isDead = self.Image_self.isdeath
+                if isDead==false then
 
-            self:killRen()
+                    self:killRen()
+                else
+                    local action=cc.Sequence:create({cc.DelayTime:create(5),cc.CallFunc:create(function()
+                        socket:send(1007)
+                    end)})
+                    self:runAction(action)
+                end
         end
     end)
 
@@ -204,7 +244,17 @@ printInfo("天黑拉！！！！")
             
             if self.Image_self.type == GameScene.NVWU then
                 -- 先救人,2
-                self:nvwu(2)
+               
+                local isDead = self.Image_self.isdeath
+                if isDead==false then
+                    self:nvwu(2)
+                else
+                    local action=cc.Sequence:create({cc.DelayTime:create(7),cc.CallFunc:create(function()
+                        socket:send(1008)
+                    end)})
+                    self:runAction(action)
+                end
+                
             end
         end
 
@@ -421,7 +471,9 @@ function GameScene:shouwei()
         self.prototedBtn:setVisible(false)
         self.prototedBtn:setTouchEnabled(false)
     end
-    self:setCancelEvent(cancel)
+    
+               self:setCancelEvent(cancel)  
+   
     -- cancel
     self.cancelBtn:setTouchEnabled(true)
     self.cancelBtn:setVisible(true)
