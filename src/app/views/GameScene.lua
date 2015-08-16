@@ -554,8 +554,8 @@ function GameScene:initData(value)
 
     local function getCardInfoFunc(sender, eventType)
         if eventType == ccui.TouchEventType.began then
-            local index=1;
-            local index2=0;
+            local index=1
+            local index2=0
             for key, data in pairs(self.data.roleList) do
                 self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_select"):setVisible(false)
 
@@ -581,8 +581,8 @@ function GameScene:initData(value)
 
 
 
-    local index=1;
-    local index2=0;
+    local index=1
+    local index2=0
     for key, data in pairs(self.data.roleList) do
         if data.id == self.data.id then
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_myself"):setVisible(true)
@@ -640,7 +640,7 @@ function GameScene:initData(value)
     self.Image_self:addTouchEventListener(getSelfCardInfoFunc)
 
 --
---    local index=1;
+--    local index=1
 --    for key, data in pairs(self.data.roleList) do
 --
 --        printInfo("key:::"..key.." "..data.type.."  "..data.id.."   "..data.num)
@@ -779,8 +779,8 @@ end
 
 
 function GameScene:cleanSheriffFlag()
-    local index=1;
-    local index2=0;
+    local index=1
+    local index2=0
     for key, data in pairs(self.data.roleList) do
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_jingzhang"):setVisible(false)
 
@@ -793,8 +793,8 @@ function GameScene:cleanSheriffFlag()
 end
 
 function GameScene:setSheriffById(id)
-    local index=1;
-    local index2=0;
+    local index=1
+    local index2=0
     for key, data in pairs(self.data.roleList) do
         if data.id == id then
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_jingzhang"):setVisible(true)
@@ -810,18 +810,19 @@ function GameScene:setSheriffById(id)
 end
 
 function GameScene:setDeathById(id)
-    local index=1;
-    local index2=0;
+    local index=1
+    local index2=0
+    if id == self.Image_self.id then
+        self.Image_self.isdeath = true
+        -- self:getResourceNode():getChildByName("Panel_black"):setVisible(true)
+    end
     for key, data in pairs(self.data.roleList) do
         if data.id == id then
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_death"):setVisible(true)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):setTouchEnabled(false)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath = true
         end
-         if id == self.Image_self.id then
-             self.Image_self.isdeath = true
-             -- self:getResourceNode():getChildByName("Panel_black"):setVisible(true)
-         end
+
         printInfo("index2:"..index2.."index:"..index)
         index = index + 1
         if index == 5 then
@@ -832,8 +833,8 @@ function GameScene:setDeathById(id)
 end
 
 function GameScene:setBlackById()
-    local index=1;
-    local index2=0;
+    local index=1
+    local index2=0
     for key, data in pairs(self.data.roleList) do
         if data.id ~= self.curKillId then
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_black"):setVisible(true)
@@ -848,8 +849,8 @@ function GameScene:setBlackById()
 end
 
 function GameScene:setBlackById2()
-    local index=1;
-    local index2=0;
+    local index=1
+    local index2=0
     for key, data in pairs(self.data.roleList) do
         if data.id == self.curKillId then
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_black"):setVisible(true)
@@ -864,8 +865,8 @@ function GameScene:setBlackById2()
 end
 
 function GameScene:clearBlack()
-    local index=1;
-    local index2=0;
+    local index=1
+    local index2=0
     for key, data in pairs(self.data.roleList) do
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_black"):setVisible(false)
         printInfo("index2:"..index2.."index:"..index)
@@ -894,8 +895,8 @@ function GameScene:setUnguideById()
 end
 
 function GameScene:clearUnguide()
-    local index=1;
-    local index2=0;
+    local index=1
+    local index2=0
     for key, data in pairs(self.data.roleList) do
         self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_unguide"):setVisible(false)
         printInfo("index2:"..index2.."index:"..index)
@@ -908,8 +909,8 @@ function GameScene:clearUnguide()
 end
 
 function GameScene:setDefaultSelectId()
-    local index=1;
-    local index2=0;
+    local index=1
+    local index2=0
     for key, data in pairs(self.data.roleList) do
         if self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath == false then
             self.selectId_ = self.ListView_user:getItem(index2):getChildByName("Image_card"..index).id
@@ -934,8 +935,8 @@ end
 
 function GameScene:setResultImage()
 
-    local index=1;
-    local index2=0;
+    local index=1
+    local index2=0
     for key, data in pairs(self.data.roleList) do
 
         local path = nil
