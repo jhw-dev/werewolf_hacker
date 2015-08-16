@@ -211,7 +211,7 @@
                     <PreSize X="0.3571" Y="1.2500" />
                     <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_card1_0" ActionTag="36923875" Tag="43" IconVisible="False" LeftMargin="141.9994" RightMargin="308.0006" TopMargin="-24.9990" BottomMargin="-25.0010" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_card2" ActionTag="36923875" Tag="43" IconVisible="False" LeftMargin="141.9994" RightMargin="308.0006" TopMargin="-24.9990" BottomMargin="-25.0010" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
                     <Size X="250.0000" Y="250.0000" />
                     <Children>
                       <AbstractNodeData Name="Image_select" ActionTag="-215570111" Tag="44" VisibleForFrame="False" IconVisible="False" LeftMargin="157.9983" RightMargin="-7.9983" TopMargin="165.0013" BottomMargin="-13.0013" Scale9Width="100" Scale9Height="98" ctype="ImageViewObjectData">
@@ -284,7 +284,7 @@
                     <PreSize X="0.3571" Y="1.2500" />
                     <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_card1_1" ActionTag="1775035633" Tag="50" IconVisible="False" LeftMargin="307.9994" RightMargin="142.0006" TopMargin="-24.9990" BottomMargin="-25.0010" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_card3" ActionTag="1775035633" Tag="50" IconVisible="False" LeftMargin="307.9994" RightMargin="142.0006" TopMargin="-24.9990" BottomMargin="-25.0010" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
                     <Size X="250.0000" Y="250.0000" />
                     <Children>
                       <AbstractNodeData Name="Image_select" ActionTag="-1293698485" Tag="51" VisibleForFrame="False" IconVisible="False" LeftMargin="157.9983" RightMargin="-7.9983" TopMargin="165.0013" BottomMargin="-13.0013" Scale9Width="100" Scale9Height="98" ctype="ImageViewObjectData">
@@ -357,7 +357,7 @@
                     <PreSize X="0.3571" Y="1.2500" />
                     <FileData Type="Normal" Path="ui/card_bg.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="Image_card1_2" ActionTag="1738500157" Tag="57" IconVisible="False" LeftMargin="473.9994" RightMargin="-23.9994" TopMargin="-24.9990" BottomMargin="-25.0010" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_card4" ActionTag="1738500157" Tag="57" IconVisible="False" LeftMargin="473.9994" RightMargin="-23.9994" TopMargin="-24.9990" BottomMargin="-25.0010" TouchEnable="True" Scale9Width="250" Scale9Height="250" ctype="ImageViewObjectData">
                     <Size X="250.0000" Y="250.0000" />
                     <Children>
                       <AbstractNodeData Name="Image_select" ActionTag="1084261339" Tag="58" VisibleForFrame="False" IconVisible="False" LeftMargin="157.9983" RightMargin="-7.9983" TopMargin="165.0013" BottomMargin="-13.0013" Scale9Width="100" Scale9Height="98" ctype="ImageViewObjectData">
