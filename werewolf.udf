@@ -7,5 +7,14 @@
         <LastRunType Value="Mac" />
       </Value>
     </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="MainScene.csd" />
+          <FilePathData Path="GameScene.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="GameScene.csd" />
+      </Value>
+    </Item>
   </Properties>
 </UserData>
