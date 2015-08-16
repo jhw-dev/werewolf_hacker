@@ -19,7 +19,7 @@ GameScene.RESOURCE_BINDING={card_layer={varname="card_layer"},
     -- 选警长
     xuanjinzhangBtn={varname="xuanjinzhangBtn"},
     -- 投票
-    piaoBtn = {varname="piaoBtn"}，
+    piaoBtn = {varname="piaoBtn"},
     -- 取消
     cancelBtn={varname="cancelBtn"}
 }
@@ -38,6 +38,7 @@ GameScene.JIUREN = "JIUREN"
 GameScene.XUANJIN = "XUANJIN"
 GameScene.READY = "READY"
 GameScene.PIAO = "piao"
+GameScene.CANCEL = "cancel"
 
 GameScene.CUNMIN = 1
 GameScene.SHOUWEI = 2
@@ -83,7 +84,7 @@ printInfo("天黑拉！！！！")
         [GameScene.XUANJIN] = self.xuanjinzhangBtn,
         [GameScene.READY] = self.readyBtn,
         [GameScene.PIAO] = self.piaoBtn,
-        [GameScene.cancel] = self.cancelBtn
+        [GameScene.CANCEL] = self.cancelBtn
     }
 
     
