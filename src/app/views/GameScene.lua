@@ -857,6 +857,7 @@ function GameScene:initData(value)
                 -- 女巫毒人
                 self:nvwu(1)
                 nvwu.jieyaonum = false
+                printInfo("self:getSelectId(): %d", self:getSelectId())
                 local data={type=2, id=self:getSelectId()}
                 socket:send(1008,data)
             else
