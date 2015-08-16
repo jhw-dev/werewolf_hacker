@@ -227,7 +227,8 @@ printInfo("天黑拉！！！！")
                         -- 遗言确认
                         -- 弹出死亡蒙板
                         self:getResourceNode():getChildByName("Panel_black"):setVisible(true)
-                        socket:send(1010)
+                        local data = {id = nil}
+                        socket:send(1010, data)
                     end)
 
                 end)})
@@ -252,10 +253,8 @@ printInfo("天黑拉！！！！")
             else
                 if result then -- 选警长
                     self:setDefaultSelectId()
-                    self:showPopu("开始选警长")
                     audio.playSound("music/jinxuanjinzhang.mp3",false)
                     self:xuanJin()
-                    
                 else
                     -- 直接投票
                     self:votePeople()
