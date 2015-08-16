@@ -240,7 +240,7 @@ printInfo("天黑拉！！！！")
             --女巫玩家显示
         --    self:saveDeathPersonDis()
 
-
+        
             -- 禁用按钮
             self.killBtn:setTouchEnabled(false)
             self.killBtn:setVisible(false)
