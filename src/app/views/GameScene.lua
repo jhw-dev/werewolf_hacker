@@ -182,7 +182,7 @@ printInfo("天黑拉！！！！")
 
         result = data.result
         killId = data.deadRole
-        self.nvwuflag = killId
+
         if result == 0 then
             -- 播放狼人请统一意见音效
 
@@ -192,7 +192,7 @@ printInfo("天黑拉！！！！")
         elseif result == 1 then
             --女巫玩家显示
         --    self:saveDeathPersonDis()
-
+            self:setBlackById(killId)
 
             -- 禁用按钮
             self.killBtn:setTouchEnabled(false)
@@ -226,7 +226,7 @@ printInfo("天黑拉！！！！")
                     self.popu:setOnEnsureCallback(function( ... )
                         -- 遗言确认
                         -- 弹出死亡蒙板
-                        
+                        self:getResourceNode():getChildByName("Panel_black"):setVisible(true)
                         socket:send(1010)
                     end)
 
@@ -525,9 +525,11 @@ function GameScene:initData(value)
 
     local pathcard = "ui/card_bg.png"
     self.Image_self = self:getResourceNode():getChildByName("Image_self")
+    self.Image_self:getChildByName("Text_numberself"):setString(self.data.num)
     self.Image_self.id = self.data.id
     self.Image_self.num = self.data.num
     self.Image_self.type = self.data.type
+
     local function getSelfCardInfoFunc(sender, eventType)
         if eventType == ccui.TouchEventType.began then
             local path = nil
@@ -617,6 +619,8 @@ function GameScene:initData(value)
             self:nvwu(1)
             self:biYan(GameScene.NVWU)
 
+            self:clearBlack()
+
             local data={type=2, id=self.selectId_}
             socket:send(1008,data)
         end
@@ -673,6 +677,7 @@ function GameScene:setSheriffById(id)
         if data.id == id then
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_jingzhang"):setVisible(true)
         end
+        printInfo("选警长？？？")
         printInfo("index2:"..index2.."index:"..index)
         index = index + 1
         if index == 5 then
@@ -689,6 +694,26 @@ function GameScene:setDeathById(id)
         if data.id == id then
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_death"):setVisible(true)
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):setTouchEnabled(false)
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath = true
+        end
+        -- if id == self.Image_self.id then
+        --     -- self:getResourceNode():getChildByName("Panel_black"):setVisible(true)
+        -- end
+        printInfo("index2:"..index2.."index:"..index)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
+
+function GameScene:setBlackById(id)
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        if data.id ~= id then
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_black"):setVisible(true)
         end
         printInfo("index2:"..index2.."index:"..index)
         index = index + 1
@@ -699,7 +724,42 @@ function GameScene:setDeathById(id)
     end
 end
 
+function GameScene:clearBlack()
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_black"):setVisible(false)
+        printInfo("index2:"..index2.."index:"..index)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
 
+function GameScene:setDefaultSelectId()
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        if self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath == false then
+            self.selectId = self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num
+        end
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
+
+function GameScene:setSelectId()
+
+end
+
+function GameScene:getSelectId()
+    return self.selectId
+end
 
 --按ID排序
 function GameScene:sortTab(st)
