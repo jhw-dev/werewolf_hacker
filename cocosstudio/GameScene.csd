@@ -233,15 +233,15 @@
                         <PreSize X="0.2000" Y="0.3120" />
                         <FileData Type="Normal" Path="ui/meself.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="Image_jingzhang" ActionTag="-1821142019" Tag="71" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="10.0000" RightMargin="160.0000" TopMargin="-13.0000" BottomMargin="87.0000" Scale9Width="80" Scale9Height="176" ctype="ImageViewObjectData">
-                        <Size X="80.0000" Y="176.0000" />
+                      <AbstractNodeData Name="Image_jingzhang" ActionTag="-1821142019" Tag="71" VisibleForFrame="False" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-25.0000" RightMargin="125.0000" TopMargin="-9.0000" BottomMargin="91.0000" Scale9Width="150" Scale9Height="168" ctype="ImageViewObjectData">
+                        <Size X="150.0000" Y="168.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="50.0000" Y="175.0000" />
                         <Scale ScaleX="0.8000" ScaleY="0.8000" />
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.2000" Y="0.7000" />
-                        <PreSize X="0.3200" Y="0.7040" />
-                        <FileData Type="Normal" Path="ui/jinghui.png" Plist="" />
+                        <PreSize X="0.6000" Y="0.6720" />
+                        <FileData Type="Normal" Path="ui/sheriff.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="Image_death" ActionTag="-856570817" Tag="72" VisibleForFrame="False" IconVisible="False" LeftMargin="55.0281" RightMargin="54.9719" TopMargin="48.6868" BottomMargin="51.3132" TouchEnable="True" Scale9Width="140" Scale9Height="150" ctype="ImageViewObjectData">
                         <Size X="140.0000" Y="150.0000" />
