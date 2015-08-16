@@ -251,7 +251,7 @@ printInfo("天黑拉！！！！")
                 return
             else
                 if result then -- 选警长
-                self:setDefaultSelectId()
+                    self:setDefaultSelectId()
                     self:showPopu("开始选警长")
                     audio.playSound("music/jinxuanjinzhang.mp3",false)
                     self:xuanJin()
@@ -392,6 +392,8 @@ function GameScene:shouwei()
         local socket = self:getApp():getSocket()
         local data={id=nil}
         socket:send(1004,data)
+        self.prototedBtn:setVisible(false)
+        self.prototedBtn:setTouchEnabled(false)
     end
     self:setCancelEvent(cancel)
     -- cancel
@@ -411,6 +413,8 @@ function GameScene:yanren( ... )
         local socket = self:getApp():getSocket()
         local data={id=nil}
         socket:send(1005,data)
+        self.yuyanBtn:setVisible(false)
+        self.yuyanBtn:setTouchEnabled(false)
     end
     self:setCancelEvent(cancel)
     -- cancel
@@ -426,6 +430,8 @@ function GameScene:killRen( ... )
         local socket = self:getApp():getSocket()
         local data={id=nil}
         socket:send(1007,data)
+        self.killBtn:setVisible(false)
+        self.killBtn:setTouchEnabled(false)
     end
     self:setCancelEvent(cancel)
     -- cancel
@@ -444,6 +450,8 @@ function GameScene:nvwu(caozuo)
             local socket = self:getApp():getSocket()
             local data={type=caozuo, id=nil}
             socket:send(1008,data)
+            self.duRenBtn:setVisible(false)
+            self.duRenBtn:setTouchEnabled(false)
         end
         self:setCancelEvent(cancel)
 
@@ -460,6 +468,8 @@ function GameScene:nvwu(caozuo)
             local socket = self:getApp():getSocket()
             local data={type=caozuo, id=nil}
             socket:send(1008,data)
+            self.jiuRenBtn:setVisible(false)
+            self.jiuRenBtn:setTouchEnabled(false)
         end
         self:setCancelEvent(cancel)
         -- cancel
@@ -476,6 +486,8 @@ function GameScene:xuanJin( ... )
         local socket = self:getApp():getSocket()
         local data={id=nil}
         socket:send(1012,data)
+        self.xuanjinzhangBtn:setVisible(false)
+        self.xuanjinzhangBtn:setTouchEnabled(false)
     end
         self:setCancelEvent(cancel)
     -- cancel
@@ -492,6 +504,8 @@ function GameScene:votePeople( ... )
         local socket = self:getApp():getSocket()
         local data={id=nil}
         socket:send(1013,data)
+        self.piaoBtn:setVisible(false)
+        self.piaoBtn:setTouchEnabled(false)
     end
     self:setCancelEvent(cancel)
     -- cancel
