@@ -217,6 +217,10 @@ printInfo("天黑拉！！！！")
         audio.playSound("music/tianliang.mp3",false)
 
         self.deadList = data.roles
+        if #data.roles ==0 then
+            printInfo("平安夜")
+            return
+        end
         for k, v in pairs(data.roles) do
                 if v.id == self.Image_self.id then
                
