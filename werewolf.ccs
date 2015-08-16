@@ -75,6 +75,7 @@
           <Image Name="yuyan.png" />
           <Image Name="meself.png" />
           <Image Name="death.png" />
+          <Image Name="black.png" />
         </Folder>
       </RootFolder>
     </Group>
