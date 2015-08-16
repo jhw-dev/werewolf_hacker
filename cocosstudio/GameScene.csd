@@ -121,7 +121,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="ListView_user" ActionTag="244171234" Tag="15" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="29.2750" RightMargin="20.7250" TopMargin="323.7956" BottomMargin="510.2044" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
+          <AbstractNodeData Name="ListView_user" ActionTag="244171234" Tag="15" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="29.2750" RightMargin="20.7250" TopMargin="323.7956" BottomMargin="510.2044" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="484" Scale9Height="387" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
             <Size X="700.0000" Y="500.0000" />
             <Children>
               <AbstractNodeData Name="Panel_item0" ActionTag="-2003587381" Tag="64" IconVisible="False" BottomMargin="300.0000" TouchEnable="True" BackColorAlpha="98" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
@@ -560,17 +560,6 @@
             <NormalFileData Type="Normal" Path="ui/btn_bg.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="top_1" ActionTag="606637809" Tag="51" IconVisible="False" LeftMargin="159.0013" RightMargin="154.9987" TopMargin="53.7485" BottomMargin="1126.2515" ctype="SpriteObjectData">
-            <Size X="436.0000" Y="154.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="377.0013" Y="1203.2515" />
-            <Scale ScaleX="1.7156" ScaleY="1.7468" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5027" Y="0.9020" />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="ui/top.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>
