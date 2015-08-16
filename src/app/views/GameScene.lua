@@ -168,6 +168,8 @@ printInfo("天黑拉！！！！")
     socket:register(1005,function(data)
          --预言家预言结果
         printInfo("预言家")
+        -- 预言家闭眼音乐播放
+       self:biYan(GameScene.YUYANJIA)
         if self.Image_self.type == GameScene.YUYANJIA then
             local iden = self:getRoleByType(data.type)
             self:showPopu("被验人的身份是"..iden)
@@ -175,8 +177,7 @@ printInfo("天黑拉！！！！")
             self.popu:setOnEnsureCallback(function( ... )
             
                 
-                -- 预言家闭眼音乐播放
-               self:biYan(GameScene.YUYANJIA)
+                
                     local action=cc.Sequence:create({cc.DelayTime:create(4),cc.CallFunc:create(function()
                         socket:send(1006)
                     end)})
