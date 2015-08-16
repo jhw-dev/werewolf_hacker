@@ -138,7 +138,7 @@ printInfo("天黑拉！！！！")
         local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
             audio.playSound("music/yuyanzhenyan.mp3",false)
         end)})
-        
+        self:runAction(action)
 
         if self.Image_self.type == GameScene.YUYANJIA then
             self:yanren()
@@ -202,6 +202,7 @@ printInfo("天黑拉！！！！")
             local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
                 audio.playSound("music/nvwuzhenyan.mp3",false)
             end)})
+            self:runAction(action)
             
             if self.Image_self.type == GameScene.NVWU then
                 -- 先救人,2
@@ -213,31 +214,52 @@ printInfo("天黑拉！！！！")
     
     socket:register(1009,function(data)
         printInfo("死亡人数列表")
+        audio.playSound("music/tianliang.mp3",false)
+
         self.deadList = data.roles
-        for k, v in pairs(data.roles) do 
+        for k, v in pairs(data.roles) do
+            if v.id == self.Image_self.id then
+                -- 播放遗言
+                self:showPopu("你死了，请说遗言")
+                local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
+                    audio.playSound("music/yiyan.mp3",false)
+                    self.popu:setOnEnsureCallback(function( ... )
+                        -- 遗言确认
+                        -- 弹出死亡蒙板
+                        
+                        socket:send(1010)
+                    end)
+
+                end)})
+
+
+                self:runAction(action)
+            end
             self:setDeathById(v.id)
         end
-        -- self:showPopu(data.id.."死了，天亮了")
-        self:biYan(GameScene.NVWU)
-        
 
-        local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
-           audio.playSound("music/jinxuanjinzhang.mp3",false)
-        end)})
+        
         
     end)
     
     socket:register(1011,function(data)
-        self:showPopu("开始选警长")
-        printInfo("广播选警长")
+        -- 广播
+        local result = data.result
         -- 遍历死亡列表
         for _, deadRole in pairs(self.deadList) do
             if self.Image_self.id == deadRole.id then
                 return
             else
-                self:xuanJin()
-                self:cleanSheriffFlag()
-                self:setSheriffById(data.id)
+                if result then -- 选警长
+                    self:showPopu("开始选警长")
+                    audio.playSound("music/jinxuanjinzhang.mp3",false)
+                    self:xuanJin()
+                    self:cleanSheriffFlag()
+                    self:setSheriffById(data.id)
+                else
+                    -- 直接投票
+                    self:votePeople()
+                end
             end
         end
        
@@ -572,6 +594,8 @@ function GameScene:initData(value)
     -- 预言家验人
     self.yuyanBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
+            self.yuyanBtn:setVisible(false)
+            self.yuyanBtn:setTouchEnabled(false)
             local data={id=self.selectId_}
             socket:send(1005,data)
         end
@@ -591,6 +615,7 @@ function GameScene:initData(value)
         if type==TOUCH_EVENT_ENDED then
             -- 女巫毒人
             self:nvwu(1)
+            self:biYan(GameScene.NVWU)
 
             local data={type=2, id=self.selectId_}
             socket:send(1008,data)
