@@ -246,7 +246,7 @@ printInfo("天黑拉！！！！")
             self.killBtn:setVisible(false)
 
             self:biYan(GameScene.LANGREN)
-            local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
+            local action=cc.Sequence:create({cc.DelayTime:create(3),cc.CallFunc:create(function()
                 audio.playSound("music/nvwuzhenyan.mp3",false)
             end)})
             self:runAction(action)
