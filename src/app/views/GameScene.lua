@@ -49,7 +49,7 @@ GameScene.LANGREN = 5
 function GameScene:onCreate()
 printInfo("INFOMES CHARLES!!")
 printInfo("天黑拉！！！！")
-    audio.playSound("music/juhuiwantips.mp3",false)
+
     
     self.user_list={
         --testInfo
@@ -157,9 +157,17 @@ printInfo("天黑拉！！！！")
 
                 self:yanren()
             else
+                local gamescne = self
                 local action=cc.Sequence:create({cc.DelayTime:create(4),cc.CallFunc:create(function()
-                    socket:send(1005)
+                    gamescne:biYan(GameScene.YUYANJIA)
+                        
+                        local action=cc.Sequence:create({cc.DelayTime:create(4),cc.CallFunc:create(function()
+
+                                socket:send(1005)
+                        end)})
+                    gamescne:runAction(action)
                 end)})
+                
                 self:runAction(action)
             end
         end
