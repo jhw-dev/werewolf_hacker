@@ -78,6 +78,7 @@
           <Image Name="black.png" />
           <Image Name="btn_bg.png" />
           <Image Name="top.png" />
+          <Image Name="card_zzbg.png" />
         </Folder>
       </RootFolder>
     </Group>
