@@ -11,6 +11,13 @@ function MainScene:onCreate()
     -- audio.playMusic("music/bg1.mp3",true)
     
     local socket = self.app_:getSocket()
+    socket:register(1016,function(data)
+        local pop=PopLayer:create()
+        pop:getTipsTxt():setString("有玩家掉线!")
+        cc.Director:getInstance():getRunningScene():addChild(pop)
+        pop:setVisiableBtn(false)
+
+    end)
     socket:register(1002,function(data)
         -- 这里返回的是登录后的数据
         local node = self.app_:createView("GameScene")
@@ -35,7 +42,8 @@ function MainScene:onCreate()
 -- socket:recive(str)
         end
     end)
-
+    
+    
 
    
         
