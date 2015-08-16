@@ -1,5 +1,6 @@
 
 local MainScene = class("MainScene", cc.load("mvc").ViewBase)
+local PopLayer = import(".Popu")
 
 MainScene.RESOURCE_FILENAME = "MainScene.csb"
 MainScene.RESOURCE_BINDING={startBtn={varname="startBtn"}}
@@ -34,12 +35,6 @@ function MainScene:onCreate()
     end)
 
 
-
-    local action=cc.Sequence:create({cc.DelayTime:create(0.5),cc.CallFunc:create(function()
-    printInfo(".DS_Store")
-end)})
-    self:runAction(action)
-   
    
         
         
