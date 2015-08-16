@@ -155,11 +155,12 @@ printInfo("天黑拉！！！！")
             self:showPopu("被验人的身份是"..iden)
 
             self.popu:setOnEnsureCallback(function( ... )
-               socket:send(1006)
-               -- 预言家闭眼
-               self:biYan(GameScene.YUYANJIA)
-               -- 关闭弹框
+
                self:closePopu()
+                -- 预言家闭眼
+               self:biYan(GameScene.YUYANJIA)
+                -- 关闭弹框
+               socket:send(1006)
             end)
         end
             
