@@ -259,11 +259,11 @@ printInfo("天黑拉！！！！")
         local result = data.result
         if  self.Image_self.isdeath==false then 
         -- 选警长
-                if  result then
-                    self:resetSelectId()
-                    self:showPopu("开始选警长")
-                    audio.playSound("music/jinxuanjinzhang.mp3",false)
-                    self:xuanJin()
+            if  result then
+                self:resetSelectId()
+                self:showPopu("开始选警长")
+                audio.playSound("music/jinxuanjinzhang.mp3",false)
+                self:xuanJin()
 
             else
                 -- 直接投票
