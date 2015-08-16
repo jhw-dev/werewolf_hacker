@@ -94,7 +94,7 @@ printInfo("天黑拉！！！！")
         -- printInfo("天黑拉！！！！")
         -- self:showPopu("天黑拉！！！！")
         self.msg:setString("天黑拉~~")
-        self:showPopu("天黑拉~~")
+      --  self:showPopu("天黑拉~~")
 
         self:tianHei()
 
@@ -115,7 +115,7 @@ printInfo("天黑拉！！！！")
         printInfo("守卫守着的人")
         self.msg:setString("守卫已经守人了~~")
 
-        self:showPopu("守卫已经守人了~~,守的人的id"..data.id)
+       -- self:showPopu("守卫已经守人了~~,守的人的id"..data.id)
         self.curUnguideId = data.id
         self:clearUnguide()
         self:biYan(GameScene.SHOUWEI)
@@ -252,7 +252,7 @@ printInfo("天黑拉！！！！")
        
     end)
     socket:register(1012,function(data)
-        self:showPopu("选警长结果："..data.roleID)
+     --   self:showPopu("选警长结果："..data.roleID)
         printInfo("选警长的结果")
 
         self:votePeople()
@@ -279,7 +279,7 @@ printInfo("天黑拉！！！！")
     end)
     socket:register(1015,function(data)
         printInfo("移交警长的结果")
-        self:showPopu("移交给警长："..data.id)
+     --   self:showPopu("移交给警长："..data.id)
     end)
 
     audio.playSound("music/ready.mp3",false)
@@ -557,7 +557,7 @@ function GameScene:initData(value)
 --        index=index+1
 --    end
     self.msg:setString("请准备~~")
-    self:showPopu("请准备~~")
+   -- self:showPopu("请准备~~")
     self:ready()
     local socket = self:getApp():getSocket()
     --准备游戏请求
