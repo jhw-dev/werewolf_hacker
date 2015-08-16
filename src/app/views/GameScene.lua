@@ -159,16 +159,31 @@ printInfo("天黑拉！！！！")
     
     socket:register(1007,function(data)
         printInfo("狼人杀人结果")
+        local result = 0
+        local killId
 
-        self:biYan(GameScene.LANGREN)
+        result = data.result
+        killId = data.deadRole
+        if result == 0 then
+            -- 播放狼人请统一意见音效
 
-        local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
-            audio.playSound("music/nvwuzhenyan.mp3",false)
-        end)})
-        
-        if self.Image_self.type == GameScene.NVWU then
-            -- 先救人,2
-            self:nvwu(2)
+            -- 显示狼人杀人角色
+            self:setDeathById(killId)
+
+        elseif result == 1 then
+            -- 禁用按钮
+            self.killBtn:setTouchEnabled(false)
+            self.killBtn:setVisible(false)
+
+            self:biYan(GameScene.LANGREN)
+            local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
+                audio.playSound("music/nvwuzhenyan.mp3",false)
+            end)})
+            
+            if self.Image_self.type == GameScene.NVWU then
+                -- 先救人,2
+                self:nvwu(2)
+            end
         end
 
     end)
@@ -535,8 +550,6 @@ function GameScene:initData(value)
     -- 预言家验人
     self.yuyanBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-            self.yuyanBtn:setTouchEnabled(false)
-            self.yuyanBtn:setVisible(false)
             local data={id=self.selectId_}
             socket:send(1005,data)
         end
