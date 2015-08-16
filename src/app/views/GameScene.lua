@@ -99,7 +99,7 @@ printInfo("天黑拉！！！！")
     socket:register(1003,function(data)
         --这里是开始播放天黑的场景拉
         -- printInfo("天黑拉！！！！")
-        self.msg:setString("天黑拉~~")
+        
 
 
         self:tianHei()
@@ -120,7 +120,6 @@ printInfo("天黑拉！！！！")
     socket:register(1004,function(data)
         --这里是开始播放守卫下一步的语音
         printInfo("守卫守着的人")
-        self.msg:setString("守卫已经守人了~~")
 
 
        -- self:showPopu("守卫已经守人了~~,守的人的id"..data.id)
@@ -683,7 +682,7 @@ function GameScene:initData(value)
 --        self.card_layer:addChild(card)
 --        index=index+1
 --    end
-    self.msg:setString("请准备~~")
+  
 
     self:ready()
     local socket = self:getApp():getSocket()
