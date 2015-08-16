@@ -413,7 +413,7 @@ end
 
 function GameScene:initData(value)
     self.data = value
-    self.selectId_ = 1001
+    self:setDefaultSelectId()
     self.curUnguideId = nil
    
 
@@ -453,7 +453,7 @@ function GameScene:initData(value)
         end
     end
 
-    self.ListView_user:getItem(0):getChildByName("Image_card1"):getChildByName("Image_select"):setVisible(true)
+
 
     local function getCardInfoFunc(sender, eventType)
         if eventType == ccui.TouchEventType.began then
@@ -471,7 +471,7 @@ function GameScene:initData(value)
             sender:getChildByName("Image_select"):setVisible(true)
         elseif eventType == ccui.TouchEventType.ended then
             printInfo("ID::"..sender.id)
-            self.selectId_ = sender.id
+            self:setSelectId(sender.id)
             printInfo("NUMBER::"..sender.num)
             self.selectNum_ = sender.num
             printInfo("TYPE::"..sender.type)
@@ -576,10 +576,9 @@ function GameScene:initData(value)
             self.prototedBtn:setTouchEnabled(false)
             self.prototedBtn:setVisible(false)
             if self.curUnguideId ~= nil then
-
                 self:setUnguideById()
             end
-            local data={id=self.selectId_}
+            local data={id=self:getSelectId()}
             socket:send(1004,data)
         end
      end)
@@ -589,7 +588,8 @@ function GameScene:initData(value)
         if type==TOUCH_EVENT_ENDED then
             self.yuyanBtn:setVisible(false)
             self.yuyanBtn:setTouchEnabled(false)
-            local data={id=self.selectId_}
+            self:setDefaultSelectId()
+            local data={id=self:getSelectId()}
             socket:send(1005,data)
         end
      end)
@@ -598,8 +598,9 @@ function GameScene:initData(value)
         if type==TOUCH_EVENT_ENDED then
             self.killBtn:setTouchEnabled(false)
             self.killBtn:setVisible(false)
-            local data={id=self.selectId_}
-            self.killedId_  = self.selectId_
+            self:setDefaultSelectId()
+            local data={id=self:getSelectId()}
+            self.killedId_  = self:getSelectId()
             socket:send(1007,data)
         end
      end)
@@ -612,7 +613,8 @@ function GameScene:initData(value)
 
             self:clearBlack()
             self:setBlackById2()
-            local data={type=2, id=self.selectId_}
+            self:setDefaultSelectId()
+            local data={type=2, id=self:getSelectId()}
             socket:send(1008,data)
         end
      end)
@@ -622,7 +624,8 @@ function GameScene:initData(value)
             self.duRenBtn:setTouchEnabled(false)
             self.duRenBtn:setVisible(false)
             self:clearBlack()
-            local data={type=1, id=self.selectId_}
+            self:setDefaultSelectId()
+            local data={type=1, id=self:getSelectId()}
             socket:send(1008,data)
         end
      end)
@@ -632,7 +635,8 @@ function GameScene:initData(value)
         if type==TOUCH_EVENT_ENDED then
             self.xuanjinzhangBtn:setTouchEnabled(false)
             self.xuanjinzhangBtn:setVisible(false)
-            local data={id=self.selectId_}
+            self:setDefaultSelectId()
+            local data={id=self:getSelectId()}
             socket:send(1012,data)
         end
      end)
@@ -641,7 +645,8 @@ function GameScene:initData(value)
         if type==TOUCH_EVENT_ENDED then
             self.piaoBtn:setTouchEnabled(false)
             self.piaoBtn:setVisible(false)
-            local data={id=self.selectId_}
+            self:setDefaultSelectId()
+            local data={id=self:getSelectId()}
             socket:send(1013,data)
         end
      end)
@@ -781,7 +786,8 @@ function GameScene:setDefaultSelectId()
     local index2=0;
     for key, data in pairs(self.data.roleList) do
         if self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath == false then
-            self.selectId = self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num
+            self.selectId_ = self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_select"):setVisible(true)
         end
         index = index + 1
         if index == 5 then
@@ -791,12 +797,12 @@ function GameScene:setDefaultSelectId()
     end
 end
 
-function GameScene:setSelectId()
-
+function GameScene:setSelectId(id)
+    self.selectId_ = id
 end
 
 function GameScene:getSelectId()
-    return self.selectId
+    return self.selectId_
 end
 
 --按ID排序
