@@ -239,7 +239,7 @@ printInfo("天黑拉！！！！")
         elseif result == 1 then
             --女巫玩家显示
         --    self:saveDeathPersonDis()
-            self:setDeathById(killId)
+--            self:setDeathById(killId)
 
             -- 禁用按钮
             self.killBtn:setTouchEnabled(false)
@@ -274,9 +274,7 @@ printInfo("天黑拉！！！！")
         printInfo("死亡人数列表")
         audio.playSound("music/tianliang.mp3",false)
         
-         if self.Image_self.isdeath then
-            return
-         end
+        
         
         if #data.roles == 0 then
             printInfo("平安夜")
@@ -284,6 +282,7 @@ printInfo("天黑拉！！！！")
             return
         end
         for k, v in pairs(data.roles) do
+        
                 if v.id == self.Image_self.id then
                
               
