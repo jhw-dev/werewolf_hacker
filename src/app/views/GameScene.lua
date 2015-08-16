@@ -191,11 +191,6 @@ printInfo("天黑拉！！！！")
     end)
 
      socket:register(1006,function(data)
-
-            
-
-
-        
         audio.playSound("music/langrensharen.mp3",false)
 
         if self.Image_self.type == GameScene.LANGREN then
