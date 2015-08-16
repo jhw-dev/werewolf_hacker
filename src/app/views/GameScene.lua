@@ -49,6 +49,8 @@ GameScene.LANGREN = 5
 function GameScene:onCreate()
 printInfo("INFOMES CHARLES!!")
 printInfo("天黑拉！！！！")
+    audio.playSound("music/juhuiwantips.mp3",false)
+    
     self.user_list={
         --testInfo
         userNumber = 8, userInfo = {
