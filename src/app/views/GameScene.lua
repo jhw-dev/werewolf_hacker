@@ -157,9 +157,17 @@ printInfo("天黑拉！！！！")
 
                 self:yanren()
             else
+                local gamescne = self
                 local action=cc.Sequence:create({cc.DelayTime:create(4),cc.CallFunc:create(function()
-                    socket:send(1005)
+                    gamescne:biYan(GameScene.YUYANJIA)
+                        
+                        local action=cc.Sequence:create({cc.DelayTime:create(4),cc.CallFunc:create(function()
+
+                                socket:send(1005)
+                        end)})
+                    gamescne:runAction(action)
                 end)})
+                
                 self:runAction(action)
             end
         end
@@ -191,10 +199,10 @@ printInfo("天黑拉！！！！")
     end)
 
      socket:register(1006,function(data)
-
+        
             
-
-
+        
+        
         
         audio.playSound("music/langrensharen.mp3",false)
 
