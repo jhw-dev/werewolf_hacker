@@ -23,7 +23,10 @@ GameScene.RESOURCE_BINDING={card_layer={varname="card_layer"},
 }
 
 
-
+local nvwu = {
+    duyaonum = true,
+    jieyaonum = true,
+}
 
 GameScene.PROTECTED = "PROTECTED"
 GameScene.YUYAN = "YUYAN"
@@ -391,11 +394,11 @@ end
 function GameScene:nvwu(caozuo)
     self:hideBtns()
 
-    if caozuo == 1 then
+    if caozuo == 1 and nvwu.duyaonum == true then
         self.duRenBtn:setTouchEnabled(true)
         self.duRenBtn:setVisible(true)
 
-    elseif caozuo == 2 then
+    elseif caozuo == 2 and nvwu.jieyaonum == true then
         self.jiuRenBtn:setVisible(true)
         self.jiuRenBtn:setTouchEnabled(true)
     end
@@ -614,6 +617,7 @@ function GameScene:initData(value)
             self:clearBlack()
             self:setBlackById2()
             self:setDefaultSelectId()
+            nvwu.jieyaonum = false
             local data={type=2, id=self:getSelectId()}
             socket:send(1008,data)
         end
@@ -625,6 +629,8 @@ function GameScene:initData(value)
             self.duRenBtn:setVisible(false)
             self:clearBlack()
             self:setDefaultSelectId()
+
+            nvwu.duyaonum = false
             local data={type=1, id=self:getSelectId()}
             socket:send(1008,data)
         end
