@@ -222,14 +222,19 @@ printInfo("天黑拉！！！！")
                
                 -- 播放遗言
                 self:showPopu("你死了，请说遗言")
+                
+                
+                local pop = self.popu
+                local resNode = self:getResourceNode()
                 local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
                     audio.playSound("music/yiyan.mp3",false)
-                    self.popu:setOnEnsureCallback(function( ... )
+                        pop:setOnEnsureCallback(function( ... )
                         -- 遗言确认
                         -- 弹出死亡蒙板
-                        self:getResourceNode():getChildByName("Panel_black"):setVisible(true)
-                        local data = {id = nil}
-                        socket:send(1010, data)
+
+                        resNode:getChildByName("Panel_black"):setVisible(true)
+                        socket:send(1010)
+
                     end)
 
                 end)})
