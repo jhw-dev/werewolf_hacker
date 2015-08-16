@@ -25,22 +25,9 @@ GameScene.RESOURCE_BINDING={card_layer={varname="card_layer"},
 }
 
 
-local userState = {
-    werewolf = {
-        death = 0,
-        alive = 1,
-        wait = 2,
-    },
-    guard = {
-        unguard = 0,
-        guarded = 1,
-        wait = 2
-    },
-    witch = {
-        poison = 1,
-        antidote = 2,
-        nothing = 0,
-    },
+local nvwu = {
+    duyaonum = true,
+    jieyaonum = true,
 }
 
 GameScene.PROTECTED = "PROTECTED"
@@ -113,6 +100,7 @@ printInfo("天黑拉！！！！")
         -- printInfo("天黑拉！！！！")
         self.msg:setString("天黑拉~~")
 
+
         self:tianHei()
 
         local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
@@ -131,6 +119,11 @@ printInfo("天黑拉！！！！")
         --这里是开始播放守卫下一步的语音
         printInfo("守卫守着的人")
         self.msg:setString("守卫已经守人了~~")
+
+
+       -- self:showPopu("守卫已经守人了~~,守的人的id"..data.id)
+        self.curUnguideId = data.id
+        self:clearUnguide()
         self:biYan(GameScene.SHOUWEI)
 
         local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
@@ -153,11 +146,12 @@ printInfo("天黑拉！！！！")
             self:showPopu("被验人的身份是"..iden)
 
             self.popu:setOnEnsureCallback(function( ... )
-               socket:send(1006)
-               -- 预言家闭眼
-               self:biYan(GameScene.YUYANJIA)
-               -- 关闭弹框
+
                self:closePopu()
+                -- 预言家闭眼
+               self:biYan(GameScene.YUYANJIA)
+                -- 关闭弹框
+               socket:send(1006)
             end)
         end
             
@@ -177,7 +171,7 @@ printInfo("天黑拉！！！！")
         printInfo("狼人杀人结果")
         local result = 0
         local killId
-
+        self.curKillId = killId
         result = data.result
         killId = data.deadRole
 
@@ -190,7 +184,7 @@ printInfo("天黑拉！！！！")
         elseif result == 1 then
             --女巫玩家显示
         --    self:saveDeathPersonDis()
-            self:setBlackById(killId)
+
 
             -- 禁用按钮
             self.killBtn:setTouchEnabled(false)
@@ -204,6 +198,7 @@ printInfo("天黑拉！！！！")
             
             if self.Image_self.type == GameScene.NVWU then
                 -- 先救人,2
+                self:setBlackById()
                 self:nvwu(2)
             end
         end
@@ -262,7 +257,7 @@ printInfo("天黑拉！！！！")
        
     end)
     socket:register(1012,function(data)
-        self:showPopu("选警长结果："..data.roleID)
+     --   self:showPopu("选警长结果："..data.roleID)
         printInfo("选警长的结果")
         self:cleanSheriffFlag()
         self:setSheriffById(data.roleID)
@@ -290,7 +285,7 @@ printInfo("天黑拉！！！！")
     end)
     socket:register(1015,function(data)
         printInfo("移交警长的结果")
-        self:showPopu("移交给警长："..data.id)
+     --   self:showPopu("移交给警长："..data.id)
     end)
 
     audio.playSound("music/ready.mp3",false)
@@ -433,10 +428,9 @@ end
 function GameScene:nvwu(caozuo)
     self:hideBtns()
 
-    if caozuo == 1 then
+    if caozuo == 1 and nvwu.duyaonum == true then
         self.duRenBtn:setTouchEnabled(true)
         self.duRenBtn:setVisible(true)
-
         local function cancel( ... )
             local socket = self:getApp():getSocket()
             local data={type=caozuo, id=nil}
@@ -448,7 +442,8 @@ function GameScene:nvwu(caozuo)
         self.cancelBtn:setTouchEnabled(true)
         self.cancelBtn:setVisible(true)
 
-    elseif caozuo == 2 then
+
+    elseif caozuo == 2 and nvwu.jieyaonum == true then
         self.jiuRenBtn:setVisible(true)
         self.jiuRenBtn:setTouchEnabled(true)
 
@@ -504,8 +499,8 @@ end
 
 function GameScene:initData(value)
     self.data = value
-    self.selectId_ = 1001
-
+    self:setDefaultSelectId()
+    self.curUnguideId = nil
    
 
     printInfo("number ::"..#self.data.roleList)
@@ -544,7 +539,7 @@ function GameScene:initData(value)
         end
     end
 
-    self.ListView_user:getItem(0):getChildByName("Image_card1"):getChildByName("Image_select"):setVisible(true)
+
 
     local function getCardInfoFunc(sender, eventType)
         if eventType == ccui.TouchEventType.began then
@@ -562,7 +557,7 @@ function GameScene:initData(value)
             sender:getChildByName("Image_select"):setVisible(true)
         elseif eventType == ccui.TouchEventType.ended then
             printInfo("ID::"..sender.id)
-            self.selectId_ = sender.id
+            self:setSelectId(sender.id)
             printInfo("NUMBER::"..sender.num)
             self.selectNum_ = sender.num
             printInfo("TYPE::"..sender.type)
@@ -648,6 +643,7 @@ function GameScene:initData(value)
 --        index=index+1
 --    end
     self.msg:setString("请准备~~")
+
     self:ready()
     local socket = self:getApp():getSocket()
     --准备游戏请求
@@ -665,10 +661,14 @@ function GameScene:initData(value)
         if type==TOUCH_EVENT_ENDED then
             self.prototedBtn:setTouchEnabled(false)
             self.prototedBtn:setVisible(false)
+
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
 
-            local data={id=self.selectId_}
+            if self.curUnguideId ~= nil then
+                self:setUnguideById()
+            end
+            local data={id=self:getSelectId()}
             socket:send(1004,data)
         end
      end)
@@ -680,7 +680,9 @@ function GameScene:initData(value)
             self.yuyanBtn:setTouchEnabled(false)
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-            local data={id=self.selectId_}
+
+            self:setDefaultSelectId()
+            local data={id=self:getSelectId()}
             socket:send(1005,data)
         end
      end)
@@ -691,8 +693,8 @@ function GameScene:initData(value)
             self.killBtn:setVisible(false)
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-            local data={id=self.selectId_}
-            self.killedId_  = self.selectId_
+            local data={id=self:getSelectId()}
+            self.killedId_  = self:getSelectId()
             socket:send(1007,data)
         end
      end)
@@ -707,8 +709,10 @@ function GameScene:initData(value)
             self:biYan(GameScene.NVWU)
 
             self:clearBlack()
-
-            local data={type=2, id=self.selectId_}
+            self:setBlackById2()
+            self:setDefaultSelectId()
+            nvwu.jieyaonum = false
+            local data={type=2, id=self:getSelectId()}
             socket:send(1008,data)
         end
      end)
@@ -720,7 +724,12 @@ function GameScene:initData(value)
             -- cancel
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-            local data={type=1, id=self.selectId_}
+
+            self:clearBlack()
+            self:setDefaultSelectId()
+
+            nvwu.duyaonum = false
+            local data={type=1, id=self:getSelectId()}
             socket:send(1008,data)
         end
      end)
@@ -732,7 +741,10 @@ function GameScene:initData(value)
             self.xuanjinzhangBtn:setVisible(false)
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-            local data={id=self.selectId_}
+
+            self:setDefaultSelectId()
+            local data={id=self:getSelectId()}
+
             socket:send(1012,data)
         end
      end)
@@ -743,7 +755,9 @@ function GameScene:initData(value)
             self.piaoBtn:setVisible(false)
             self.cancelBtn:setTouchEnabled(false)
             self.cancelBtn:setVisible(false)
-            local data={id=self.selectId_}
+
+            self:setDefaultSelectId()
+            local data={id=self:getSelectId()}
             socket:send(1013,data)
         end
      end)
@@ -811,11 +825,27 @@ function GameScene:setDeathById(id)
     end
 end
 
-function GameScene:setBlackById(id)
+function GameScene:setBlackById()
     local index=1;
     local index2=0;
     for key, data in pairs(self.data.roleList) do
-        if data.id ~= id then
+        if data.id ~= self.curKillId then
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_black"):setVisible(true)
+        end
+        printInfo("index2:"..index2.."index:"..index)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
+
+function GameScene:setBlackById2()
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        if data.id == self.curKillId then
             self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_black"):setVisible(true)
         end
         printInfo("index2:"..index2.."index:"..index)
@@ -841,12 +871,43 @@ function GameScene:clearBlack()
     end
 end
 
+function GameScene:setUnguideById()
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        if data.id == self.curUnguideId then
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_unguide"):setVisible(true)
+        end
+        printInfo("index2:"..index2.."index:"..index)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
+
+function GameScene:clearUnguide()
+    local index=1;
+    local index2=0;
+    for key, data in pairs(self.data.roleList) do
+        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_unguide"):setVisible(false)
+        printInfo("index2:"..index2.."index:"..index)
+        index = index + 1
+        if index == 5 then
+            index = 1
+            index2 = index2 + 1
+        end
+    end
+end
+
 function GameScene:setDefaultSelectId()
     local index=1;
     local index2=0;
     for key, data in pairs(self.data.roleList) do
         if self.ListView_user:getItem(index2):getChildByName("Image_card"..index).isdeath == false then
-            self.selectId = self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num
+            self.selectId_ = self.ListView_user:getItem(index2):getChildByName("Image_card"..index).num
+            self.ListView_user:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_select"):setVisible(true)
         end
         index = index + 1
         if index == 5 then
@@ -856,12 +917,12 @@ function GameScene:setDefaultSelectId()
     end
 end
 
-function GameScene:setSelectId()
-
+function GameScene:setSelectId(id)
+    self.selectId_ = id
 end
 
 function GameScene:getSelectId()
-    return self.selectId
+    return self.selectId_
 end
 
 --按ID排序
