@@ -510,7 +510,7 @@ function GameScene:initData(value)
 
     --listview设置
     self.ListView_user = self:getResourceNode():getChildByName("ListView_user")
-    self:setDefaultSelectId()
+    
     local defaultItem = self.ListView_user:getItem(0)
     self.ListView_user:setItemModel(defaultItem)
     self.ListView_user:removeAllItems()
@@ -594,7 +594,7 @@ function GameScene:initData(value)
             index2 = index2 + 1
         end
     end
-
+    self:setDefaultSelectId()
 
 
 
