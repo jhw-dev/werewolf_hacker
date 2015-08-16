@@ -251,7 +251,8 @@ printInfo("天黑拉！！！！")
         
         -- 广播
         local result = data.result
-        if  self.Image_self.isdeath==false then -- 选警长
+        if  self.Image_self.isdeath==false then 
+        -- 选警长
                 if  result then
                     self:setDefaultSelectId()
                     self:showPopu("开始选警长")
