@@ -231,6 +231,9 @@ printInfo("天黑拉！！！！")
 
         result = data.result
         killId = data.deadRole
+        if result then
+            audio.playSound("music/killroles.mp3",false)
+        end
         self.curKillId = killId
         if result == 0 then
             -- 播放狼人请统一意见音效
@@ -837,6 +840,7 @@ function GameScene:initData(value)
                 self.cancelBtn:setVisible(false)
                 local data={id=self:getSelectId()}
                 self.killedId_  = self:getSelectId()
+                
                 socket:send(1007,data)
             else
                 self:showPopu("请选择一个玩家")
