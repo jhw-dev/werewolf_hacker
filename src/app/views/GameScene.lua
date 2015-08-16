@@ -178,10 +178,10 @@ printInfo("天黑拉！！！！")
         printInfo("狼人杀人结果")
         local result = 0
         local killId
-        self.curKillId = killId
+
         result = data.result
         killId = data.deadRole
-
+        self.curKillId = killId
         if result == 0 then
             -- 播放狼人请统一意见音效
 
