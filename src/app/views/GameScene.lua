@@ -368,6 +368,8 @@ printInfo("天黑拉！！！！")
     end)
     socket:register(1014,function(data)
         printInfo("结算数据")
+        nvwu.jieyaonum = true
+        nvwu.duyaonum = true
 
         local node = self.app_:createView("GameOverScene")
         node:setValue(data.result)
@@ -873,7 +875,6 @@ function GameScene:initData(value)
     -- 女巫毒人
     self.duRenBtn:addTouchEventListener(function(sender,type)
         if type==TOUCH_EVENT_ENDED then
-
 
 
             if self:isSelectIdNil() then
