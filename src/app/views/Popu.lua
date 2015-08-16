@@ -44,4 +44,11 @@ function Popu:setOnEnsureCallback(callback)
 	self.ensureCallback_ = callback
 end
 
+function Popu:setVisiableBtn(value)
+    self.ensureBtn:setVisible(value)
+    self.ensureBtn:setTouchEnabled(value)
+--    self.ensureBtn:
+    
+end
+
 return Popu

@@ -26,8 +26,10 @@ function MainScene:onCreate()
         if type==TOUCH_EVENT_ENDED then
 --
             startBtn:setTouchEnabled(false)
-            startBtn:setTitleText("正在等待其他成员的加入，请稍后!!!")
-            
+            local pop=PopLayer:create()
+            pop:getTipsTxt():setString("等待其他玩家加入,请稍后!")
+            cc.Director:getInstance():getRunningScene():addChild(pop)
+            pop:setVisiableBtn(false)
             socket:send(1001)
 -- local str="{\"cmd\":1002,\"data\":{\"id\":1007,\"type\":5,\"num\":8,\"roleList\":[ {\"id\":1001,\"type\":5,\"num\":7},{\"id\":1002,\"type\":1,\"num\":3},{\"id\":1005,\"type\":2,\"num\":4},{\"id\":1003,\"type\":1,\"num\":6},{\"id\":1006,\"type\":4,\"num\":5},{\"id\":1004,\"type\":1,\"num\":2},{\"id\":1007,\"type\":5,\"num\":8},{\"id\":1008,\"type\":3,\"num\":1}]}}"
 -- socket:recive(str)
