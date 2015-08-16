@@ -212,29 +212,31 @@ printInfo("天黑拉！！！！")
 
     end)
     
+    local test =  
     socket:register(1009,function(data)
         printInfo("死亡人数列表")
         audio.playSound("music/tianliang.mp3",false)
 
         self.deadList = data.roles
         for k, v in pairs(data.roles) do
-            if v.id == self.Image_self.id then
+                if v.id == self.Image_self.id then
                
                 -- 播放遗言
                 self:showPopu("你死了，请说遗言")
                 
                 
                 local pop = self.popu
-                local resNode = self:getResourceNode()
-                local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function()
-                    audio.playSound("music/yiyan.mp3",false)
-                        pop:setOnEnsureCallback(function( ... )
+
+                    local resNode = self:getResourceNode()
+                    pop:setOnEnsureCallback(function( ... )
                         -- 遗言确认
                         -- 弹出死亡蒙板
                         resNode:getChildByName("Panel_black"):setVisible(true)
                         socket:send(1010)
                     end)
-
+                    
+                local action=cc.Sequence:create({cc.DelayTime:create(6),cc.CallFunc:create(function(pop)
+                         audio.playSound("music/yiyan.mp3",false)
                 end)})
 
 
@@ -251,7 +253,7 @@ printInfo("天黑拉！！！！")
         
         -- 广播
         local result = data.result
-        if  self.Image_self.isdeath then 
+        if  self.Image_self.isdeath==false then 
         -- 选警长
                 if  result then
                     self:setDefaultSelectId()
@@ -301,6 +303,9 @@ printInfo("天黑拉！！！！")
     end)
 
     audio.playSound("music/ready.mp3",false)
+    
+    
+
 end
 
 -- 改变按钮状态
@@ -776,6 +781,10 @@ function GameScene:initData(value)
             self:cancelEvent()
         end
     end)
+    
+    
+    local str= "{\"cmd\":1009,\"data\":{\"roles\":[{\"id\":1001,\"type\":1,\"num\":4,\"isDead\":true},{\"id\":1005,\"type\":3,\"num\":5,\"isDead\":true}]}}"
+    socket:recive(str)
 end
 
 
