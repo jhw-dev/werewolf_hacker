@@ -272,7 +272,11 @@ printInfo("天黑拉！！！！")
     socket:register(1009,function(data)
         printInfo("死亡人数列表")
         audio.playSound("music/tianliang.mp3",false)
-
+        
+         if self.Image_self.isdeath then
+            return
+         end
+        
         if #data.roles == 0 then
             printInfo("平安夜")
             self:showPopu("今天晚上平安夜")
@@ -281,9 +285,9 @@ printInfo("天黑拉！！！！")
         for k, v in pairs(data.roles) do
                 if v.id == self.Image_self.id then
                
-                -- 播放遗言
-                self:showPopu("你死了，请说遗言")
-                
+              
+                    -- 播放遗言
+                    self:showPopu("你死了，请说遗言")
                 
                 local pop = self.popu
 
