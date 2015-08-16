@@ -108,7 +108,7 @@ printInfo("天黑拉！！！！")
             audio.playSound("music/shouweizhenyan.mp3",false)
 
             if self.Image_self.type == GameScene.SHOUWEI then
-                self:resetSelectId()
+
                 self:shouwei()
             end
         end)})
@@ -133,7 +133,7 @@ printInfo("天黑拉！！！！")
         self:runAction(action)
 
         if self.Image_self.type == GameScene.YUYANJIA then
-            self:resetSelectId()
+
             self:yanren()
         end
         
@@ -167,7 +167,7 @@ printInfo("天黑拉！！！！")
         audio.playSound("music/langrensharen.mp3",false)
 
         if self.Image_self.type == GameScene.LANGREN then
-            self:resetSelectId()
+
             self:killRen()
         end
     end)
@@ -258,11 +258,13 @@ printInfo("天黑拉！！！！")
         local result = data.result
         if  self.Image_self.isdeath==false then 
         -- 选警长
-            if  result then
-                self:resetSelectId()
-                self:showPopu("开始选警长")
-                audio.playSound("music/jinxuanjinzhang.mp3",false)
-                self:xuanJin()
+
+                if  result then
+
+                    self:showPopu("开始选警长")
+                    audio.playSound("music/jinxuanjinzhang.mp3",false)
+                    self:xuanJin()
+
 
             else 
               
@@ -280,7 +282,7 @@ printInfo("天黑拉！！！！")
         if  self.Image_self.isdeath==false then 
                 self:votePeople()
         end
-        self:resetSelectId()
+
     end)
 
     socket:register(1013,function(data)
@@ -402,11 +404,13 @@ end
 
 -- 准备开始
 function GameScene:ready( ... )
+    self:resetSelectId()
     self:changeState(GameScene.READY)
 end
 
 -- 守卫守人
 function GameScene:shouwei()
+    self:resetSelectId()
     self:changeState(GameScene.PROTECTED)
     if self.curUnguideId ~= nil then
         self:setUnguideById()
@@ -431,6 +435,7 @@ end
 
 -- 预言家验人
 function GameScene:yanren( ... )
+    self:resetSelectId()
     self:changeState(GameScene.YUYAN)
 
     local function cancel( ... )
@@ -448,6 +453,7 @@ end
 
 -- 狼人杀人
 function GameScene:killRen( ... )
+    self:resetSelectId()
     self:changeState(GameScene.KILL)
 
     local function cancel( ... )
@@ -468,6 +474,7 @@ function GameScene:nvwu(caozuo)
     self:hideBtns()
 
     if caozuo == 1 then
+        self:resetSelectId()
           -- cancel
         self.cancelBtn:setTouchEnabled(true)
         self.cancelBtn:setVisible(true)
@@ -483,6 +490,7 @@ function GameScene:nvwu(caozuo)
 
         if nvwu.duyaonum == true then
          --   self:clearBlack()
+
             self:setBlackById2()
             self.duRenBtn:setTouchEnabled(true)
             self.duRenBtn:setVisible(true)
@@ -491,6 +499,7 @@ function GameScene:nvwu(caozuo)
           self:clearBlack()
 
     elseif caozuo == 2 then
+        self:resetSelectId()
         local function cancel( ... )
             local socket = self:getApp():getSocket()
             local data={type=caozuo, id=nil}
@@ -506,6 +515,7 @@ function GameScene:nvwu(caozuo)
         self.cancelBtn:setTouchEnabled(true)
         self.cancelBtn:setVisible(true)
         if nvwu.jieyaonum == true then
+
             self:setBlackById()
             self.jiuRenBtn:setVisible(true)
             self.jiuRenBtn:setTouchEnabled(true)
@@ -516,6 +526,7 @@ end
 
 -- 选警长
 function GameScene:xuanJin( ... )
+    self:resetSelectId()
     self:changeState(GameScene.XUANJIN)
 
     local function cancel( ... )
@@ -534,7 +545,7 @@ end
 
 -- 投票杀人
 function GameScene:votePeople( ... )
-
+    self:resetSelectId()
     self:changeState(GameScene.PIAO)
 
     local function cancel( ... )
@@ -652,7 +663,7 @@ function GameScene:initData(value)
             index2 = index2 + 1
         end
     end
-    self:resetSelectId()
+
 
 
 
