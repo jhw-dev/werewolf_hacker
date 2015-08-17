@@ -375,6 +375,8 @@ printInfo("天黑拉！！！！")
 
         local node = self.app_:createView("GameOverScene")
         node:setValue(data.result)
+        --复盘
+        node:fupan(self.data.roleList, self.Image_self.id)
         local scene = display.newScene("GameOverScene")
         scene:addChild(node)
         local transition=cc.TransitionMoveInR:create(0.5,scene)
@@ -472,6 +474,8 @@ end
 
 -- 准备开始
 function GameScene:ready( ... )
+    self:showPopu("点击大卡背记住身份哦～～")
+
     self:resetSelectId()
     self:changeState(GameScene.READY)
 end
@@ -796,6 +800,14 @@ function GameScene:initData(value)
             self.readyBtn:setTouchEnabled(false)
             self.readyBtn:setVisible(false)
 --             self.readyBtn:setTitleText("等待其他玩家准备!!!")
+--            local node = self.app_:createView("GameOverScene")
+--            -- node:setValue(data.result)
+--            --复盘
+--            node:fupan(self.data.roleList, self.Image_self.id)
+--            local scene = display.newScene("GameOverScene")
+--            scene:addChild(node)
+--            local transition=cc.TransitionMoveInR:create(0.5,scene)
+--            cc.Director:getInstance():replaceScene(transition)
              socket:send(1003,{id=self.data.id})
         end
      end)
@@ -1131,33 +1143,33 @@ function GameScene:getSelectId()
     return self.selectId_
 end
 
-function GameScene:setResultImage()
-
-    local index=1
-    local index2=0
-    for key, data in pairs(self.data.roleList) do
-
-        local path = nil
-        if self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 1 then
-            path = "ui/cunm.png"
-        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 2 then
-            path = "ui/shouwei.png"
-        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 3 then
-            path = "ui/yuyan.png"
-        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 4 then
-            path = "ui/nvwu.png"
-        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 5 then
-            path = "ui/langren.png"
-        end
-        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):loadTexture(path)
-
-        index = index + 1
-        if index == 5 then
-            index = 1
-            index2 = index2 + 1
-        end
-    end
-end
+--function GameScene:setResultImage()
+--
+--    local index=1
+--    local index2=0
+--    for key, data in pairs(self.data.roleList) do
+--
+--        local path = nil
+--        if self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 1 then
+--            path = "ui/cunm.png"
+--        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 2 then
+--            path = "ui/shouwei.png"
+--        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 3 then
+--            path = "ui/yuyan.png"
+--        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 4 then
+--            path = "ui/nvwu.png"
+--        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 5 then
+--            path = "ui/langren.png"
+--        end
+--        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):loadTexture(path)
+--
+--        index = index + 1
+--        if index == 5 then
+--            index = 1
+--            index2 = index2 + 1
+--        end
+--    end
+--end
 
 --按ID排序
 function GameScene:sortTab(st)
