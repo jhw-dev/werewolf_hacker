@@ -474,7 +474,8 @@ end
 
 -- 准备开始
 function GameScene:ready( ... )
-    self:showPopu("准备前，记得点击大卡背，别忘记自己的身份哦～～")
+    self:showPopu("点击大卡背记住身份哦～～")
+
     self:resetSelectId()
     self:changeState(GameScene.READY)
 end
@@ -799,6 +800,14 @@ function GameScene:initData(value)
             self.readyBtn:setTouchEnabled(false)
             self.readyBtn:setVisible(false)
 --             self.readyBtn:setTitleText("等待其他玩家准备!!!")
+--            local node = self.app_:createView("GameOverScene")
+--            -- node:setValue(data.result)
+--            --复盘
+--            node:fupan(self.data.roleList, self.Image_self.id)
+--            local scene = display.newScene("GameOverScene")
+--            scene:addChild(node)
+--            local transition=cc.TransitionMoveInR:create(0.5,scene)
+--            cc.Director:getInstance():replaceScene(transition)
              socket:send(1003,{id=self.data.id})
         end
      end)

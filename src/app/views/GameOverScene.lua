@@ -70,19 +70,21 @@ function GameOverScene:fupan(datalist, myid)
             self.ListView_fupan:getItem(index2):getChildByName("Image_card"..index):getChildByName("Image_myself"):setVisible(true)
         end
 
+
+        printInfo("Type::"..data.type)
         local path = nil
-        if self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 1 then
+        if data.type == 1 then
             path = "ui/cunm.png"
-        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 2 then
+        elseif data.type == 2 then
             path = "ui/shouwei.png"
-        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 3 then
+        elseif data.type == 3 then
             path = "ui/yuyan.png"
-        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 4 then
+        elseif data.type == 4 then
             path = "ui/nvwu.png"
-        elseif self.ListView_user:getItem(index2):getChildByName("Image_card"..index).type == 5 then
+        elseif data.type == 5 then
             path = "ui/langren.png"
         end
-        self.ListView_user:getItem(index2):getChildByName("Image_card"..index):loadTexture(path)
+        self.ListView_fupan:getItem(index2):getChildByName("Image_card"..index):loadTexture(path)
         self.ListView_fupan:getItem(index2):getChildByName("Image_card"..index):getChildByName("Text_number"):setString(data.num)
 
         index = index + 1
@@ -91,9 +93,6 @@ function GameOverScene:fupan(datalist, myid)
             index2 = index2 + 1
         end
     end
-
-
-    self:setResultImage(datalist)
 end
 
 
