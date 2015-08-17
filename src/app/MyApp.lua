@@ -7,7 +7,7 @@ function MyApp:onCreate()
     self.socket_=ServieceSocket:create()
     self.stime= nil
     local timed =self.stime
-self.socket_:conn("ws://192.168.3.62:8080",function()
+self.socket_:conn("ws://192.168.3.79:8080",function()
         print("Connect Success")
 --        self.socket_:send(1001,{t="Hello"})
 
