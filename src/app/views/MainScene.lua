@@ -6,6 +6,8 @@ MainScene.RESOURCE_FILENAME = "MainScene.csb"
 MainScene.RESOURCE_BINDING={startBtn={varname="startBtn"}}
 
 function MainScene:onCreate()
+
+
     printf("resource node = %s", tostring(self:getResourceNode()))
     self:resetSetSceneSize()
     -- audio.playMusic("music/bg1.mp3",true)
@@ -66,6 +68,7 @@ function MainScene:onCreate()
 --        wsSendText:registerScriptHandler(wsSendTextError,cc.WEBSOCKET_ERROR) 
 --    end 
 --    socket:registerScriptHandler(handler,type)
+
 end
 
 return MainScene
