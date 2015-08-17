@@ -474,6 +474,7 @@ end
 
 -- 准备开始
 function GameScene:ready( ... )
+    self:showPopu("准备前，记得点击大卡背，别忘记自己的身份哦～～")
     self:resetSelectId()
     self:changeState(GameScene.READY)
 end
